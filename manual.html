@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>コミヨホウ ご利用ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F4EE; --ink: #2B2B2B; --sub: #5d574e; --accent: #E8863C;
+    --green: #06C755; --dark: #221E1A;
+    --serif: "Zen Old Mincho", serif; --sans: "Zen Kaku Gothic New", sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--sans); color: var(--ink); background: var(--bg); line-height: 1.9; font-size: 16px; letter-spacing: .02em; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 700; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+  strong { color: var(--accent); }
+
+  header.hero { background: var(--dark); color: #fff; padding: 56px 20px 44px; text-align: center; }
+  .kicker { font-size: 12px; letter-spacing: .22em; color: var(--accent); font-weight: 700; margin-bottom: 12px; }
+  header.hero h1 { font-size: clamp(24px, 6vw, 32px); line-height: 1.5; margin-bottom: 14px; }
+  header.hero p { color: #cfc9bd; font-size: 14.5px; }
+
+  section { padding: 44px 0 8px; }
+  .step-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+  .step-num { flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: #fff;
+    font-family: var(--serif); font-weight: 900; font-size: 18px; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 14px rgba(232,134,60,.35); }
+  .step-head h2 { font-size: clamp(19px, 4.5vw, 23px); }
+
+  .card { background: #fff; border-radius: 16px; padding: 22px 22px 24px; margin-bottom: 16px; box-shadow: 0 4px 20px rgba(43,35,25,.06); }
+  .card p:last-child { margin-bottom: 0; }
+  .card p { margin-bottom: .8em; }
+
+  .phone-mock { background: var(--dark); border-radius: 20px; padding: 4px; max-width: 300px; margin: 0 auto 6px; }
+  .phone-screen { background: #EDEDED; border-radius: 16px; padding: 14px 12px; }
+  .bubble { background: #fff; border-radius: 14px; padding: 12px 14px; font-size: 13.5px; line-height: 1.7; box-shadow: 0 1px 3px rgba(0,0,0,.08); margin-bottom: 8px; }
+  .bubble.me { background: var(--green); color: #fff; margin-left: auto; width: fit-content; max-width: 80%; }
+  .bubble.bot { width: fit-content; max-width: 90%; }
+  .quick3 { display: flex; gap: 6px; margin-top: 4px; }
+  .quick3 span { flex: 1; text-align: center; background: #fff; border: 1.5px solid var(--green); color: var(--green);
+    border-radius: 20px; padding: 7px 4px; font-size: 12.5px; font-weight: 700; }
+
+  .code-box { background: var(--dark); color: #fff; border-radius: 14px; padding: 18px 20px; text-align: center; margin: 14px 0; }
+  .code-box .label { font-size: 12px; letter-spacing: .15em; color: #cfc9bd; margin-bottom: 6px; }
+  .code-box .code { font-family: var(--serif); font-size: 30px; letter-spacing: .18em; color: var(--accent); }
+
+  table.cmd { width: 100%; border-collapse: collapse; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(43,35,25,.06); }
+  table.cmd th, table.cmd td { padding: 12px 14px; text-align: left; font-size: 14px; border-bottom: 1px solid #eee7db; vertical-align: top; }
+  table.cmd th { background: var(--bg); font-size: 12px; letter-spacing: .1em; color: var(--sub); }
+  table.cmd tr:last-child td { border-bottom: none; }
+  table.cmd code { background: var(--bg); border-radius: 6px; padding: 2px 7px; font-size: 13px; color: var(--accent); font-weight: 700; white-space: nowrap; }
+
+  .note { font-size: 13px; color: var(--sub); background: #fff; border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 16px 0; }
+
+  .support { background: var(--dark); color: #fff; border-radius: 18px; padding: 26px 24px; margin-top: 12px; text-align: center; }
+  .support h3 { color: #fff; font-size: 18px; margin-bottom: 10px; }
+  .support p { color: #cfc9bd; font-size: 14px; margin-bottom: 0; }
+
+  footer { text-align: center; padding: 40px 20px; font-size: 12px; color: var(--sub); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <p class="kicker">KOMIYOHOU GUIDE</p>
+  <h1>コミヨホウ<br>ご利用ガイド</h1>
+  <p>今日からの3ステップと、困ったときの使い方をまとめました。</p>
+</header>
+
+<div class="wrap">
+
+<section>
+  <div class="step-head"><span class="step-num">1</span><h2>LINEで友だち追加する</h2></div>
+  <div class="card">
+    <p>お申し込み時にお伝えした<strong>4桁の店舗コード</strong>を、コミヨホウ公式LINEのトーク画面にそのまま送ってください。</p>
+    <div class="code-box">
+      <p class="label">店舗コード(例)</p>
+      <p class="code">0123</p>
+    </div>
+    <p>送信すると「大将」として登録され、その日の夕方から「明日の仕込みメモ」が届き始めます。</p>
+  </div>
+  <div class="note">コードが分からなくなった場合は、このLINEに「コード忘れた」と送ってください。折り返しご案内します。</div>
+</section>
+
+<section>
+  <div class="step-head"><span class="step-num">2</span><h2>毎日17時、仕込みメモが届く</h2></div>
+  <div class="card">
+    <div class="phone-mock">
+      <div class="phone-screen">
+        <div class="bubble bot">🌦 明日は雨、最高23℃<br>📈 来店みこみ 33〜41人<br>💰 売上みこみ 10〜12万円<br>🍢 仕込み: 煮込みは7割・冷たい系は控えめに</div>
+      </div>
+    </div>
+    <p>読むだけでOKです。アプリのインストールや難しい設定は必要ありません。</p>
+    <div class="note">明日の来店が少なそうな日は、同じメッセージの中に<strong>「📣📣📣 集客のご提案」というコピペ用の案内文</strong>が自動で追加されます。そのままLINE公式アカウントやInstagramのストーリーなどに貼り付けてお使いください。</div>
+  </div>
+</section>
+
+<section>
+  <div class="step-head"><span class="step-num">3</span><h2>寝る前に、タップでひとつ選ぶだけ</h2></div>
+  <div class="card">
+    <div class="phone-mock">
+      <div class="phone-screen">
+        <div class="bubble bot">今日の客入りを教えてください👇
+          <div class="quick3"><span>暇だった</span><span>普通</span><span>忙しかった</span></div>
+        </div>
+        <div class="bubble me">忙しかった</div>
+        <div class="bubble bot">記録しました!📝<br>明日の仕込みメモに反映します。</div>
+      </div>
+    </div>
+    <p>「暇だった・普通・忙しかった」の3つから、今日の様子にいちばん近いものをタップで選ぶだけです(タップは1回)。</p>
+    <div class="note">この選択肢のボタンは、<strong>①で毎日17時に届く「明日の仕込みメモ」に、最初から付いています。</strong>別の画面にアクセスしたり、別のメッセージを待つ必要はありません。同じトーク画面の下に3つのボタンが出るので、その日の営業が終わったタイミングでタップしてください。</div>
+    <p>記録が貯まるほど、予測が「あなたのお店専用」に育っていきます。空いた日があっても大丈夫、思い出したときに再開すれば続きます。</p>
+  </div>
+</section>
+
+<section>
+  <div class="step-head"><span class="step-num">+</span><h2>こんな時は、こう送ってください</h2></div>
+  <table class="cmd">
+    <tr><th>やりたいこと</th><th>LINEでの送り方</th></tr>
+    <tr><td>スタッフに仕入れリストを転送したい<br><span style="color:var(--sub);font-size:12.5px;">(売上・客数などの経営数字は入りません)</span></td><td><code>仕入れ</code></td></tr>
+    <tr><td>スタッフをこのサービスに参加させたい<br><span style="color:var(--sub);font-size:12.5px;">(スタッフのLINEから送ってもらう)</span></td><td><code>参加 (店舗コード)</code></td></tr>
+    <tr><td>近所のイベントを予測に反映したい</td><td><code>イベント 7/20 夏祭り</code></td></tr>
+    <tr><td>直前に登録したイベントを取り消したい</td><td><code>イベント取消</code></td></tr>
+    <tr><td>臨時休業・特別営業を伝えたい</td><td><code>休み 8/13-8/16</code><br><code>臨時営業 8/18</code></td></tr>
+    <tr><td>お店の状況やコミヨホウの使い方について質問したい</td><td>そのまま話しかけてください<br><span style="color:var(--sub);font-size:12.5px;">(AIが自動でお答えします)</span></td></tr>
+    <tr><td>新しいメニューを追加したい</td><td>メニュー表の写真を送るだけ<br><span style="color:var(--sub);font-size:12.5px;">(AIが品目を読み取って自動登録します)</span></td></tr>
+    <tr><td>仕入れリストの数量目安をより具体的にしたい</td><td>納品書(仕入れ伝票)の写真を送るだけ<br><span style="color:var(--sub);font-size:12.5px;">(AIが自動判別して仕入れ記録に追加。送り続けるほど数量目安が実績ベースになります)</span></td></tr>
+    <tr><td>「よく売れる品目」「余りがちな品目」を教えてほしい<br><span style="color:var(--sub);font-size:12.5px;">(レジをお使いの場合。廃棄ロス削減に直結します)</span></td><td>レジ(POS)の日次売上レポート画面・レシートの写真を送るだけ<br><span style="color:var(--sub);font-size:12.5px;">(納品書の写真とあわせて送っていただくと、「仕入れに対してどれだけ売れているか」を毎夕の仕込みメモでお知らせします)</span></td></tr>
+    <tr><td>お盆・年末年始など、少しの間だけ休みたい<br><span style="color:var(--sub);font-size:12.5px;">(配信・お支払いの両方が止まる。再開はカード再登録なしでワンタップ)</span></td><td><code>一時停止</code>→内容確認後<code>一時停止する</code></td></tr>
+    <tr><td>もうやめたい</td><td><code>解約</code>→内容確認後<code>解約する</code></td></tr>
+    <tr><td>一時停止・解約したあと、また再開したい<br><span style="color:var(--sub);font-size:12.5px;">(解約後の再開はお支払いの再登録が必要です)</span></td><td><code>再開</code></td></tr>
+  </table>
+  <div class="note"><strong>「一時停止」と「解約」の違い</strong>：一時停止は季節休業など「少しの間だけ止めたい」ときに。配信もお支払いも止まりますが、契約自体は残るので「再開」ですぐカード再登録なしで元に戻ります。解約は契約そのものを終了する操作で、再開時はお支払いの登録からやり直しになります。迷ったら、まず一時停止をおすすめします。</div>
+  <div class="note">メニューの削除・細かい修正や、競合店情報の修正など、ここに載っていない設定変更は運営者が承ります。このLINEにそのままご相談ください。</div>
+</section>
+
+<section>
+  <div class="support">
+    <h3>困ったときは</h3>
+    <p>このLINEに話しかけていただければ、AIが自動でお答えします。<br>
+    うまく解決しない場合は運営者に転送されますので、そのままお待ちください。<br>
+    お電話でのご相談も可能です(お申し込み時の担当者情報をご確認ください)。</p>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  コミヨホウ — 個人飲食店のための仕込み予測サービス｜運営: YNHT<br>
+  予測は参考情報であり、仕入れ・仕込みの最終判断は店舗様にてお願いいたします。
+</footer>
+
+</body>
+</html>

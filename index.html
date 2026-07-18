@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>コミヨホウ｜明日の仕込み、コミヨホウに聞いてからにしませんか。</title>
-<meta name="description" content="客足を動かす8つの要因をAIが毎日自動で収集・分析し、「明日の来店みこみ・売上みこみ」を毎夕LINEにお届け。個人飲食店のための仕込み予測サービス。まずは1ヶ月無料の天気カルテ診断から。">
+<meta name="description" content="客足を動かす8つの要因をAIが毎日自動で収集・分析し、「明日の来店みこみ・売上みこみ」を毎夕LINEにお届け。個人飲食店のための仕込み予測サービス。初期設定33,000円・月額5,500円、解約はいつでも違約金なし。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@600;700;900&display=swap" rel="stylesheet">
@@ -17,12 +17,12 @@
   <div class="fv-bg" role="img" aria-label="カウンターでスマートフォンを見る居酒屋の店主"></div>
   <div class="fv-inner">
     <div class="badges">
-      <span class="badge-monitor">先行モニター店 募集中</span><span>AIが8つの要因を自動分析</span><span>気象庁データ使用</span><span>入力は1日3タップ</span><span>設定まるごと代行</span>
+      <span class="badge-monitor">先行モニター店 募集中</span><span id="storeCountBadge" style="display:none;"></span><span>AIが8つの要因を自動分析</span><span>気象庁データ使用</span><span>入力は1日ひとタップ</span><span>設定まるごと代行</span>
     </div>
     <h1>明日の仕込み、<br>コミヨホウに聞いて<br class="sp">からにしませんか。</h1>
     <p class="lead">天気・曜日・近所のイベント——客足を動かす8つの要因をAIが毎日自動で集めて、<br class="pc">あなたのお店の「明日の来店数・売上」を計算。毎日17時、LINEに1通で届きます。</p>
-    <a class="btn btn-line" href="#entry">まずは無料で「お店の天気カルテ」をつくる</a>
-    <p class="micro">費用0円・記録は1日3タップ・合わなければ1ヶ月でやめられます</p>
+    <a class="btn btn-line" href="#entry">コミヨホウを始める(初期設定33,000円)</a>
+    <p class="micro">月額5,500円・記録は1日ひとタップ・解約はいつでも違約金なし</p>
   </div>
 </header>
 
@@ -104,9 +104,10 @@
       <figure class="phone reveal"><img src="assets/shot_a.png" alt="実際に届く「明日の仕込みメモ」の画面。来店みこみ33〜41人、売上みこみ10〜12万円、メニュー別の仕込みアドバイス" loading="lazy"></figure>
       <div class="features">
         <div class="feat reveal"><span class="fi">🌦</span><div><h3>明日の来店・売上みこみ</h3><p>8つの要因×お店の実績から、AIが毎日計算。幅で正直にお伝えします。ピンポイントで当てるふりはしません。</p></div></div>
-        <div class="feat reveal"><span class="fi">🍢</span><div><h3>仕込みアドバイス</h3><p>「煮込みは7割、冷たい系は多め、葉物は控えめ」。あなたのメニューに合わせて具体的に。</p></div></div>
+        <div class="feat reveal"><span class="fi">🍢</span><div><h3>仕込みアドバイス</h3><p>「煮込みは7割、冷たい系は多め、葉物は控えめ」。あなたのメニューに合わせて具体的に。レジの日報と納品書の写真を送っていただくと、「よく出る品目」「余りがちな品目」も教えます。</p></div></div>
         <div class="feat reveal"><span class="fi">🎪</span><div><h3>商圏カレンダー</h3><p>祭り・運動会・給料日。客足が動く日を、前の日のうちにお知らせします。</p></div></div>
         <div class="feat reveal"><span class="fi">👥</span><div><h3>仕入れは、任せられる</h3><p>大将がひとことで承認した「仕入れ・仕込みリスト」を、バイトさんのLINEへ転送。売上などの経営数字はスタッフには見えません。</p></div></div>
+        <div class="feat reveal"><span class="fi">📣</span><div><h3>暇な日は、集客文もすぐ用意</h3><p>明日の来店が少なそうな日は、常連さんへ送れる案内文をAIが自動作成。同じLINEにコピペ用の文章が届くので、そのままLINE公式やInstagramに使えます。</p></div></div>
       </div>
     </div>
   </div>
@@ -129,8 +130,8 @@
       </div>
       <div class="step reveal">
         <figure class="phone-s"><img src="assets/shot_b.png" alt="1日1回の入力画面。暇だった・普通・忙しかったの3択をタップするだけ" loading="lazy"></figure>
-        <span class="num">3</span><h3>寝る前に、3タップ</h3>
-        <p>「暇・普通・忙しい」を選ぶだけ。これだけで予測が<strong>お店専用に育ちます</strong>。</p>
+        <span class="num">3</span><h3>寝る前に、タップでひとつ選ぶだけ</h3>
+        <p>「暇・普通・忙しい」の3択から、今日の様子を選ぶだけ(タップは1回です)。これだけで予測が<strong>お店専用に育ちます</strong>。</p>
       </div>
     </div>
   </div>
@@ -144,7 +145,7 @@
       <p class="kicker">記録が、お店の財産になる</p>
       <h2>1ヶ月で、「うちの店の雨の日」が数字になる。</h2>
       <p>雨の金曜は何人来るのか。どの曜日に何が余るのか。<br>
-      毎日の3タップが貯まるほど、予測はあなたのお店専用に育ち、<strong>曜日×天気の「型」</strong>がはっきり見えてきます。</p>
+      毎日の記録が貯まるほど、予測はあなたのお店専用に育ち、<strong>曜日×天気の「型」</strong>がはっきり見えてきます。</p>
       <div class="honest">
         <h3>正直にお伝えします</h3>
         <p>予測が外れる日もあります。だからコミヨホウは幅でお伝えし、的中率を隠さず毎日表示します。台風のような読めない日は「予測困難」と正直に言います。</p>
@@ -233,15 +234,15 @@
 <section class="faq">
   <div class="wrap narrow">
     <h2 class="center">よくあるご質問</h2>
-    <details class="reveal"><summary>POSレジがなくても使えますか?</summary><p>はい。1日1回の3タップだけで動きます。レジのデータ(CSV)があれば取り込んで、予測をさらに正確にできます。</p></details>
+    <details class="reveal"><summary>POSレジがなくても使えますか?</summary><p>はい。1日1回、今日の様子をタップで選ぶだけで動きます。レジのデータ(CSV)があれば取り込んで、予測をさらに正確にできます。</p></details>
     <details class="reveal"><summary>どんな業態でも使えますか?</summary><p>居酒屋・食堂・カフェ・ラーメン店・レストランなど、ふらっと入るお客様が中心のお店に向いています。完全予約制やコース専門のお店は予約数がほぼすべてなので、正直、効果は薄めです。迷ったらお気軽にご相談ください。</p></details>
     <details class="reveal"><summary>機械が苦手なのですが…</summary><p>LINEが使えれば大丈夫です。初期設定・メニュー登録・イベント調査はすべてこちらで行い、お店にお願いするのは「写真を送る」ことだけです。</p></details>
     <details class="reveal"><summary>記録をサボってしまいそうです…</summary><p>大丈夫です。空いた日は飛ばして、思い出した日から再開すれば予測は育ち続けます。3日ほど空いたときはLINEで一度だけ軽くお声がけします(しつこい催促はしません)。</p></details>
     <details class="reveal"><summary>仕入れはオーナーの自分がやらないとダメですか?</summary><p>いいえ。大将が「仕入れ」とひとこと送って承認すると、あすの仕入れ・仕込みリスト(品目と量だけ)がスタッフのLINEに届きます。売上・客数などの経営数字はスタッフには見えないので、安心してバイトさんに買い出しを任せられます。</p></details>
     <details class="reveal"><summary>予測は当たるのですか?</summary><p>ピンポイントの数字を毎日当てることはできません。だから「33〜41人」のように幅でお伝えし、的中率を毎日表示します。読めない日は「予測困難」と正直にお伝えします。</p></details>
     <details class="reveal"><summary>初期設定と月額のほかに、お金はかかりますか?</summary><p>かかりません。費用は初期設定33,000円と月額5,500円(どちらも税込)だけです。LINEは無料アプリのまま使え、機材の購入も、アプリ代も、更新料もありません。</p></details>
-    <details class="reveal"><summary>無料期間が終わると、自動で課金されますか?</summary><p>されません。無料の1ヶ月が終わっても、続けるというお返事を確認するまで料金は一切発生しません。カルテだけ受け取って終わりにしていただいて大丈夫です。</p></details>
-    <details class="reveal"><summary>解約したいときは?</summary><p>いつでも解約できます。当月末までのお申し出で、翌月分からの料金は発生しません。違約金もありません。記録した客数・売上データはお店のものとしてお渡しします。</p></details>
+    <details class="reveal"><summary>お支払いはいつから始まりますか?</summary><p>初期設定完了時にカードをご登録いただいた時点からです。初期設定費33,000円はその場で、月額5,500円は翌月分から発生します。ヒアリング時に必ず事前にご説明するので、想定外の請求が発生することはありません。</p></details>
+    <details class="reveal"><summary>解約したいときは?</summary><p>いつでも解約できます。当月末までのお申し出で、翌月分からの料金は発生しません。違約金もありません。記録した客数・売上データはお店のものとしてお渡しします。お盆や年末年始など少しの間だけ止めたい場合は、LINEで「一時停止」と送ればカード再登録なしで手軽に休止・再開できます。</p></details>
     <details class="reveal"><summary>お店のデータはどう扱われますか?</summary><p>お店の売上・客数は秘密情報として扱います。個店が特定できない匿名の統計としてのみ、予測精度の改善に利用します(利用規約に明記)。</p></details>
     <details class="reveal"><summary>うちの数字が、近所のお店に知られませんか?</summary><p>知られません。店名や場所がわかる形でお店の数字を他の店舗にお見せすることは一切ありません(ご近所のお店と契約する場合も、同じお約束です)。</p></details>
     <details class="reveal"><summary>対応エリアはどこですか?</summary><p>初期設定は直接お店に伺うため、<strong>北陸地域</strong>を中心にご提供しています(YNHTのWeb制作事業と同じエリアです)。エリア外のお店も、写真とビデオ通話での設定に対応できる場合がありますので、まずはご相談ください。</p></details>
@@ -252,22 +253,21 @@
 <section class="cta" id="entry">
   <div class="cta-bg" role="img" aria-label="夕暮れどき、灯りのともった小さな居酒屋の店先"></div>
   <div class="wrap narrow reveal">
-    <h2>まずは1ヶ月、<br class="sp">記録だけ始めませんか。</h2>
-    <p class="cta-lead">無料期間にやることは、毎日の3タップだけ。<br>
-    1ヶ月後、「雨の日に何%落ちているか」をまとめた<br class="pc">
-    <strong>あなたのお店の天気カルテ</strong>を紙でお渡しします。<br>
-    見て、いらなければそこで終わり。カルテは差し上げます。</p>
+    <h2>まずは話を聞くだけでも、<br class="sp">大丈夫です。</h2>
+    <p class="cta-lead">初期設定費33,000円・月額5,500円(いずれも税込)。<br>
+    <strong>解約はいつでも、違約金なし。</strong><br>
+    記録したデータは、やめるときもお店のものとしてお渡しします。</p>
     <p class="flow-title">「話を聞いてみたい」と思ったら——流れは、これだけ。</p>
     <div class="flow3">
       <div class="fl reveal"><span>1</span><p><strong>メール・Web予約で相談</strong><br>フォームに入力するだけ。1分で終わります。</p></div>
       <div class="fl reveal"><span>2</span><p><strong>10分だけヒアリング</strong><br>業態・席数・定休日を伺うだけ。売り込みはしません。</p></div>
-      <div class="fl reveal"><span>3</span><p><strong>翌夕から無料配信スタート</strong><br>1ヶ月後に「天気カルテ」をお渡し。続けるかは、それから。</p></div>
+      <div class="fl reveal"><span>3</span><p><strong>初期設定・お支払い登録</strong><br>設定が終わった翌夕から配信開始。1ヶ月ほどで「天気カルテ」がお店の財産になります。</p></div>
     </div>
     <div class="entry-box">
       <a class="btn btn-tel" id="telBtn" href="#entry">電話で相談する</a>
       <a class="btn btn-tel" href="https://ynhtlp.vercel.app/#cta" target="_blank" rel="noopener">メール・Web予約で相談する</a>
       <br><a class="dl-link" href="komiyohou_karakuri.pdf" download="コミヨホウのからくり資料.pdf">📄 まずは資料だけ見る — からくり資料(PDF)ダウンロード</a><span id="mailWrap">　<a class="dl-link" id="mailLink" href="#entry">✉️ メールで相談する</a></span>
-      <p class="micro">※ お申し込みの確認をするまで、無料期間のあとに料金が発生することはありません。</p>
+      <p class="micro">※ 料金はヒアリング時に必ず事前確認します。想定外の請求が発生することはありません。</p>
       <p class="micro" id="entryNote">※ 現在準備中のプレビュー版です。公開時にLINE・電話の連絡先が入ります。</p>
     </div>
   </div>
@@ -282,12 +282,14 @@
   <p class="copy">© 2026 YNHT</p>
 </footer>
 
-<div class="sticky-cta"><a href="#entry">無料で「天気カルテ」をつくる</a></div>
+<div class="sticky-cta"><a href="#entry">コミヨホウを始める</a></div>
 
 <script>
 // ===== 公開時にここだけ書き換える =====
 const TEL      = "";   // 例: "0312345678"
 const MAIL     = "ynht.webdesign@gmail.com";   // 問い合わせ用メール。空なら非表示
+const STORE_COUNT_API = "https://komiyohou-server.onrender.com/api/store_count";   // 導入店舗数バッジ用。空なら非表示
+const STORE_COUNT_MIN = 3;   // この件数に届くまでは「◯件導入中」を表示しない(数字が寂しく見えるのを防ぐ)
 // =====================================
 const telBtn  = document.getElementById("telBtn");
 const note    = document.getElementById("entryNote");
@@ -297,6 +299,17 @@ if (TEL)      { telBtn.href = "tel:" + TEL; }
 if (TEL) { note.style.display = "none"; }
 if (!TEL) { telBtn.style.display = "none"; }
 if (MAIL) { mailLink.href = "mailto:" + MAIL; } else { mailWrap.style.display = "none"; }
+
+// 導入店舗数バッジ(閾値未満・取得失敗時は非表示のまま)
+if (STORE_COUNT_API) {
+  fetch(STORE_COUNT_API).then(r => r.json()).then(data => {
+    const badge = document.getElementById("storeCountBadge");
+    if (badge && data && typeof data.count === "number" && data.count >= STORE_COUNT_MIN) {
+      badge.textContent = "現在、" + data.count + "件のお店で導入中";
+      badge.style.display = "";
+    }
+  }).catch(() => {});
+}
 
 // ふわっと表示
 const io = new IntersectionObserver(es => es.forEach(e => {
