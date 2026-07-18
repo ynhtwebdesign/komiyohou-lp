@@ -57,10 +57,61 @@
 .hx-line-btn:hover { opacity: .9; }
 .hx-print-note { font-size: 12px; color: var(--sub, #5d574e); text-align: center; margin-top: 26px; }
 .hx-print-note a { color: var(--accent, #E8863C); }
+
+/* ---- タップ入力パーツ ---- */
+.hx-chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.hx-chip {
+  font: inherit; font-size: 13.5px; font-weight: 700; color: var(--ink, #2B2B2B);
+  background: var(--bg, #F7F4EE); border: 1.5px solid rgba(43,43,43,.18); border-radius: 999px;
+  padding: 9px 16px; cursor: pointer; transition: background .15s, border-color .15s, color .15s;
+}
+.hx-chip:hover { border-color: var(--accent, #E8863C); }
+.hx-chip.is-active { background: var(--accent, #E8863C); border-color: var(--accent, #E8863C); color: #fff; }
+.hx-other-input {
+  width: 100%; font: inherit; font-size: 14px; color: var(--ink, #2B2B2B);
+  background: var(--bg, #F7F4EE); border: 1px solid rgba(43,43,43,.18); border-radius: 8px; padding: 10px 12px;
+}
+.hx-other-input:focus { outline: 2px solid var(--accent, #E8863C); border-color: var(--accent, #E8863C); }
+
+.hx-weekday-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.hx-weekday-row .hx-chip { flex: 1 1 40px; min-width: 40px; text-align: center; padding: 10px 0; border-radius: 10px; }
+
+.hx-seat-group { display: flex; gap: 30px; flex-wrap: wrap; }
+.hx-stepper-block { text-align: center; }
+.hx-stepper { display: flex; align-items: center; gap: 10px; }
+.hx-stepper button {
+  width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid rgba(43,43,43,.2); background: #fff;
+  font-size: 19px; font-weight: 700; color: var(--accent, #E8863C); cursor: pointer; line-height: 1;
+}
+.hx-stepper button:active { background: var(--bg, #F7F4EE); }
+.hx-stepper-val { min-width: 32px; text-align: center; font-size: 18px; font-weight: 900; font-family: var(--serif, "Zen Old Mincho", serif); }
+.hx-stepper-label { font-size: 12px; color: var(--sub, #5d574e); margin-bottom: 6px; }
+
+.hx-zip-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.hx-zip-row input {
+  flex: none; width: 150px; font: inherit; font-size: 14px; color: var(--ink, #2B2B2B);
+  background: var(--bg, #F7F4EE); border: 1px solid rgba(43,43,43,.18); border-radius: 8px; padding: 10px 12px;
+}
+.hx-zip-btn { flex: none; font: inherit; font-size: 13.5px; font-weight: 700; color: #fff; background: var(--dark, #221E1A); border: none; border-radius: 8px; padding: 0 18px; cursor: pointer; }
+.hx-zip-btn:disabled { opacity: .5; cursor: wait; }
+.hx-addr-display { font-size: 14px; color: var(--ink, #2B2B2B); background: #fff; border: 1px dashed rgba(43,43,43,.3); border-radius: 8px; padding: 10px 12px; margin-top: 8px; }
+
+.hx-hour-presets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.hx-hourbar { display: grid; grid-template-columns: repeat(auto-fill, minmax(34px, 1fr)); gap: 3px; border: 1px solid rgba(43,43,43,.15); border-radius: 10px; padding: 10px; background: #fff; }
+.hx-hour-cell { font-size: 10.5px; text-align: center; padding: 8px 2px; border-radius: 5px; background: var(--bg, #F7F4EE); border: 1px solid rgba(43,43,43,.1); color: var(--sub, #5d574e); cursor: pointer; line-height: 1.2; user-select: none; }
+.hx-hour-cell.is-on { background: var(--accent, #E8863C); border-color: var(--accent, #E8863C); color: #fff; font-weight: 700; }
+.hx-hourbar-foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.hx-hourbar-clear { font-size: 12.5px; color: var(--accent, #E8863C); background: none; border: none; text-decoration: underline; cursor: pointer; padding: 0; }
+.hx-hourbar-result { font-size: 13px; font-weight: 700; color: var(--ink, #2B2B2B); }
+
+.hx-substack { display: flex; flex-direction: column; gap: 6px; margin-bottom: 4px; }
+.hx-sublabel { font-size: 12.5px; font-weight: 700; color: var(--sub, #5d574e); margin-top: 8px; }
+
 @media (max-width: 640px) {
   .hx-row { grid-template-columns: 1fr; }
   .hx-sec { padding: 22px 18px 18px; }
   .hx-menu-table th:nth-child(1) { width: 34%; }
+  .hx-seat-group { gap: 20px; }
 }
 /* ---- 印刷（紙で聞き取る場合） ---- */
 @media print {
@@ -90,7 +141,7 @@
     <p class="kicker">KOMIYOHOU ONLINE REGISTRATION</p>
     <h1>Web初期登録フォーム</h1>
     <p>このフォームにご入力いただくだけで、コミヨホウの初期設定が自動で反映されます。スタッフの訪問や電話でのヒアリングは不要です。<br>
-    店舗様側での入力作業はこのフォームで最後——以降は毎日1回、タップで選ぶだけです。</p>
+    ほとんどの項目はタップで選ぶだけです。店舗様側での入力作業はこのフォームで最後——以降は毎日1回、タップで選ぶだけです。</p>
   </div>
 </header>
 
@@ -107,7 +158,7 @@
     <!-- 1. お店の基本情報 -->
     <section class="hx-sec">
       <h2>1. お店の基本情報</h2>
-      <p class="hx-why">予測のベースになる「お店のかたち」を教えてください。</p>
+      <p class="hx-why">予測のベースになる「お店のかたち」を教えてください。ほとんどタップだけで入力できます。</p>
       <div class="hx-row">
         <div class="hx-field">
           <label>店名 <span class="hx-req">必須</span></label>
@@ -115,38 +166,63 @@
         </div>
         <div class="hx-field">
           <label>業態 <span class="hx-req">必須</span></label>
-          <select name="業態">
-            <option value="">選択してください</option>
-            <option>居酒屋</option>
-            <option>定食・食堂</option>
-            <option>カフェ・喫茶</option>
-            <option>ラーメン・麺類</option>
-            <option>寿司・和食</option>
-            <option>焼肉・焼き鳥</option>
-            <option>バー・スナック</option>
-            <option>その他（下の欄に記入）</option>
-          </select>
-        </div>
-        <div class="hx-field">
-          <label>席数 <span class="hx-req">必須</span></label>
-          <input type="text" name="席数" placeholder="例：32席（カウンター8＋テーブル24）">
-        </div>
-        <div class="hx-field">
-          <label>立地</label>
-          <select name="立地">
-            <option value="">選択してください</option>
-            <option>駅前・繁華街</option>
-            <option>商店街</option>
-            <option>住宅街</option>
-            <option>ロードサイド（車客中心）</option>
-            <option>オフィス街</option>
-            <option>観光地の近く</option>
-          </select>
+          <div class="hx-chip-group" data-chip-group data-target="業態" id="bizChips">
+            <button type="button" class="hx-chip" data-value="居酒屋">居酒屋</button>
+            <button type="button" class="hx-chip" data-value="定食・食堂">定食・食堂</button>
+            <button type="button" class="hx-chip" data-value="カフェ・喫茶">カフェ・喫茶</button>
+            <button type="button" class="hx-chip" data-value="ラーメン・麺類">ラーメン・麺類</button>
+            <button type="button" class="hx-chip" data-value="寿司・和食">寿司・和食</button>
+            <button type="button" class="hx-chip" data-value="焼肉・焼き鳥">焼肉・焼き鳥</button>
+            <button type="button" class="hx-chip" data-value="バー・スナック">バー・スナック</button>
+            <button type="button" class="hx-chip" data-value="その他">その他</button>
+          </div>
+          <input type="text" id="bizOther" class="hx-other-input" placeholder="業態を入力（例：ベーカリーカフェ）" style="display:none;margin-top:8px;">
+          <input type="hidden" name="業態">
         </div>
         <div class="hx-field wide">
-          <label>所在地（市町村まで）<span class="hx-req">必須</span></label>
-          <input type="text" name="所在地" placeholder="例：福井県福井市">
+          <label>席数 <span class="hx-req">必須</span></label>
+          <div class="hx-seat-group">
+            <div class="hx-stepper-block">
+              <p class="hx-stepper-label">カウンター</p>
+              <div class="hx-stepper" data-seat="counter">
+                <button type="button" data-d="-1">−</button>
+                <span class="hx-stepper-val">0</span>
+                <button type="button" data-d="1">＋</button>
+              </div>
+            </div>
+            <div class="hx-stepper-block">
+              <p class="hx-stepper-label">テーブル・座敷など</p>
+              <div class="hx-stepper" data-seat="table">
+                <button type="button" data-d="-1">−</button>
+                <span class="hx-stepper-val">0</span>
+                <button type="button" data-d="1">＋</button>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" name="席数">
+        </div>
+        <div class="hx-field wide">
+          <label>立地</label>
+          <div class="hx-chip-group" data-chip-group data-target="立地">
+            <button type="button" class="hx-chip" data-value="駅前・繁華街">駅前・繁華街</button>
+            <button type="button" class="hx-chip" data-value="商店街">商店街</button>
+            <button type="button" class="hx-chip" data-value="住宅街">住宅街</button>
+            <button type="button" class="hx-chip" data-value="ロードサイド（車客中心）">ロードサイド（車客中心）</button>
+            <button type="button" class="hx-chip" data-value="オフィス街">オフィス街</button>
+            <button type="button" class="hx-chip" data-value="観光地の近く">観光地の近く</button>
+          </div>
+          <input type="hidden" name="立地">
+        </div>
+        <div class="hx-field wide">
+          <label>所在地（郵便番号から検索）<span class="hx-req">必須</span></label>
+          <div class="hx-zip-row">
+            <input type="text" id="zipInput" inputmode="numeric" maxlength="8" placeholder="例：910-0005">
+            <button type="button" class="hx-zip-btn" id="zipSearchBtn">住所を検索</button>
+          </div>
+          <div class="hx-addr-display" id="addrDisplay">郵便番号を入力して「住所を検索」を押してください</div>
+          <input type="text" id="addrManual" class="hx-other-input" placeholder="見つからない場合はこちらに直接ご入力ください（例：福井県福井市）" style="margin-top:8px;">
           <p class="hx-hint">天気予報の地域を合わせるために使います。番地までは不要です。</p>
+          <input type="hidden" name="所在地">
         </div>
       </div>
     </section>
@@ -154,31 +230,103 @@
     <!-- 2. 営業について -->
     <section class="hx-sec">
       <h2>2. 営業について</h2>
-      <p class="hx-why">曜日ごとのクセを予測に反映します。感覚で構いません。</p>
+      <p class="hx-why">曜日ごとのクセを予測に反映します。感覚で構いません。すべてタップで選べます。</p>
       <div class="hx-row">
-        <div class="hx-field">
+        <div class="hx-field wide">
           <label>営業時間 <span class="hx-req">必須</span></label>
-          <input type="text" name="営業時間" placeholder="例：17:00〜23:00（L.O. 22:30）">
+          <div class="hx-hour-presets">
+            <button type="button" class="hx-chip" data-range="11:00-14:00">＋ランチ 11:00〜14:00</button>
+            <button type="button" class="hx-chip" data-range="17:00-23:00">＋ディナー 17:00〜23:00</button>
+            <button type="button" class="hx-chip" data-range="18:00-26:00">＋夜のみ 18:00〜26:00(翌2時)</button>
+          </div>
+          <div class="hx-hourbar" id="hoursBar"></div>
+          <div class="hx-hourbar-foot">
+            <button type="button" class="hx-hourbar-clear" id="hoursClear">選び直す</button>
+            <span class="hx-hourbar-result" id="hoursResult"></span>
+          </div>
+          <p class="hx-hint">30分ごとのマスをタップして営業中の時間を選んでください。ランチ後に休憩をはさむお店は、間をあけて2つの帯を作れます（例：ランチ→空白→ディナー）。24時以降は翌日の時刻です（24=午前0時、25=午前1時…）。</p>
+          <input type="hidden" name="営業時間">
         </div>
-        <div class="hx-field">
+        <div class="hx-field wide">
           <label>定休日 <span class="hx-req">必須</span></label>
-          <input type="text" name="定休日" placeholder="例：毎週月曜・第3火曜">
+          <div class="hx-weekday-row" id="wdClosed">
+            <button type="button" class="hx-chip" data-value="月">月</button>
+            <button type="button" class="hx-chip" data-value="火">火</button>
+            <button type="button" class="hx-chip" data-value="水">水</button>
+            <button type="button" class="hx-chip" data-value="木">木</button>
+            <button type="button" class="hx-chip" data-value="金">金</button>
+            <button type="button" class="hx-chip" data-value="土">土</button>
+            <button type="button" class="hx-chip" data-value="日">日</button>
+          </div>
+          <input type="text" id="wdClosedExtra" class="hx-other-input" placeholder="例：第3火曜も休み（毎週以外の特殊な定休があれば）" style="margin-top:8px;">
+          <input type="hidden" name="定休日">
         </div>
-        <div class="hx-field">
+        <div class="hx-field wide">
           <label>忙しい曜日</label>
-          <input type="text" name="忙しい曜日" placeholder="例：金・土">
+          <div class="hx-weekday-row" id="wdBusy">
+            <button type="button" class="hx-chip" data-value="月">月</button>
+            <button type="button" class="hx-chip" data-value="火">火</button>
+            <button type="button" class="hx-chip" data-value="水">水</button>
+            <button type="button" class="hx-chip" data-value="木">木</button>
+            <button type="button" class="hx-chip" data-value="金">金</button>
+            <button type="button" class="hx-chip" data-value="土">土</button>
+            <button type="button" class="hx-chip" data-value="日">日</button>
+          </div>
+          <input type="hidden" name="忙しい曜日">
         </div>
-        <div class="hx-field">
+        <div class="hx-field wide">
           <label>暇な曜日</label>
-          <input type="text" name="暇な曜日" placeholder="例：火・水">
+          <div class="hx-weekday-row" id="wdSlow">
+            <button type="button" class="hx-chip" data-value="月">月</button>
+            <button type="button" class="hx-chip" data-value="火">火</button>
+            <button type="button" class="hx-chip" data-value="水">水</button>
+            <button type="button" class="hx-chip" data-value="木">木</button>
+            <button type="button" class="hx-chip" data-value="金">金</button>
+            <button type="button" class="hx-chip" data-value="土">土</button>
+            <button type="button" class="hx-chip" data-value="日">日</button>
+          </div>
+          <input type="hidden" name="暇な曜日">
         </div>
-        <div class="hx-field">
+        <div class="hx-field wide">
           <label>1日の平均客数（ざっくり）</label>
-          <input type="text" name="平均客数" placeholder="例：平日25人・週末45人くらい">
+          <div class="hx-substack">
+            <p class="hx-sublabel">平日</p>
+            <div class="hx-chip-group" id="avgWeekday">
+              <button type="button" class="hx-chip" data-value="10人未満">10人未満</button>
+              <button type="button" class="hx-chip" data-value="10〜20人">10〜20人</button>
+              <button type="button" class="hx-chip" data-value="20〜30人">20〜30人</button>
+              <button type="button" class="hx-chip" data-value="30〜50人">30〜50人</button>
+              <button type="button" class="hx-chip" data-value="50〜80人">50〜80人</button>
+              <button type="button" class="hx-chip" data-value="80人以上">80人以上</button>
+            </div>
+            <p class="hx-sublabel">休日</p>
+            <div class="hx-chip-group" id="avgHoliday">
+              <button type="button" class="hx-chip" data-value="10人未満">10人未満</button>
+              <button type="button" class="hx-chip" data-value="10〜20人">10〜20人</button>
+              <button type="button" class="hx-chip" data-value="20〜30人">20〜30人</button>
+              <button type="button" class="hx-chip" data-value="30〜50人">30〜50人</button>
+              <button type="button" class="hx-chip" data-value="50〜80人">50〜80人</button>
+              <button type="button" class="hx-chip" data-value="80人以上">80人以上</button>
+            </div>
+          </div>
+          <input type="hidden" name="平均客数">
         </div>
-        <div class="hx-field">
+        <div class="hx-field wide">
           <label>客単価（ざっくり）</label>
-          <input type="text" name="客単価" placeholder="例：3,500円くらい">
+          <div class="hx-chip-group" data-chip-group data-target="客単価">
+            <button type="button" class="hx-chip" data-value="1,000円未満">1,000円未満</button>
+            <button type="button" class="hx-chip" data-value="1,000円台">1,000円台</button>
+            <button type="button" class="hx-chip" data-value="1,500円台">1,500円台</button>
+            <button type="button" class="hx-chip" data-value="2,000円台">2,000円台</button>
+            <button type="button" class="hx-chip" data-value="2,500円台">2,500円台</button>
+            <button type="button" class="hx-chip" data-value="3,000円台">3,000円台</button>
+            <button type="button" class="hx-chip" data-value="3,500円台">3,500円台</button>
+            <button type="button" class="hx-chip" data-value="4,000円台">4,000円台</button>
+            <button type="button" class="hx-chip" data-value="4,500円台">4,500円台</button>
+            <button type="button" class="hx-chip" data-value="5,000円台">5,000円台</button>
+            <button type="button" class="hx-chip" data-value="5,500円以上">5,500円以上</button>
+          </div>
+          <input type="hidden" name="客単価">
         </div>
       </div>
     </section>
@@ -262,23 +410,23 @@
         </div>
         <div class="hx-field">
           <label>給料日（25日など）前後の影響</label>
-          <select name="給料日の影響">
-            <option value="">選択してください</option>
-            <option>はっきり増える</option>
-            <option>少し増える気がする</option>
-            <option>あまり変わらない</option>
-            <option>分からない</option>
-          </select>
+          <div class="hx-chip-group" data-chip-group data-target="給料日の影響">
+            <button type="button" class="hx-chip" data-value="はっきり増える">はっきり増える</button>
+            <button type="button" class="hx-chip" data-value="少し増える気がする">少し増える気がする</button>
+            <button type="button" class="hx-chip" data-value="あまり変わらない">あまり変わらない</button>
+            <button type="button" class="hx-chip" data-value="分からない">分からない</button>
+          </div>
+          <input type="hidden" name="給料日の影響">
         </div>
         <div class="hx-field">
           <label>雨の日の体感</label>
-          <select name="雨の日の体感">
-            <option value="">選択してください</option>
-            <option>目に見えて減る</option>
-            <option>少し減る</option>
-            <option>あまり変わらない</option>
-            <option>むしろ増える</option>
-          </select>
+          <div class="hx-chip-group" data-chip-group data-target="雨の日の体感">
+            <button type="button" class="hx-chip" data-value="目に見えて減る">目に見えて減る</button>
+            <button type="button" class="hx-chip" data-value="少し減る">少し減る</button>
+            <button type="button" class="hx-chip" data-value="あまり変わらない">あまり変わらない</button>
+            <button type="button" class="hx-chip" data-value="むしろ増える">むしろ増える</button>
+          </div>
+          <input type="hidden" name="雨の日の体感">
         </div>
         <div class="hx-field wide">
           <label>スポーツ中継（野球・サッカー等）がある日</label>
@@ -291,7 +439,16 @@
         </div>
         <div class="hx-field">
           <label>そのお店の定休日（わかれば）</label>
-          <input type="text" name="競合店定休日" placeholder="例：毎週月曜・第3火曜">
+          <div class="hx-chip-group" data-chip-group data-multi data-target="競合店定休日">
+            <button type="button" class="hx-chip" data-value="月">月</button>
+            <button type="button" class="hx-chip" data-value="火">火</button>
+            <button type="button" class="hx-chip" data-value="水">水</button>
+            <button type="button" class="hx-chip" data-value="木">木</button>
+            <button type="button" class="hx-chip" data-value="金">金</button>
+            <button type="button" class="hx-chip" data-value="土">土</button>
+            <button type="button" class="hx-chip" data-value="日">日</button>
+          </div>
+          <input type="hidden" name="競合店定休日">
         </div>
       </div>
     </section>
@@ -299,27 +456,27 @@
     <!-- 5. これまでの記録 -->
     <section class="hx-sec">
       <h2>5. これまでの記録</h2>
-      <p class="hx-why">過去の記録があると、初日から予測の精度が上がります。なければ「なし」で全く問題ありません。</p>
+      <p class="hx-why">過去の記録があると、初日から予測の精度が上がります。なければ「記録は特にない」で全く問題ありません。</p>
       <div class="hx-row">
         <div class="hx-field">
           <label>売上・客数の記録</label>
-          <select name="売上記録">
-            <option value="">選択してください</option>
-            <option>POSレジにデータがある</option>
-            <option>手書きの帳面がある</option>
-            <option>レシートや日報が残っている</option>
-            <option>記録は特にない</option>
-          </select>
+          <div class="hx-chip-group" data-chip-group data-target="売上記録">
+            <button type="button" class="hx-chip" data-value="POSレジにデータがある">POSレジにデータがある</button>
+            <button type="button" class="hx-chip" data-value="手書きの帳面がある">手書きの帳面がある</button>
+            <button type="button" class="hx-chip" data-value="レシートや日報が残っている">レシートや日報が残っている</button>
+            <button type="button" class="hx-chip" data-value="記録は特にない">記録は特にない</button>
+          </div>
+          <input type="hidden" name="売上記録">
         </div>
         <div class="hx-field">
           <label>その記録を設定に使ってよいですか？</label>
-          <select name="記録の提供">
-            <option value="">選択してください</option>
-            <option>はい（写真やデータで渡せる）</option>
-            <option>店で見てもらうならOK</option>
-            <option>使わないでほしい</option>
-            <option>記録がない</option>
-          </select>
+          <div class="hx-chip-group" data-chip-group data-target="記録の提供">
+            <button type="button" class="hx-chip" data-value="はい（写真やデータで渡せる）">はい（写真やデータで渡せる）</button>
+            <button type="button" class="hx-chip" data-value="店で見てもらうならOK">店で見てもらうならOK</button>
+            <button type="button" class="hx-chip" data-value="使わないでほしい">使わないでほしい</button>
+            <button type="button" class="hx-chip" data-value="記録がない">記録がない</button>
+          </div>
+          <input type="hidden" name="記録の提供">
         </div>
       </div>
     </section>
@@ -334,15 +491,33 @@
           <input type="text" name="配信先" placeholder="例：店主本人／店主と奥様の2人">
           <p class="hx-hint">LINEの友だち追加は設定時にご一緒に行います。IDの記入は不要です。</p>
         </div>
+        <div class="hx-field wide">
+          <label>「明日の仕込みメモ」が届く時間</label>
+          <div class="hx-chip-group" id="pushHourChips">
+            <button type="button" class="hx-chip" data-value="12">12時</button>
+            <button type="button" class="hx-chip" data-value="13">13時</button>
+            <button type="button" class="hx-chip" data-value="14">14時</button>
+            <button type="button" class="hx-chip" data-value="15">15時</button>
+            <button type="button" class="hx-chip" data-value="16">16時</button>
+            <button type="button" class="hx-chip" data-value="17">17時（標準）</button>
+            <button type="button" class="hx-chip" data-value="18">18時</button>
+            <button type="button" class="hx-chip" data-value="19">19時</button>
+            <button type="button" class="hx-chip" data-value="20">20時</button>
+            <button type="button" class="hx-chip" data-value="21">21時</button>
+            <button type="button" class="hx-chip" data-value="22">22時</button>
+          </div>
+          <p class="hx-hint">忙しい時間帯と重ならない時間を選んでください。あとからLINEで「配信時間 19」のように送れば、いつでも変更できます。特に希望がなければ17時のままで大丈夫です。</p>
+          <input type="hidden" name="配信時間" value="17">
+        </div>
         <div class="hx-field">
           <label>仕入れリストをスタッフにも送りますか？</label>
-          <select name="スタッフ委任">
-            <option value="">選択してください</option>
-            <option>使いたい（スタッフに仕入れを任せたい）</option>
-            <option>いまは使わない（あとで検討）</option>
-            <option>スタッフはいない</option>
-          </select>
+          <div class="hx-chip-group" data-chip-group data-target="スタッフ委任">
+            <button type="button" class="hx-chip" data-value="使いたい（スタッフに仕入れを任せたい）">使いたい</button>
+            <button type="button" class="hx-chip" data-value="いまは使わない（あとで検討）">いまは使わない</button>
+            <button type="button" class="hx-chip" data-value="スタッフはいない">スタッフはいない</button>
+          </div>
           <p class="hx-hint">スタッフには数量リストだけが届き、売上などの数字は見えません。</p>
+          <input type="hidden" name="スタッフ委任">
         </div>
         <div class="hx-field wide">
           <label>スタッフの人数・体制（委任を使う場合）</label>
@@ -370,12 +545,12 @@
         </div>
         <div class="hx-field">
           <label>請求書の受け取り方法</label>
-          <select name="請求書">
-            <option value="">選択してください</option>
-            <option>メールで受け取る</option>
-            <option>LINEで受け取る</option>
-            <option>郵送してほしい</option>
-          </select>
+          <div class="hx-chip-group" data-chip-group data-target="請求書">
+            <button type="button" class="hx-chip" data-value="メールで受け取る">メールで受け取る</button>
+            <button type="button" class="hx-chip" data-value="LINEで受け取る">LINEで受け取る</button>
+            <button type="button" class="hx-chip" data-value="郵送してほしい">郵送してほしい</button>
+          </div>
+          <input type="hidden" name="請求書">
         </div>
         <div class="hx-field wide">
           <label>そのほか、伝えておきたいこと</label>
@@ -415,6 +590,264 @@
 
   <p class="hx-print-note">運営: <a href="https://ynhtlp.vercel.app" target="_blank" rel="noopener">YNHT</a>｜ご不明な点は ynht.webdesign@gmail.com まで</p>
 </main>
+
+<script>
+// ===== タップ入力パーツの初期化 =====
+(function () {
+  // ---- 汎用チップ（単一選択／複数選択） ----
+  document.querySelectorAll("[data-chip-group]").forEach(function (container) {
+    var hidden = document.querySelector('input[name="' + container.dataset.target + '"]');
+    if (!hidden) return;
+    var multi = container.hasAttribute("data-multi");
+    var sep = container.dataset.sep || "・";
+    var buttons = container.querySelectorAll(".hx-chip");
+    function sync() {
+      var vals = [];
+      buttons.forEach(function (b) { if (b.classList.contains("is-active")) vals.push(b.dataset.value); });
+      hidden.value = vals.join(sep);
+      container.dispatchEvent(new CustomEvent("hxchange"));
+    }
+    buttons.forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (multi) {
+          b.classList.toggle("is-active");
+        } else {
+          buttons.forEach(function (o) { o.classList.remove("is-active"); });
+          b.classList.add("is-active");
+        }
+        sync();
+      });
+    });
+  });
+
+  // ---- 業態「その他」の自由記入欄 ----
+  var bizChips = document.getElementById("bizChips");
+  var bizOther = document.getElementById("bizOther");
+  var bizHidden = document.querySelector('input[name="業態"]');
+  if (bizChips && bizOther && bizHidden) {
+    function refreshBiz() {
+      var otherBtn = bizChips.querySelector('.hx-chip[data-value="その他"]');
+      var active = !!(otherBtn && otherBtn.classList.contains("is-active"));
+      bizOther.style.display = active ? "block" : "none";
+      if (active) {
+        bizHidden.value = bizOther.value.trim() ? "その他：" + bizOther.value.trim() : "その他";
+      }
+    }
+    bizChips.addEventListener("hxchange", refreshBiz);
+    bizOther.addEventListener("input", refreshBiz);
+  }
+
+  // ---- 席数（カウンター／テーブルのステッパー） ----
+  (function () {
+    var hidden = document.querySelector('input[name="席数"]');
+    var counts = { counter: 0, table: 0 };
+    var labels = { counter: "カウンター", table: "テーブル" };
+    function sync() {
+      var total = counts.counter + counts.table;
+      hidden.value = total > 0 ? total + "席（カウンター" + counts.counter + "＋テーブル" + counts.table + "）" : "";
+    }
+    document.querySelectorAll(".hx-stepper").forEach(function (st) {
+      var key = st.dataset.seat;
+      var valEl = st.querySelector(".hx-stepper-val");
+      st.querySelectorAll("button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var d = parseInt(btn.dataset.d, 10);
+          counts[key] = Math.max(0, counts[key] + d);
+          valEl.textContent = counts[key];
+          sync();
+        });
+      });
+    });
+  })();
+
+  // ---- 所在地（郵便番号検索） ----
+  (function () {
+    var zipInput = document.getElementById("zipInput");
+    var btn = document.getElementById("zipSearchBtn");
+    var display = document.getElementById("addrDisplay");
+    var manual = document.getElementById("addrManual");
+    var hidden = document.querySelector('input[name="所在地"]');
+    if (!zipInput || !hidden) return;
+    var found = "";
+    function sync() { hidden.value = manual.value.trim() || found; }
+    btn.addEventListener("click", function () {
+      var zip = zipInput.value.replace(/[^0-9]/g, "");
+      if (zip.length !== 7) {
+        display.textContent = "郵便番号は7桁で入力してください（ハイフンなし可）";
+        return;
+      }
+      display.textContent = "検索中…";
+      btn.disabled = true;
+      fetch("https://zipcloud.ibsnet.co.jp/api/search?zipcode=" + zip)
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          btn.disabled = false;
+          if (data && data.results && data.results.length) {
+            var a = data.results[0];
+            found = a.address1 + a.address2;
+            display.textContent = "→ " + a.address1 + a.address2 + a.address3;
+          } else {
+            found = "";
+            display.textContent = "見つかりませんでした。下の欄に直接ご入力ください。";
+          }
+          sync();
+        })
+        .catch(function () {
+          btn.disabled = false;
+          display.textContent = "検索に失敗しました。下の欄に直接ご入力ください。";
+          sync();
+        });
+    });
+    manual.addEventListener("input", sync);
+  })();
+
+  // ---- 営業時間（30分バー） ----
+  (function () {
+    var START = 8 * 60, END = 26 * 60, STEP = 30; // 08:00〜翌02:00
+    var bar = document.getElementById("hoursBar");
+    var hidden = document.querySelector('input[name="営業時間"]');
+    var clearBtn = document.getElementById("hoursClear");
+    var resultEl = document.getElementById("hoursResult");
+    if (!bar || !hidden) return;
+    var slots = [];
+    for (var t = START; t < END; t += STEP) slots.push(t);
+    var state = slots.map(function () { return false; });
+
+    function fmt(min) {
+      var h = Math.floor(min / 60), m = min % 60;
+      return h + ":" + (m === 0 ? "00" : "30");
+    }
+    slots.forEach(function (t) {
+      var cell = document.createElement("div");
+      cell.className = "hx-hour-cell";
+      if (t % 60 === 0) cell.textContent = String(Math.floor(t / 60));
+      bar.appendChild(cell);
+    });
+    var cells = bar.querySelectorAll(".hx-hour-cell");
+
+    function render() {
+      cells.forEach(function (c, i) { c.classList.toggle("is-on", state[i]); });
+      var ranges = [];
+      var startI = null;
+      for (var i = 0; i <= state.length; i++) {
+        if (i < state.length && state[i]) {
+          if (startI === null) startI = i;
+        } else if (startI !== null) {
+          ranges.push(fmt(slots[startI]) + "〜" + fmt(slots[i - 1] + STEP));
+          startI = null;
+        }
+      }
+      hidden.value = ranges.join("、");
+      resultEl.textContent = ranges.length ? ranges.join("、") : "";
+    }
+    cells.forEach(function (c, i) {
+      c.addEventListener("click", function () {
+        state[i] = !state[i];
+        render();
+      });
+    });
+    clearBtn.addEventListener("click", function () {
+      state = state.map(function () { return false; });
+      render();
+    });
+    document.querySelectorAll(".hx-hour-presets .hx-chip").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var parts = btn.dataset.range.split("-");
+        var sh = parseInt(parts[0].split(":")[0], 10), sm = parseInt(parts[0].split(":")[1], 10);
+        var eh = parseInt(parts[1].split(":")[0], 10), em = parseInt(parts[1].split(":")[1], 10);
+        var s = sh * 60 + sm, e = eh * 60 + em;
+        slots.forEach(function (t, i) { if (t >= s && t < e) state[i] = true; });
+        render();
+      });
+    });
+  })();
+
+  // ---- 定休日／忙しい曜日／暇な曜日（曜日タップ、排他制御） ----
+  (function () {
+    var groups = [
+      { el: document.getElementById("wdClosed"), name: "定休日", extra: document.getElementById("wdClosedExtra") },
+      { el: document.getElementById("wdBusy"), name: "忙しい曜日" },
+      { el: document.getElementById("wdSlow"), name: "暇な曜日" },
+    ].filter(function (g) { return g.el; });
+
+    function sync(g) {
+      var hidden = document.querySelector('input[name="' + g.name + '"]');
+      var days = [];
+      g.el.querySelectorAll(".hx-chip").forEach(function (b) { if (b.classList.contains("is-active")) days.push(b.dataset.value); });
+      var text = days.join("・");
+      if (g.extra) {
+        var extraVal = g.extra.value.trim();
+        if (extraVal) text = text ? text + "・" + extraVal : extraVal;
+      }
+      hidden.value = text;
+    }
+    groups.forEach(function (g, idx) {
+      g.el.querySelectorAll(".hx-chip").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var day = btn.dataset.value;
+          var turningOn = !btn.classList.contains("is-active");
+          btn.classList.toggle("is-active");
+          if (turningOn) {
+            groups.forEach(function (other, j) {
+              if (j === idx) return;
+              var same = other.el.querySelector('.hx-chip[data-value="' + day + '"]');
+              if (same) same.classList.remove("is-active");
+            });
+          }
+          groups.forEach(sync);
+        });
+      });
+      if (g.extra) g.extra.addEventListener("input", function () { sync(g); });
+    });
+  })();
+
+  // ---- 平均客数（平日／休日） ----
+  (function () {
+    var wd = document.getElementById("avgWeekday");
+    var ho = document.getElementById("avgHoliday");
+    var hidden = document.querySelector('input[name="平均客数"]');
+    if (!wd || !ho || !hidden) return;
+    function pick(container) {
+      var b = container.querySelector(".hx-chip.is-active");
+      return b ? b.dataset.value : "";
+    }
+    function sync() {
+      var w = pick(wd), h = pick(ho);
+      var parts = [];
+      if (w) parts.push("平日" + w);
+      if (h) parts.push("休日" + h);
+      hidden.value = parts.join("・");
+    }
+    [wd, ho].forEach(function (container) {
+      container.querySelectorAll(".hx-chip").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          container.querySelectorAll(".hx-chip").forEach(function (b) { b.classList.remove("is-active"); });
+          btn.classList.add("is-active");
+          sync();
+        });
+      });
+    });
+  })();
+
+  // ---- 配信時間（未選択時は17時のまま） ----
+  (function () {
+    var group = document.getElementById("pushHourChips");
+    var hidden = document.querySelector('input[name="配信時間"]');
+    if (!group || !hidden) return;
+    var buttons = group.querySelectorAll(".hx-chip");
+    function select(btn) {
+      buttons.forEach(function (b) { b.classList.remove("is-active"); });
+      btn.classList.add("is-active");
+      hidden.value = btn.dataset.value;
+    }
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () { select(btn); });
+    });
+    var def = group.querySelector('.hx-chip[data-value="17"]');
+    if (def) select(def);
+  })();
+})();
+</script>
 
 <script>
 // ===== 公開時にここだけ書き換える =====
@@ -458,8 +891,10 @@ const PAY_URL_BASE = "https://komiyohou-server.onrender.com";
     for (var i = 0; i < required.length; i++) {
       var el = form.elements[required[i][0]];
       if (el && !el.value.trim()) {
-        err.textContent = "「" + required[i][1] + "」をご記入ください。";
-        el.focus();
+        err.textContent = "「" + required[i][1] + "」をご記入（タップ）ください。";
+        var sec = el.closest(".hx-sec");
+        if (sec) sec.scrollIntoView({ behavior: "smooth", block: "center" });
+        if (typeof el.focus === "function") el.focus();
         return;
       }
     }
