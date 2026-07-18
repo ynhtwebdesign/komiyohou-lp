@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>コミヨホウ｜初期設定ヒアリングシート（ご契約店舗様用）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ---- ヒアリングフォーム専用 ---- */
+.hx-header { background: var(--dark, #221E1A); color: #fff; padding: 40px 0 36px; }
+.hx-header .kicker { color: var(--accent, #E8863C); }
+.hx-header h1 { color: #fff; font-size: clamp(22px, 3.6vw, 32px); margin-bottom: 10px; }
+.hx-header p { color: rgba(255,255,255,.8); font-size: 14px; line-height: 1.9; }
+.hx-main { max-width: 860px; margin: 0 auto; padding: 36px 24px 72px; }
+.hx-lead { font-size: 14px; color: var(--sub, #5d574e); line-height: 2; margin-bottom: 28px; }
+.hx-sec { background: #fff; border: 1px solid rgba(43,43,43,.1); border-radius: 12px; padding: 28px 28px 24px; margin-bottom: 22px; }
+.hx-sec h2 { font-size: 19px; border-left: 5px solid var(--accent, #E8863C); padding-left: 12px; margin-bottom: 6px; }
+.hx-sec .hx-why { font-size: 12.5px; color: var(--sub, #5d574e); margin-bottom: 18px; line-height: 1.8; }
+.hx-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+.hx-field { margin-bottom: 14px; }
+.hx-field.wide { grid-column: 1 / -1; }
+.hx-field label { display: block; font-size: 13.5px; font-weight: 700; margin-bottom: 5px; line-height: 1.6; }
+.hx-req { font-size: 10.5px; font-weight: 700; color: #fff; background: var(--accent, #E8863C); border-radius: 4px; padding: 1px 7px; margin-left: 6px; vertical-align: 1px; }
+.hx-field input[type="text"], .hx-field input[type="email"], .hx-field input[type="tel"],
+.hx-field select, .hx-field textarea {
+  width: 100%; font: inherit; font-size: 14px; line-height: 1.7; color: var(--ink, #2B2B2B);
+  background: var(--bg, #F7F4EE); border: 1px solid rgba(43,43,43,.18); border-radius: 8px; padding: 10px 12px;
+}
+.hx-field textarea { min-height: 88px; resize: vertical; }
+.hx-field input:focus, .hx-field select:focus, .hx-field textarea:focus { outline: 2px solid var(--accent, #E8863C); border-color: var(--accent, #E8863C); }
+.hx-hint { font-size: 12px; color: var(--sub, #5d574e); margin-top: 4px; line-height: 1.7; }
+.hx-checks { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.hx-checks label { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; margin: 0; }
+.hx-checks input { width: 16px; height: 16px; accent-color: var(--accent, #E8863C); }
+.hx-menu-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.hx-menu-table th, .hx-menu-table td { border: 1px solid rgba(43,43,43,.15); padding: 6px 8px; text-align: left; }
+.hx-menu-table th { background: var(--bg, #F7F4EE); font-size: 12.5px; white-space: nowrap; }
+.hx-menu-table input, .hx-menu-table select { width: 100%; font: inherit; font-size: 13.5px; border: none; background: transparent; padding: 4px 2px; }
+.hx-menu-table input:focus, .hx-menu-table select:focus { outline: 2px solid var(--accent, #E8863C); border-radius: 4px; }
+.hx-submit-wrap { text-align: center; margin-top: 30px; }
+.hx-submit { font: inherit; font-weight: 700; font-size: 16px; color: #fff; background: var(--accent, #E8863C); border: none; border-radius: 999px; padding: 15px 52px; cursor: pointer; box-shadow: 0 8px 24px rgba(232,134,60,.4); }
+.hx-submit:hover { opacity: .9; }
+.hx-submit:disabled { opacity: .5; cursor: wait; }
+.hx-err { color: #c0392b; font-size: 13.5px; font-weight: 700; margin-top: 12px; min-height: 1.2em; }
+.hx-success { display: none; background: #fff; border: 2px solid var(--accent, #E8863C); border-radius: 12px; padding: 40px 28px; text-align: center; }
+.hx-success h2 { font-size: 21px; margin-bottom: 10px; }
+.hx-success p { font-size: 14px; color: var(--sub, #5d574e); line-height: 2; }
+.hx-code-box { background: var(--bg, #F7F4EE); border-radius: 10px; padding: 16px; margin: 18px auto; max-width: 260px; }
+.hx-code-label { font-size: 12px; color: var(--sub, #5d574e); margin-bottom: 4px; }
+.hx-code { font-size: 32px; font-weight: 900; letter-spacing: .12em; color: var(--accent, #E8863C); }
+.hx-auto-steps { text-align: left; max-width: 380px; margin: 18px auto; font-size: 14px; line-height: 1.9; padding-left: 22px; }
+.hx-line-btn { display: inline-block; margin-top: 8px; background: #06C755; color: #fff; font-weight: 700; font-size: 15px; padding: 13px 32px; border-radius: 999px; text-decoration: none; }
+.hx-line-btn:hover { opacity: .9; }
+.hx-print-note { font-size: 12px; color: var(--sub, #5d574e); text-align: center; margin-top: 26px; }
+.hx-print-note a { color: var(--accent, #E8863C); }
+@media (max-width: 640px) {
+  .hx-row { grid-template-columns: 1fr; }
+  .hx-sec { padding: 22px 18px 18px; }
+  .hx-menu-table th:nth-child(1) { width: 34%; }
+}
+/* ---- 印刷（紙で聞き取る場合） ---- */
+@media print {
+  body { background: #fff; font-size: 11px; line-height: 1.5; }
+  .hx-header { background: #fff; color: var(--ink, #2B2B2B); padding: 0 0 8px; border-bottom: 3px solid var(--accent, #E8863C); }
+  .hx-header h1 { color: var(--ink, #2B2B2B); font-size: 19px; margin-bottom: 2px; }
+  .hx-header p, .hx-lead, .hx-submit-wrap, .hx-print-note, .hx-err { display: none; }
+  .hx-main { max-width: none; padding: 10px 0 0; }
+  .hx-sec { break-inside: avoid; border: 1px solid #bbb; border-radius: 6px; padding: 10px 12px 6px; margin-bottom: 10px; }
+  .hx-sec h2 { font-size: 13px; margin-bottom: 2px; }
+  .hx-sec .hx-why { margin-bottom: 8px; font-size: 9.5px; }
+  .hx-field { margin-bottom: 7px; }
+  .hx-field label { font-size: 10.5px; margin-bottom: 2px; }
+  .hx-field input[type="text"], .hx-field input[type="email"], .hx-field input[type="tel"], .hx-field select { border: none; border-bottom: 1px solid #999; border-radius: 0; background: #fff; padding: 2px 4px; min-height: 20px; }
+  .hx-field textarea { border: 1px solid #999; background: #fff; min-height: 52px; border-radius: 0; padding: 4px; }
+  .hx-hint { font-size: 9px; margin-top: 1px; }
+  .hx-menu-table th, .hx-menu-table td { padding: 3px 6px; }
+  .hx-menu-table td { height: 22px; }
+  .hx-req { border: 1px solid var(--accent, #E8863C); color: var(--accent, #E8863C); background: #fff; }
+}
+</style>
+</head>
+<body>
+
+<header class="hx-header">
+  <div class="wrap">
+    <p class="kicker">SHIKOMIRU ONBOARDING SHEET</p>
+    <h1>初期設定ヒアリングシート</h1>
+    <p>ご契約いただいた店舗様用のシートです。ここでお伺いした内容をもとに、YNHTがコミヨホウの設定をすべて代行します。<br>
+    店舗様側での入力作業はこのシートで最後——以降は毎日の3タップだけです。</p>
+  </div>
+</header>
+
+<main class="hx-main">
+  <p class="hx-lead">「だいたい」「ざっくり」で大丈夫です。正確な数字でなくても、AIが毎日の記録から少しずつ補正していきます。<br>
+  分からない項目は空欄のまま送信してください。設定時にお電話・LINEで補足をお伺いします。</p>
+
+  <form id="hearingForm" novalidate>
+    <input type="hidden" name="access_key" value="0110f69b-2737-451a-9004-8883b99088e9">
+    <input type="hidden" name="subject" value="【コミヨホウ】初期設定ヒアリング">
+    <input type="hidden" name="from_name" value="コミヨホウ初期設定ヒアリングフォーム">
+    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+    <!-- 1. お店の基本情報 -->
+    <section class="hx-sec">
+      <h2>1. お店の基本情報</h2>
+      <p class="hx-why">予測のベースになる「お店のかたち」を教えてください。</p>
+      <div class="hx-row">
+        <div class="hx-field">
+          <label>店名 <span class="hx-req">必須</span></label>
+          <input type="text" name="店名" placeholder="例：居酒屋 ○○">
+        </div>
+        <div class="hx-field">
+          <label>業態 <span class="hx-req">必須</span></label>
+          <select name="業態">
+            <option value="">選択してください</option>
+            <option>居酒屋</option>
+            <option>定食・食堂</option>
+            <option>カフェ・喫茶</option>
+            <option>ラーメン・麺類</option>
+            <option>寿司・和食</option>
+            <option>焼肉・焼き鳥</option>
+            <option>バー・スナック</option>
+            <option>その他（下の欄に記入）</option>
+          </select>
+        </div>
+        <div class="hx-field">
+          <label>席数 <span class="hx-req">必須</span></label>
+          <input type="text" name="席数" placeholder="例：32席（カウンター8＋テーブル24）">
+        </div>
+        <div class="hx-field">
+          <label>立地</label>
+          <select name="立地">
+            <option value="">選択してください</option>
+            <option>駅前・繁華街</option>
+            <option>商店街</option>
+            <option>住宅街</option>
+            <option>ロードサイド（車客中心）</option>
+            <option>オフィス街</option>
+            <option>観光地の近く</option>
+          </select>
+        </div>
+        <div class="hx-field wide">
+          <label>所在地（市町村まで）<span class="hx-req">必須</span></label>
+          <input type="text" name="所在地" placeholder="例：福井県福井市">
+          <p class="hx-hint">天気予報の地域を合わせるために使います。番地までは不要です。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 営業について -->
+    <section class="hx-sec">
+      <h2>2. 営業について</h2>
+      <p class="hx-why">曜日ごとのクセを予測に反映します。感覚で構いません。</p>
+      <div class="hx-row">
+        <div class="hx-field">
+          <label>営業時間 <span class="hx-req">必須</span></label>
+          <input type="text" name="営業時間" placeholder="例：17:00〜23:00（L.O. 22:30）">
+        </div>
+        <div class="hx-field">
+          <label>定休日 <span class="hx-req">必須</span></label>
+          <input type="text" name="定休日" placeholder="例：毎週月曜・第3火曜">
+        </div>
+        <div class="hx-field">
+          <label>忙しい曜日</label>
+          <input type="text" name="忙しい曜日" placeholder="例：金・土">
+        </div>
+        <div class="hx-field">
+          <label>暇な曜日</label>
+          <input type="text" name="暇な曜日" placeholder="例：火・水">
+        </div>
+        <div class="hx-field">
+          <label>1日の平均客数（ざっくり）</label>
+          <input type="text" name="平均客数" placeholder="例：平日25人・週末45人くらい">
+        </div>
+        <div class="hx-field">
+          <label>客単価（ざっくり）</label>
+          <input type="text" name="客単価" placeholder="例：3,500円くらい">
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 主力メニュー -->
+    <section class="hx-sec">
+      <h2>3. 主力メニューと普段の仕込み量</h2>
+      <p class="hx-why">仕込みアドバイスの対象にするメニューです。よく仕込む5〜8品で十分です（あとから追加・変更できます）。メニュー表と納品書の写真を撮らせていただける場合は、この表は空欄でも構いません。</p>
+      <table class="hx-menu-table">
+        <thead>
+          <tr><th>メニュー名</th><th>分類</th><th>普段の仕込み量</th><th>単位</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" name="メニュー1_名前" placeholder="例：もつ煮込み"></td>
+            <td><select name="メニュー1_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
+            <td><input type="text" name="メニュー1_量" placeholder="例：20"></td>
+            <td><input type="text" name="メニュー1_単位" placeholder="例：食"></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="メニュー2_名前"></td>
+            <td><select name="メニュー2_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
+            <td><input type="text" name="メニュー2_量"></td>
+            <td><input type="text" name="メニュー2_単位"></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="メニュー3_名前"></td>
+            <td><select name="メニュー3_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
+            <td><input type="text" name="メニュー3_量"></td>
+            <td><input type="text" name="メニュー3_単位"></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="メニュー4_名前"></td>
+            <td><select name="メニュー4_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
+            <td><input type="text" name="メニュー4_量"></td>
+            <td><input type="text" name="メニュー4_単位"></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="メニュー5_名前"></td>
+            <td><select name="メニュー5_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
+            <td><input type="text" name="メニュー5_量"></td>
+            <td><input type="text" name="メニュー5_単位"></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="メニュー6_名前"></td>
+            <td><select name="メニュー6_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
+            <td><input type="text" name="メニュー6_量"></td>
+            <td><input type="text" name="メニュー6_単位"></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="メニュー7_名前"></td>
+            <td><select name="メニュー7_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
+            <td><input type="text" name="メニュー7_量"></td>
+            <td><input type="text" name="メニュー7_単位"></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="メニュー8_名前"></td>
+            <td><select name="メニュー8_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
+            <td><input type="text" name="メニュー8_量"></td>
+            <td><input type="text" name="メニュー8_単位"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="hx-field wide" style="margin-top:14px;">
+        <label>メニュー表・納品書の写真</label>
+        <div class="hx-checks">
+          <label><input type="checkbox" name="写真提供" value="メニュー表の写真をLINEで送れる">メニュー表の写真をLINEで送れる</label>
+          <label><input type="checkbox" name="写真提供" value="納品書の写真をLINEで送れる">納品書の写真をLINEで送れる</label>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 地域とお客さんのクセ -->
+    <section class="hx-sec">
+      <h2>4. 地域とお客さんのクセ</h2>
+      <p class="hx-why">AIが自動で集める8つの要因のうち、「お店の近所」の情報だけは大将が一番詳しいはずです。</p>
+      <div class="hx-row">
+        <div class="hx-field wide">
+          <label>客足が増える近所のイベント</label>
+          <textarea name="近所のイベント" placeholder="例：8月第1土曜の○○祭り、春秋の○○神社の例大祭、近くの体育館で大会がある日 など"></textarea>
+        </div>
+        <div class="hx-field">
+          <label>給料日（25日など）前後の影響</label>
+          <select name="給料日の影響">
+            <option value="">選択してください</option>
+            <option>はっきり増える</option>
+            <option>少し増える気がする</option>
+            <option>あまり変わらない</option>
+            <option>分からない</option>
+          </select>
+        </div>
+        <div class="hx-field">
+          <label>雨の日の体感</label>
+          <select name="雨の日の体感">
+            <option value="">選択してください</option>
+            <option>目に見えて減る</option>
+            <option>少し減る</option>
+            <option>あまり変わらない</option>
+            <option>むしろ増える</option>
+          </select>
+        </div>
+        <div class="hx-field wide">
+          <label>スポーツ中継（野球・サッカー等）がある日</label>
+          <input type="text" name="スポーツ中継の影響" placeholder="例：野球のナイターがあると常連が増える／特に関係ない">
+        </div>
+        <div class="hx-field wide">
+          <label>近所で一番お客さんを取られていそうなお店（あれば）</label>
+          <input type="text" name="競合店名" placeholder="例：駅前の○○居酒屋">
+          <p class="hx-hint">その店が休みの日は、逆にお客さんが流れてくることがあります。予測に組み込みます。</p>
+        </div>
+        <div class="hx-field">
+          <label>そのお店の定休日（わかれば）</label>
+          <input type="text" name="競合店定休日" placeholder="例：毎週月曜・第3火曜">
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. これまでの記録 -->
+    <section class="hx-sec">
+      <h2>5. これまでの記録</h2>
+      <p class="hx-why">過去の記録があると、初日から予測の精度が上がります。なければ「なし」で全く問題ありません。</p>
+      <div class="hx-row">
+        <div class="hx-field">
+          <label>売上・客数の記録</label>
+          <select name="売上記録">
+            <option value="">選択してください</option>
+            <option>POSレジにデータがある</option>
+            <option>手書きの帳面がある</option>
+            <option>レシートや日報が残っている</option>
+            <option>記録は特にない</option>
+          </select>
+        </div>
+        <div class="hx-field">
+          <label>その記録を設定に使ってよいですか？</label>
+          <select name="記録の提供">
+            <option value="">選択してください</option>
+            <option>はい（写真やデータで渡せる）</option>
+            <option>店で見てもらうならOK</option>
+            <option>使わないでほしい</option>
+            <option>記録がない</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. LINEとスタッフ -->
+    <section class="hx-sec">
+      <h2>6. LINEとスタッフ委任</h2>
+      <p class="hx-why">毎夕の配信先と、仕入れリストをスタッフに送る機能（希望制）の設定に使います。</p>
+      <div class="hx-row">
+        <div class="hx-field">
+          <label>毎夕の配信を受け取る方 <span class="hx-req">必須</span></label>
+          <input type="text" name="配信先" placeholder="例：店主本人／店主と奥様の2人">
+          <p class="hx-hint">LINEの友だち追加は設定時にご一緒に行います。IDの記入は不要です。</p>
+        </div>
+        <div class="hx-field">
+          <label>仕入れリストをスタッフにも送りますか？</label>
+          <select name="スタッフ委任">
+            <option value="">選択してください</option>
+            <option>使いたい（スタッフに仕入れを任せたい）</option>
+            <option>いまは使わない（あとで検討）</option>
+            <option>スタッフはいない</option>
+          </select>
+          <p class="hx-hint">スタッフには数量リストだけが届き、売上などの数字は見えません。</p>
+        </div>
+        <div class="hx-field wide">
+          <label>スタッフの人数・体制（委任を使う場合）</label>
+          <input type="text" name="スタッフ体制" placeholder="例：バイト2人。仕入れは午前中に1人が行く">
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. ご連絡先 -->
+    <section class="hx-sec">
+      <h2>7. ご連絡先</h2>
+      <p class="hx-why">設定完了のご連絡と、月々のご請求書のお届けに使います。</p>
+      <div class="hx-row">
+        <div class="hx-field">
+          <label>ご担当者名 <span class="hx-req">必須</span></label>
+          <input type="text" name="担当者名" placeholder="例：田中 太郎">
+        </div>
+        <div class="hx-field">
+          <label>お電話番号 <span class="hx-req">必須</span></label>
+          <input type="tel" name="電話番号" placeholder="例：090-0000-0000">
+        </div>
+        <div class="hx-field">
+          <label>メールアドレス</label>
+          <input type="email" name="email" placeholder="例：info@example.com">
+        </div>
+        <div class="hx-field">
+          <label>請求書の受け取り方法</label>
+          <select name="請求書">
+            <option value="">選択してください</option>
+            <option>メールで受け取る</option>
+            <option>LINEで受け取る</option>
+            <option>郵送してほしい</option>
+          </select>
+        </div>
+        <div class="hx-field wide">
+          <label>そのほか、伝えておきたいこと</label>
+          <textarea name="備考" placeholder="例：お盆は連休をとる、月曜はランチのみ など"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <div class="hx-submit-wrap">
+      <button type="submit" class="hx-submit" id="hxSubmit">この内容で送信する →</button>
+      <p class="hx-err" id="hxErr"></p>
+    </div>
+  </form>
+
+  <div class="hx-success" id="hxSuccess">
+    <h2>送信ありがとうございました</h2>
+    <div id="hxAutoBlock" style="display:none;">
+      <p>お店の登録が完了しました。<strong>あと2つだけ、ご自身で設定をお願いします。</strong></p>
+      <div class="hx-code-box">
+        <p class="hx-code-label">お店の登録コード</p>
+        <p class="hx-code" id="hxOwnerCode">----</p>
+      </div>
+      <ol class="hx-auto-steps">
+        <li><strong>①配信の開始</strong>：下のボタンからLINE公式アカウントを友だち追加し、トーク画面に上のコードをそのまま送信</li>
+        <li>その日の夕方から「明日の仕込みメモ」が届きます</li>
+        <li><strong>②月額のお支払い登録</strong>：もう1つのボタンからカードを登録（以降の月額5,500円は毎月自動でお支払いされ、領収書はメールに自動で届きます）</li>
+      </ol>
+      <a class="hx-line-btn" id="hxLineBtn" href="#" target="_blank" rel="noopener">① LINEで友だち追加する →</a>
+      <a class="hx-line-btn" id="hxPayBtn" href="#" target="_blank" rel="noopener" style="display:none;background:#635BFF;margin-left:8px;">② 月額のお支払いを登録する →</a>
+    </div>
+    <div id="hxManualBlock">
+      <p>内容を確認のうえ、設定を進めます。<br>
+      設定が終わりましたら、ご記入いただいた連絡先にご一報します（通常2〜3営業日）。<br>
+      翌夕から「明日の仕込みメモ」の配信が始まります。</p>
+    </div>
+  </div>
+
+  <p class="hx-print-note">紙でご記入いただく場合は、このページをそのまま印刷してお使いください（印刷用のレイアウトになります）。<br>
+  運営: <a href="https://ynhtlp.vercel.app" target="_blank" rel="noopener">YNHT</a>｜ご不明な点は ynht.webdesign@gmail.com まで</p>
+</main>
+
+<script>
+// ===== 公開時にここだけ書き換える =====
+// system/server.py を公開デプロイしたURL(例: "https://komiyohou-api.onrender.com/api/hearing")。
+// 空のままだと、いままでどおりメール通知のみでお店ごとのフォルダ保存は行われません。
+const HEARING_API_URL = "https://komiyohou-server.onrender.com/api/hearing";
+// LINE公式アカウントの友だち追加URL(例: "https://lin.ee/xxxxxxx")。空だと自動案内ブロックは出しません。
+const LINE_URL = "https://line.me/R/ti/p/@371uvjxd";
+// system/server.py を公開デプロイしたURL(例: "https://komiyohou-api.onrender.com")。
+// 設定するとお支払い登録ボタン(<URL>/pay?code=お店コード)を完了画面に出します。空だと出しません。
+const PAY_URL_BASE = "https://komiyohou-server.onrender.com";
+// =====================================
+(function () {
+  var form = document.getElementById("hearingForm");
+  var btn = document.getElementById("hxSubmit");
+  var err = document.getElementById("hxErr");
+  var ok = document.getElementById("hxSuccess");
+  var autoBlock = document.getElementById("hxAutoBlock");
+  var manualBlock = document.getElementById("hxManualBlock");
+  var codeEl = document.getElementById("hxOwnerCode");
+  var lineBtn = document.getElementById("hxLineBtn");
+  var payBtn = document.getElementById("hxPayBtn");
+
+  function formToJSON(formData) {
+    var payload = {};
+    formData.forEach(function (value, key) {
+      if (Object.prototype.hasOwnProperty.call(payload, key)) {
+        if (!Array.isArray(payload[key])) payload[key] = [payload[key]];
+        payload[key].push(value);
+      } else {
+        payload[key] = value;
+      }
+    });
+    return payload;
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    err.textContent = "";
+    var required = [["店名", "店名"], ["業態", "業態"], ["席数", "席数"], ["所在地", "所在地"], ["営業時間", "営業時間"], ["定休日", "定休日"], ["配信先", "配信を受け取る方"], ["担当者名", "ご担当者名"], ["電話番号", "お電話番号"]];
+    for (var i = 0; i < required.length; i++) {
+      var el = form.elements[required[i][0]];
+      if (el && !el.value.trim()) {
+        err.textContent = "「" + required[i][1] + "」をご記入ください。";
+        el.focus();
+        return;
+      }
+    }
+    btn.disabled = true;
+    btn.textContent = "送信しています…";
+    var data = new FormData(form);
+
+    var tasks = [fetch("https://api.web3forms.com/submit", { method: "POST", body: data }).then(function (res) { return res.json(); })];
+    if (HEARING_API_URL) {
+      // お店ごとのフォルダへの保存・自動登録はベストエフォート。ここで失敗してもメール通知が届けば申請自体は成立させる。
+      tasks.push(
+        fetch(HEARING_API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formToJSON(data)),
+        }).then(function (res) { return res.json(); }).catch(function () { return null; })
+      );
+    }
+
+    Promise.all(tasks)
+      .then(function (results) {
+        var mail = results[0];
+        var api = results[1];
+        if (mail && mail.success) {
+          form.style.display = "none";
+          if (api && api.provisioned && api.owner_code && LINE_URL) {
+            codeEl.textContent = api.owner_code;
+            lineBtn.href = LINE_URL;
+            if (PAY_URL_BASE) {
+              payBtn.href = PAY_URL_BASE.replace(/\/$/, "") + "/pay?code=" + encodeURIComponent(api.owner_code);
+              payBtn.style.display = "inline-block";
+            }
+            autoBlock.style.display = "block";
+            manualBlock.style.display = "none";
+          } else {
+            autoBlock.style.display = "none";
+            manualBlock.style.display = "block";
+          }
+          ok.style.display = "block";
+          ok.scrollIntoView({ behavior: "smooth" });
+        } else {
+          throw new Error((mail && mail.message) || "send failed");
+        }
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = "この内容で送信する →";
+        err.textContent = "送信に失敗しました。お手数ですが時間をおいて再度お試しいただくか、ynht.webdesign@gmail.com までご連絡ください。";
+      });
+  });
+})();
+</script>
+
+</body>
+</html>
