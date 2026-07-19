@@ -33,6 +33,7 @@
 .hx-field.wide { grid-column: 1 / -1; }
 .hx-field label { display: block; font-size: 13.5px; font-weight: 700; margin-bottom: 5px; line-height: 1.6; }
 .hx-req { font-size: 10.5px; font-weight: 700; color: #fff; background: var(--accent, #E8863C); border-radius: 4px; padding: 1px 7px; margin-left: 6px; vertical-align: 1px; }
+.hx-opt { font-size: 10.5px; font-weight: 700; color: #8a8377; background: #ece8e1; border-radius: 4px; padding: 1px 7px; margin-left: 6px; vertical-align: 1px; }
 .hx-field input[type="text"], .hx-field input[type="email"], .hx-field input[type="tel"],
 .hx-field select, .hx-field textarea {
   width: 100%; font: inherit; font-size: 14px; line-height: 1.7; color: var(--ink, #2B2B2B);
@@ -603,8 +604,9 @@
           <input type="tel" name="電話番号" placeholder="例：090-0000-0000">
         </div>
         <div class="hx-field">
-          <label>メールアドレス <span class="hx-req">必須</span></label>
+          <label>メールアドレス <span class="hx-opt">任意</span></label>
           <input type="email" name="email" placeholder="例：info@example.com">
+          <p class="hx-hint">領収書のメール送付をご希望の場合にご記入ください（LINEでの連絡でよければ空欄でOK）。</p>
         </div>
         <div class="hx-field">
           <label>請求書の受け取り方法</label>
@@ -1017,7 +1019,7 @@ const PAY_URL_BASE = "https://komiyohou-server.onrender.com";
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     err.textContent = "";
-    var required = [["店名", "店名"], ["業態", "業態"], ["席数", "席数"], ["所在地", "所在地"], ["営業時間", "営業時間"], ["定休日", "定休日"], ["配信先", "配信を受け取る方"], ["担当者名", "ご担当者名"], ["電話番号", "お電話番号"], ["email", "メールアドレス"]];
+    var required = [["店名", "店名"], ["業態", "業態"], ["席数", "席数"], ["所在地", "所在地"], ["営業時間", "営業時間"], ["定休日", "定休日"], ["配信先", "配信を受け取る方"], ["担当者名", "ご担当者名"], ["電話番号", "お電話番号"]];
     for (var i = 0; i < required.length; i++) {
       var el = form.elements[required[i][0]];
       if (el && !el.value.trim()) {
@@ -1029,7 +1031,7 @@ const PAY_URL_BASE = "https://komiyohou-server.onrender.com";
       }
     }
     var emailEl = form.elements["email"];
-    if (emailEl && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
+    if (emailEl && emailEl.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
       err.textContent = "メールアドレスの形式が正しくないようです（例：info@example.com）。";
       var esec = emailEl.closest(".hx-sec");
       if (esec) esec.scrollIntoView({ behavior: "smooth", block: "center" });
