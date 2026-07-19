@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SBC6NKFKL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SBC6NKFKL');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
@@ -988,6 +996,7 @@ const PAY_URL_BASE = "https://komiyohou-server.onrender.com";
         var mail = results[0];
         var api = results[1];
         if (mail && mail.success) {
+          if (typeof gtag === "function") gtag("event", "hearing_form_submit", { provisioned: !!(api && api.provisioned) });
           form.style.display = "none";
           if (api && api.provisioned && api.owner_code && LINE_URL) {
             codeEl.textContent = api.owner_code;

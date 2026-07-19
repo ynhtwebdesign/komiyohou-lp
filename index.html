@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SBC6NKFKL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SBC6NKFKL');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>コミヨホウ｜明日の仕込み、コミヨホウに聞いてからにしませんか。</title>
@@ -355,6 +363,28 @@ const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
 }), { threshold: 0.15 });
 document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+// ===== GA4イベント計測 =====
+function hxTrack(name, params) {
+  if (typeof gtag === "function") gtag("event", name, params || {});
+}
+function hxSection(el) {
+  const box = el.closest("section, header, footer, .sticky-cta");
+  if (!box) return "other";
+  return (box.className && box.className.split(" ")[0]) || box.tagName.toLowerCase();
+}
+// からくり資料ダウンロード
+document.querySelectorAll('a[href="komiyohou_karakuri.pdf"]').forEach(a => {
+  a.addEventListener("click", () => hxTrack("karakuri_pdf_download", { link_section: hxSection(a) }));
+});
+// Web初期登録フォームへの遷移
+document.querySelectorAll('a[href="hearing.html"]').forEach(a => {
+  a.addEventListener("click", () => hxTrack("go_hearing_form", { link_section: hxSection(a) }));
+});
+// メール質問リンク
+document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
+  a.addEventListener("click", () => hxTrack("mail_link_click", { link_section: hxSection(a) }));
+});
 </script>
 </body>
 </html>
