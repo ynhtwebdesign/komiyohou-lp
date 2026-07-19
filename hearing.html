@@ -1007,15 +1007,23 @@ const PAY_URL_BASE = "https://komiyohou-server.onrender.com";
     btn.disabled = true;
     btn.textContent = "送信しています…";
     var data = new FormData(form);
+    var payload = formToJSON(data);
 
-    var tasks = [fetch("https://api.web3forms.com/submit", { method: "POST", body: data }).then(function (res) { return res.json(); })];
+    // web3forms へは JSON で送る。multipart(FormData)で送ると、日本語のフィールド名(店名・業態など)が
+    // 通知メールのラベルとして文字化けする(値は本文なので正常に出るが、ラベルだけ Ã°—å のように化ける)。
+    // JSON なら本文全体が UTF-8 として解釈され、ラベルも日本語で正しく表示される。
+    var tasks = [fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload),
+    }).then(function (res) { return res.json(); })];
     if (HEARING_API_URL) {
       // お店ごとのフォルダへの保存・自動登録はベストエフォート。ここで失敗してもメール通知が届けば申請自体は成立させる。
       tasks.push(
         fetch(HEARING_API_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formToJSON(data)),
+          body: JSON.stringify(payload),
         }).then(function (res) { return res.json(); }).catch(function () { return null; })
       );
     }
