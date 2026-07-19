@@ -530,10 +530,17 @@
       <h2>6. LINEとスタッフ委任</h2>
       <p class="hx-why">毎夕の配信先と、仕入れリストをスタッフに送る機能（希望制）の設定に使います。</p>
       <div class="hx-row">
-        <div class="hx-field">
+        <div class="hx-field wide">
           <label>毎夕の配信を受け取る方 <span class="hx-req">必須</span></label>
-          <input type="text" name="配信先" placeholder="例：店主本人／店主と奥様の2人">
-          <p class="hx-hint">LINEの友だち追加は設定時にご一緒に行います。IDの記入は不要です。</p>
+          <div class="hx-chip-group" data-chip-group data-target="配信先" id="deliverToChips">
+            <button type="button" class="hx-chip" data-value="店主本人">店主本人</button>
+            <button type="button" class="hx-chip" data-value="店主とご家族（奥様など）">店主とご家族（奥様など）</button>
+            <button type="button" class="hx-chip" data-value="店主＋スタッフ">店主＋スタッフ</button>
+            <button type="button" class="hx-chip" data-value="その他">その他</button>
+          </div>
+          <input type="text" id="deliverToOther" class="hx-other-input" placeholder="例：店長と副店長の2人" style="margin-top:8px;display:none;">
+          <p class="hx-hint">受け取る方のLINE友だち追加は、設定時にご一緒に行います。IDの記入は不要です。</p>
+          <input type="hidden" name="配信先">
         </div>
         <div class="hx-field wide">
           <label>「明日の仕込みメモ」が届く時間</label>
@@ -596,7 +603,7 @@
           <input type="tel" name="電話番号" placeholder="例：090-0000-0000">
         </div>
         <div class="hx-field">
-          <label>メールアドレス</label>
+          <label>メールアドレス <span class="hx-req">必須</span></label>
           <input type="email" name="email" placeholder="例：info@example.com">
         </div>
         <div class="hx-field">
@@ -692,6 +699,23 @@
     }
     bizChips.addEventListener("hxchange", refreshBiz);
     bizOther.addEventListener("input", refreshBiz);
+  }
+
+  // ---- 配信先「その他」の自由記入欄 ----
+  var deliverChips = document.getElementById("deliverToChips");
+  var deliverOther = document.getElementById("deliverToOther");
+  var deliverHidden = document.querySelector('input[name="配信先"]');
+  if (deliverChips && deliverOther && deliverHidden) {
+    function refreshDeliver() {
+      var otherBtn = deliverChips.querySelector('.hx-chip[data-value="その他"]');
+      var active = !!(otherBtn && otherBtn.classList.contains("is-active"));
+      deliverOther.style.display = active ? "block" : "none";
+      if (active) {
+        deliverHidden.value = deliverOther.value.trim() ? "その他：" + deliverOther.value.trim() : "その他";
+      }
+    }
+    deliverChips.addEventListener("hxchange", refreshDeliver);
+    deliverOther.addEventListener("input", refreshDeliver);
   }
 
   // ---- 席数（カウンター／テーブルのステッパー） ----
@@ -993,7 +1017,7 @@ const PAY_URL_BASE = "https://komiyohou-server.onrender.com";
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     err.textContent = "";
-    var required = [["店名", "店名"], ["業態", "業態"], ["席数", "席数"], ["所在地", "所在地"], ["営業時間", "営業時間"], ["定休日", "定休日"], ["配信先", "配信を受け取る方"], ["担当者名", "ご担当者名"], ["電話番号", "お電話番号"]];
+    var required = [["店名", "店名"], ["業態", "業態"], ["席数", "席数"], ["所在地", "所在地"], ["営業時間", "営業時間"], ["定休日", "定休日"], ["配信先", "配信を受け取る方"], ["担当者名", "ご担当者名"], ["電話番号", "お電話番号"], ["email", "メールアドレス"]];
     for (var i = 0; i < required.length; i++) {
       var el = form.elements[required[i][0]];
       if (el && !el.value.trim()) {
@@ -1003,6 +1027,14 @@ const PAY_URL_BASE = "https://komiyohou-server.onrender.com";
         if (typeof el.focus === "function") el.focus();
         return;
       }
+    }
+    var emailEl = form.elements["email"];
+    if (emailEl && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
+      err.textContent = "メールアドレスの形式が正しくないようです（例：info@example.com）。";
+      var esec = emailEl.closest(".hx-sec");
+      if (esec) esec.scrollIntoView({ behavior: "smooth", block: "center" });
+      emailEl.focus();
+      return;
     }
     btn.disabled = true;
     btn.textContent = "送信しています…";
