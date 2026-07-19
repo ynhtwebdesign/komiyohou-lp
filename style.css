@@ -56,7 +56,24 @@ section { padding: 96px 0; }
 .fv .lead { font-size: clamp(15px, 2vw, 18px); margin-bottom: 36px; text-shadow: 0 1px 12px rgba(0,0,0,.5); }
 .fv .micro { color: rgba(255,255,255,.85); }
 
-/* ---- 2. 問題提起 ---- */
+/* ---- FVメリットチップ ---- */
+.fv-merits { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
+.fv-merits li { background: rgba(255,255,255,.14); border: 1.5px solid rgba(255,255,255,.5); backdrop-filter: blur(3px); border-radius: 999px; padding: 8px 20px; font-weight: 700; font-size: 15px; }
+.fv-merits li::before { content: "✓ "; color: #7ee2a8; font-weight: 900; }
+
+/* ---- 2. 導入メリット ---- */
+.merit { background: #fff; }
+.mgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 44px; margin-bottom: 40px; }
+.mcard { background: var(--bg); border-radius: 18px; padding: 30px 28px 26px; display: flex; flex-direction: column; }
+.mcard .mnum { font-family: var(--serif); font-weight: 900; font-size: 13px; color: var(--accent); letter-spacing: .18em; display: block; margin-bottom: 8px; }
+.mcard h3 { font-size: clamp(19px, 2.6vw, 23px); margin-bottom: 10px; }
+.mcard p { margin: 0 0 14px; font-size: 14.5px; color: var(--sub); line-height: 2; }
+.mcard .mhow { margin-top: auto; margin-bottom: 0; padding: 10px 14px; font-size: 12.5px; background: #fff; border-radius: 10px; line-height: 1.8; }
+.merit-close { font-family: var(--serif); font-size: clamp(17px, 2.6vw, 22px); font-weight: 700; margin-bottom: 8px; }
+.merit-cta { text-align: center; margin-top: 28px; }
+@media (max-width: 860px) { .mgrid { grid-template-columns: 1fr; gap: 16px; } }
+
+/* ---- 3. 問題提起 ---- */
 .problem { background: var(--dark); color: #f2ede4; }
 .problem h2 { color: #fff; }
 .problem strong { color: #ffb26b; }

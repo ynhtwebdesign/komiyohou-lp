@@ -41,6 +41,16 @@
 .hx-menu-table th { background: var(--bg, #F7F4EE); font-size: 12.5px; white-space: nowrap; }
 .hx-menu-table input, .hx-menu-table select { width: 100%; font: inherit; font-size: 13.5px; border: none; background: transparent; padding: 4px 2px; }
 .hx-menu-table input:focus, .hx-menu-table select:focus { outline: 2px solid var(--accent, #E8863C); border-radius: 4px; }
+.hx-menu-mode { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+.hx-mode-card { font: inherit; text-align: left; background: var(--bg, #F7F4EE); border: 2px solid rgba(43,43,43,.15); border-radius: 12px; padding: 14px 16px; cursor: pointer; transition: border-color .15s, box-shadow .15s; }
+.hx-mode-card:hover { border-color: var(--accent, #E8863C); }
+.hx-mode-card.is-active { border-color: var(--accent, #E8863C); background: #fff; box-shadow: 0 4px 14px rgba(232,134,60,.18); }
+.hx-mode-emoji { font-size: 22px; display: block; margin-bottom: 4px; }
+.hx-mode-title { display: block; font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+.hx-mode-badge { font-size: 10.5px; color: #fff; background: var(--accent, #E8863C); border-radius: 4px; padding: 1px 7px; margin-left: 8px; vertical-align: 1px; }
+.hx-mode-desc { display: block; font-size: 12px; color: var(--sub, #5d574e); line-height: 1.7; }
+.hx-photo-note { background: var(--bg, #F7F4EE); border-radius: 10px; padding: 14px 16px; font-size: 13px; line-height: 1.9; }
+.hx-menu-extra.is-hidden { display: none; }
 .hx-submit-wrap { text-align: center; margin-top: 30px; }
 .hx-submit { font: inherit; font-weight: 700; font-size: 16px; color: #fff; background: var(--accent, #E8863C); border: none; border-radius: 999px; padding: 15px 52px; cursor: pointer; box-shadow: 0 8px 24px rgba(232,134,60,.4); }
 .hx-submit:hover { opacity: .9; }
@@ -110,6 +120,7 @@
 @media (max-width: 640px) {
   .hx-row { grid-template-columns: 1fr; }
   .hx-sec { padding: 22px 18px 18px; }
+  .hx-menu-mode { grid-template-columns: 1fr; }
   .hx-menu-table th:nth-child(1) { width: 34%; }
   .hx-seat-group { gap: 20px; }
 }
@@ -131,6 +142,11 @@
   .hx-menu-table th, .hx-menu-table td { padding: 3px 6px; }
   .hx-menu-table td { height: 22px; }
   .hx-req { border: 1px solid var(--accent, #E8863C); color: var(--accent, #E8863C); background: #fff; }
+  /* 紙で聞き取る場合は表をフルで印刷する */
+  .hx-menu-mode, .hx-photo-note { display: none; }
+  #menuTableWrap { display: block !important; }
+  tr.hx-menu-extra.is-hidden { display: table-row; }
+  #menuAddRow { display: none; }
 }
 </style>
 </head>
@@ -334,7 +350,25 @@
     <!-- 3. 主力メニュー -->
     <section class="hx-sec">
       <h2>3. 主力メニューと普段の仕込み量</h2>
-      <p class="hx-why">仕込みアドバイスの対象にするメニューです。よく仕込む5〜8品で十分です（あとから追加・変更できます）。メニュー表と納品書の写真を撮らせていただける場合は、この表は空欄でも構いません。</p>
+      <p class="hx-why">仕込みアドバイスの対象にするメニューです。<strong>おすすめは「写真で送る」——この場での入力は不要です。</strong>対象はよく仕込む5〜8品で十分です（あとから追加・変更できます）。</p>
+      <div class="hx-menu-mode" id="menuMode">
+        <button type="button" class="hx-mode-card is-active" data-value="写真で送る">
+          <span class="hx-mode-emoji">📷</span>
+          <span class="hx-mode-title">写真で送る<span class="hx-mode-badge">おすすめ・入力不要</span></span>
+          <span class="hx-mode-desc">フォーム送信後、LINEにメニュー表の写真（あれば納品書も）を送るだけ。メニューの登録はこちらで代行します。</span>
+        </button>
+        <button type="button" class="hx-mode-card" data-value="この場で入力する">
+          <span class="hx-mode-emoji">✏️</span>
+          <span class="hx-mode-title">この場で入力する</span>
+          <span class="hx-mode-desc">写真を送るのが難しい場合は、表にご記入ください。分類・単位は空欄でも構いません。</span>
+        </button>
+      </div>
+      <input type="hidden" name="メニュー登録方法" value="写真で送る">
+      <div class="hx-photo-note" id="menuPhotoNote">
+        📷 この項目はこれで完了です。そのまま次へお進みください。<br>
+        フォーム送信後にLINEの友だち追加をご案内します。そのトークに<strong>メニュー表の写真</strong>（あれば<strong>納品書の写真</strong>も）を送っていただければ、こちらで登録して配信に反映します。
+      </div>
+      <div id="menuTableWrap" style="display:none;">
       <table class="hx-menu-table">
         <thead>
           <tr><th>メニュー名</th><th>分類</th><th>普段の仕込み量</th><th>単位</th></tr>
@@ -343,59 +377,61 @@
           <tr>
             <td><input type="text" name="メニュー1_名前" placeholder="例：もつ煮込み"></td>
             <td><select name="メニュー1_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
-            <td><input type="text" name="メニュー1_量" placeholder="例：20"></td>
-            <td><input type="text" name="メニュー1_単位" placeholder="例：食"></td>
+            <td><input type="text" inputmode="decimal" name="メニュー1_量" placeholder="例：20"></td>
+            <td><select name="メニュー1_単位"><option value="">例：食</option><option>食</option><option>人前</option><option>個</option><option>本</option><option>杯</option><option>皿</option><option>kg</option><option>その他</option></select></td>
           </tr>
           <tr>
             <td><input type="text" name="メニュー2_名前"></td>
             <td><select name="メニュー2_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
-            <td><input type="text" name="メニュー2_量"></td>
-            <td><input type="text" name="メニュー2_単位"></td>
+            <td><input type="text" inputmode="decimal" name="メニュー2_量"></td>
+            <td><select name="メニュー2_単位"><option value=""></option><option>食</option><option>人前</option><option>個</option><option>本</option><option>杯</option><option>皿</option><option>kg</option><option>その他</option></select></td>
           </tr>
           <tr>
             <td><input type="text" name="メニュー3_名前"></td>
             <td><select name="メニュー3_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
-            <td><input type="text" name="メニュー3_量"></td>
-            <td><input type="text" name="メニュー3_単位"></td>
+            <td><input type="text" inputmode="decimal" name="メニュー3_量"></td>
+            <td><select name="メニュー3_単位"><option value=""></option><option>食</option><option>人前</option><option>個</option><option>本</option><option>杯</option><option>皿</option><option>kg</option><option>その他</option></select></td>
           </tr>
-          <tr>
+          <tr class="hx-menu-extra is-hidden">
             <td><input type="text" name="メニュー4_名前"></td>
             <td><select name="メニュー4_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
-            <td><input type="text" name="メニュー4_量"></td>
-            <td><input type="text" name="メニュー4_単位"></td>
+            <td><input type="text" inputmode="decimal" name="メニュー4_量"></td>
+            <td><select name="メニュー4_単位"><option value=""></option><option>食</option><option>人前</option><option>個</option><option>本</option><option>杯</option><option>皿</option><option>kg</option><option>その他</option></select></td>
           </tr>
-          <tr>
+          <tr class="hx-menu-extra is-hidden">
             <td><input type="text" name="メニュー5_名前"></td>
             <td><select name="メニュー5_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
-            <td><input type="text" name="メニュー5_量"></td>
-            <td><input type="text" name="メニュー5_単位"></td>
+            <td><input type="text" inputmode="decimal" name="メニュー5_量"></td>
+            <td><select name="メニュー5_単位"><option value=""></option><option>食</option><option>人前</option><option>個</option><option>本</option><option>杯</option><option>皿</option><option>kg</option><option>その他</option></select></td>
           </tr>
-          <tr>
+          <tr class="hx-menu-extra is-hidden">
             <td><input type="text" name="メニュー6_名前"></td>
             <td><select name="メニュー6_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
-            <td><input type="text" name="メニュー6_量"></td>
-            <td><input type="text" name="メニュー6_単位"></td>
+            <td><input type="text" inputmode="decimal" name="メニュー6_量"></td>
+            <td><select name="メニュー6_単位"><option value=""></option><option>食</option><option>人前</option><option>個</option><option>本</option><option>杯</option><option>皿</option><option>kg</option><option>その他</option></select></td>
           </tr>
-          <tr>
+          <tr class="hx-menu-extra is-hidden">
             <td><input type="text" name="メニュー7_名前"></td>
             <td><select name="メニュー7_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
-            <td><input type="text" name="メニュー7_量"></td>
-            <td><input type="text" name="メニュー7_単位"></td>
+            <td><input type="text" inputmode="decimal" name="メニュー7_量"></td>
+            <td><select name="メニュー7_単位"><option value=""></option><option>食</option><option>人前</option><option>個</option><option>本</option><option>杯</option><option>皿</option><option>kg</option><option>その他</option></select></td>
           </tr>
-          <tr>
+          <tr class="hx-menu-extra is-hidden">
             <td><input type="text" name="メニュー8_名前"></td>
             <td><select name="メニュー8_分類"><option value=""></option><option>煮込み・鍋</option><option>揚げ物</option><option>刺身・生もの</option><option>焼き物</option><option>麺・ご飯もの</option><option>サラダ・冷菜</option><option>デザート</option><option>ドリンク</option><option>その他</option></select></td>
-            <td><input type="text" name="メニュー8_量"></td>
-            <td><input type="text" name="メニュー8_単位"></td>
+            <td><input type="text" inputmode="decimal" name="メニュー8_量"></td>
+            <td><select name="メニュー8_単位"><option value=""></option><option>食</option><option>人前</option><option>個</option><option>本</option><option>杯</option><option>皿</option><option>kg</option><option>その他</option></select></td>
           </tr>
         </tbody>
       </table>
+      <button type="button" class="hx-chip" id="menuAddRow" style="margin-top:10px;">＋ 行を追加（あと5行）</button>
       <div class="hx-field wide" style="margin-top:14px;">
-        <label>メニュー表・納品書の写真</label>
+        <label>あわせて写真も送れる場合はチェック</label>
         <div class="hx-checks">
           <label><input type="checkbox" name="写真提供" value="メニュー表の写真をLINEで送れる">メニュー表の写真をLINEで送れる</label>
           <label><input type="checkbox" name="写真提供" value="納品書の写真をLINEで送れる">納品書の写真をLINEで送れる</label>
         </div>
+      </div>
       </div>
     </section>
 
@@ -575,6 +611,7 @@
       </div>
       <ol class="hx-auto-steps">
         <li><strong>①配信の開始</strong>：下のボタンからLINE公式アカウントを友だち追加し、トーク画面に上のコードをそのまま送信</li>
+        <li>「写真で送る」を選んだ方は、同じトークに<strong>メニュー表の写真</strong>（あれば納品書の写真も）をお送りください</li>
         <li>その日の夕方から「明日の仕込みメモ」が届きます</li>
         <li><strong>②お支払い登録</strong>：もう1つのボタンからカードを登録。<strong>初期設定費33,000円(税込)</strong>はご登録時に、<strong>月額5,500円(税込)</strong>は翌月分から自動でお支払いされ、領収書はメールに自動で届きます（解約はいつでも違約金なし。LINEで「解約」と送るだけです）</li>
       </ol>
@@ -827,6 +864,38 @@
         });
       });
     });
+  })();
+
+  // ---- 主力メニュー：写真で送る／この場で入力 ----
+  (function () {
+    var mode = document.getElementById("menuMode");
+    var hidden = document.querySelector('input[name="メニュー登録方法"]');
+    var photoNote = document.getElementById("menuPhotoNote");
+    var tableWrap = document.getElementById("menuTableWrap");
+    if (!mode || !hidden || !photoNote || !tableWrap) return;
+    mode.querySelectorAll(".hx-mode-card").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        mode.querySelectorAll(".hx-mode-card").forEach(function (b) { b.classList.remove("is-active"); });
+        btn.classList.add("is-active");
+        hidden.value = btn.dataset.value;
+        var manual = btn.dataset.value === "この場で入力する";
+        photoNote.style.display = manual ? "none" : "block";
+        tableWrap.style.display = manual ? "block" : "none";
+      });
+    });
+    var addBtn = document.getElementById("menuAddRow");
+    if (addBtn) {
+      addBtn.addEventListener("click", function () {
+        var next = document.querySelector("tr.hx-menu-extra.is-hidden");
+        if (next) next.classList.remove("is-hidden");
+        var rest = document.querySelectorAll("tr.hx-menu-extra.is-hidden").length;
+        if (rest > 0) {
+          addBtn.textContent = "＋ 行を追加（あと" + rest + "行）";
+        } else {
+          addBtn.style.display = "none";
+        }
+      });
+    }
   })();
 
   // ---- 配信時間（未選択時は17時のまま） ----
