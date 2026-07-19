@@ -553,6 +553,18 @@
           <p class="hx-hint">忙しい時間帯と重ならない時間を選んでください。あとからLINEで「配信時間 19」のように送れば、いつでも変更できます。特に希望がなければ17時のままで大丈夫です。</p>
           <input type="hidden" name="配信時間" value="17">
         </div>
+        <div class="hx-field wide">
+          <label>暇な日に使ってよい「販促カード」（任意・複数OK）</label>
+          <div class="hx-chip-group" data-chip-group data-multi data-sep="、" data-target="販促カード" id="promoChips">
+            <button type="button" class="hx-chip" data-value="お会計10%オフ">お会計10%オフ</button>
+            <button type="button" class="hx-chip" data-value="ドリンク1杯サービス">ドリンク1杯サービス</button>
+            <button type="button" class="hx-chip" data-value="小鉢1品サービス">小鉢1品サービス</button>
+            <button type="button" class="hx-chip" data-value="デザートサービス">デザートサービス</button>
+          </div>
+          <input type="text" id="promoOther" class="hx-other-input" placeholder="その他（例：焼き鳥1本サービス）" style="margin-top:8px;">
+          <p class="hx-hint">来店が少なそうな日に、AIがSNS用の集客文を自動で作ります。ここで許可した販促だけを「明日限定」の形で織り込みます（乱発はしません）。<b>許可していない値引きをAIが勝手に約束することはありません。</b>使わない場合は未選択のままでOK。あとからLINEで「販促 10%オフ」「販促なし」と送れば、いつでも変更できます。</p>
+          <input type="hidden" name="販促カード">
+        </div>
         <div class="hx-field">
           <label>仕入れリストをスタッフにも送りますか？</label>
           <div class="hx-chip-group" data-chip-group data-target="スタッフ委任">
@@ -922,6 +934,23 @@
     });
     var def = group.querySelector('.hx-chip[data-value="17"]');
     if (def) select(def);
+  })();
+
+  // ---- 販促カード（チップ複数選択＋自由記入を「、」で合成） ----
+  (function () {
+    var group = document.getElementById("promoChips");
+    var other = document.getElementById("promoOther");
+    var hidden = document.querySelector('input[name="販促カード"]');
+    if (!group || !hidden) return;
+    function rebuild() {
+      var vals = [];
+      group.querySelectorAll(".hx-chip.is-active").forEach(function (b) { vals.push(b.dataset.value); });
+      if (other && other.value.trim()) vals.push(other.value.trim());
+      hidden.value = vals.join("、");
+    }
+    // 汎用チップ処理(is-activeの切替)が済んだ後に、自由記入も含めて上書きする
+    group.addEventListener("click", function () { setTimeout(rebuild, 0); });
+    if (other) other.addEventListener("input", rebuild);
   })();
 })();
 </script>
