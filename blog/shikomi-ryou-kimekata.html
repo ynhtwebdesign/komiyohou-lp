@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SBC6NKFKL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SBC6NKFKL');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://komiyohou-lp.vercel.app/blog/shikomi-ryou-kimekata.html">
+<title>飲食店の仕込み量の決め方｜「勘」を数字に変える5つのステップ</title>
+<meta name="description" content="仕込みすぎて捨てる、足りなくて売り逃す。個人店の仕込み量を、特別な機械もPOSレジも使わずに決める方法を5ステップで解説します。ノート1冊から始められる、実際の計算例つき。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .art { max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+  .art-head { padding: 44px 0 28px; border-bottom: 1px solid #ddd5c8; margin-bottom: 40px; }
+  .crumb { font-size: 13px; color: var(--sub); margin-bottom: 20px; }
+  .crumb a { color: var(--sub); }
+  .art h1 { font-size: clamp(25px, 5vw, 36px); line-height: 1.55; margin-bottom: 18px; }
+  .lede { color: var(--sub); font-size: 15px; }
+  .art h2 { font-size: clamp(21px, 3.6vw, 27px); margin: 56px 0 20px; padding-left: 14px;
+            border-left: 5px solid var(--accent); line-height: 1.5; }
+  .art h3 { font-size: 18px; margin: 32px 0 12px; }
+  .art p { margin-bottom: 20px; }
+  .art ul, .art ol { margin: 0 0 22px 1.4em; }
+  .art li { margin-bottom: 9px; }
+  .box { background: #fff; border-radius: 12px; padding: 22px 24px; margin: 26px 0;
+         box-shadow: 0 1px 3px rgba(34,30,26,.07); }
+  .box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
+  .box-t { font-family: var(--serif); font-weight: 700; font-size: 17px; margin-bottom: 12px; }
+  .calc { background: #FBEFE2; border-radius: 12px; padding: 20px 24px; margin: 24px 0;
+          font-size: 15px; line-height: 2.1; }
+  .calc b { font-size: 17px; }
+  .tblwrap { overflow-x: auto; margin: 24px 0; }
+  .art table { width: 100%; border-collapse: collapse; font-size: 15px; background: #fff; border-radius: 10px; overflow: hidden; }
+  .art th, .art td { padding: 12px 14px; border-bottom: 1px solid #f2ede4; text-align: left; }
+  .art th { background: #f3f0ea; font-weight: 700; font-size: 14px; white-space: nowrap; }
+  .art td.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .art tr:last-child td { border-bottom: none; }
+  .ng { color: var(--demerit); font-weight: 700; }
+  .ok { color: var(--merit); font-weight: 700; }
+  .end { background: var(--dark); color: #F7F4EE; border-radius: 14px; padding: 30px 26px; margin: 60px 0 0; }
+  .end .box-t { color: #fff; font-size: 19px; }
+  .end p { color: rgba(247,244,238,.82); font-size: 15px; }
+  .end a.btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+               padding: 14px 26px; border-radius: 10px; font-weight: 700; margin-top: 8px; }
+  .backlink { margin-top: 44px; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<article class="art">
+
+  <div class="art-head">
+    <p class="crumb"><a href="../">コミヨホウ</a> ／ 記事</p>
+    <h1>飲食店の仕込み量の決め方<br>「勘」を数字に変える5つのステップ</h1>
+    <p class="lede">仕込みすぎて捨てる日と、足りなくて断る日。どちらも同じくらい痛い損失です。特別な機械もPOSレジも使わず、ノート1冊から始められる決め方をまとめました。実際の計算例つきです。</p>
+  </div>
+
+  <p>「明日、どれくらい仕込めばいいのか」。毎日この判断をしているのに、教わる機会はほとんどありません。多くのお店が、長年の経験と勘でなんとかしています。</p>
+
+  <p>勘は決して悪いものではありません。何年も店に立った人の勘は、かなり当たります。ただ、勘には弱点があります。<strong>外れた日の記憶が残らない</strong>ことです。</p>
+
+  <p>捨てた日のことは覚えていても、「先月の火曜は何食出たか」は思い出せない。だから同じ失敗が繰り返されます。この記事では、その勘を裏付ける数字の作り方を説明します。</p>
+
+  <h2>そもそも、なぜ外れるのか</h2>
+
+  <p>客足は、いくつもの要因が重なって決まります。よく効くのは次のようなものです。</p>
+
+  <ul>
+    <li><strong>曜日</strong>……金曜と火曜では、そもそも土台が違う</li>
+    <li><strong>天気</strong>……とくに雨と、夏の猛暑・冬の寒波</li>
+    <li><strong>近所の行事</strong>……お祭り、学校行事、近隣企業の繁忙期</li>
+    <li><strong>給料日前後</strong>……25日以降と、月末の落ち込み</li>
+    <li><strong>連休の位置</strong>……前日か、中日か、最終日か</li>
+  </ul>
+
+  <p>頭の中で全部を同時に処理するのは、無理があります。だから「なんとなく多めに」となり、余ります。</p>
+
+  <p>逆に言えば、<strong>要因を1つずつ数字にして、順番に掛けていけばいい</strong>ということです。</p>
+
+  <h2>ステップ1｜まず客数だけを記録する</h2>
+
+  <p>最初にやることは1つだけです。<strong>閉店後に、その日の客数をメモする。</strong></p>
+
+  <p>売上ではなく客数です。売上は単価に左右されますが、仕込み量に効くのは「何人来たか」だからです。</p>
+
+  <div class="box">
+    <p class="box-t">記録するのは4つだけ</p>
+    <ul>
+      <li>日付と曜日</li>
+      <li>客数</li>
+      <li>天気（晴・曇・雨・雪の4つで十分）</li>
+      <li>特記事項（お祭り、近所の工事、貸切など。無ければ空欄）</li>
+    </ul>
+  </div>
+
+  <p>凝ったフォーマットは要りません。続かなくなります。ノートに1行、レジ横のカレンダーの余白でも構いません。<strong>1日15秒で終わる形にすること</strong>が何より大事です。</p>
+
+  <p>目安として、<strong>1ヶ月分たまると曜日ごとの傾向が見え始め、3ヶ月で天気の影響まで読めるように</strong>なります。</p>
+
+  <h2>ステップ2｜曜日ごとの平均を出す</h2>
+
+  <p>1ヶ月ぶんたまったら、曜日ごとに平均を出します。電卓で足して割るだけです。</p>
+
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>曜日</th><th class="n">1回目</th><th class="n">2回目</th><th class="n">3回目</th><th class="n">4回目</th><th class="n">平均</th></tr></thead>
+      <tbody>
+        <tr><td>火曜</td><td class="n">18</td><td class="n">22</td><td class="n">16</td><td class="n">20</td><td class="n"><b>19</b></td></tr>
+        <tr><td>水曜</td><td class="n">24</td><td class="n">21</td><td class="n">26</td><td class="n">25</td><td class="n"><b>24</b></td></tr>
+        <tr><td>金曜</td><td class="n">38</td><td class="n">42</td><td class="n">35</td><td class="n">41</td><td class="n"><b>39</b></td></tr>
+        <tr><td>土曜</td><td class="n">44</td><td class="n">40</td><td class="n">47</td><td class="n">45</td><td class="n"><b>44</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>これが<strong>土台の数字</strong>です。「金曜は39人前後」と分かっているだけで、仕込みの精度はかなり上がります。</p>
+
+  <p>ここで多くの人が驚くのは、<strong>思っていた数字とズレている</strong>ことです。「うちは水曜が暇」と思っていたら実は火曜の方が少なかった、というのはよくある話です。記憶は、印象の強い日に引っぱられます。</p>
+
+  <h2>ステップ3｜天気で補正する</h2>
+
+  <p>次に、天気による増減を出します。同じ曜日で、晴れの日と雨の日を比べるだけです。</p>
+
+  <div class="calc">
+    金曜・晴れの平均 <b>42人</b>　／　金曜・雨の平均 <b>31人</b><br>
+    → 31 ÷ 42 ＝ <b>0.74</b>　（雨の日は<span class="ng">およそ26%減</span>）
+  </div>
+
+  <p>この「0.74」が<strong>雨の日係数</strong>です。天気予報が雨なら、土台の数字にこれを掛けます。</p>
+
+  <p>雨の影響はお店によってかなり違います。駅前で傘をさして歩ける立地なら1割減で済みますが、駐車場から入口まで濡れるお店だと4割落ちることもあります。<strong>他店の一般論ではなく、自分の店の数字を使う</strong>のが肝心です。</p>
+
+  <div class="box">
+    <p class="box-t">雨以外で係数を作る価値があるもの</p>
+    <ul>
+      <li><strong>猛暑日</strong>（35℃以上）……ランチは減り、夜は増える店が多い</li>
+      <li><strong>雪</strong>……北陸では影響が大きく、平日夜は半減することも</li>
+      <li><strong>月末</strong>……給料日前で財布が締まる</li>
+    </ul>
+  </div>
+
+  <h2>ステップ4｜特異日に印をつける</h2>
+
+  <p>平均から大きく外れた日には、必ず理由があります。記録を見返して、外れた日に理由を書き足してください。</p>
+
+  <ul>
+    <li>近所の小中学校の運動会・文化祭</li>
+    <li>地域のお祭り、花火大会</li>
+    <li>近隣企業の歓送迎会シーズン（3月・4月・12月）</li>
+    <li>大型連休の中日（意外と落ちる店が多い）</li>
+  </ul>
+
+  <p>これが翌年そのまま使えます。<strong>1年続けると、来年の同じ時期の予測材料になる</strong>のが、記録の一番大きな見返りです。</p>
+
+  <h2>ステップ5｜メニュー別の出数比率を掛ける</h2>
+
+  <p>ここまでで「明日は何人来そうか」が出ました。最後に、それを<strong>食材の量</strong>に変換します。</p>
+
+  <p>過去の伝票から、看板メニューが客数の何割に出ているかを数えます。</p>
+
+  <div class="calc">
+    明日の予測客数 <b>39人</b>（金曜）× 天気補正 <b>0.74</b>（雨）＝ <b>約29人</b><br>
+    29人 × 名物メニューの出数比率 <b>0.6</b> ＝ <b>約17食ぶん仕込む</b>
+  </div>
+
+  <p>この計算を、日持ちしない食材の上位3〜5品目についてやれば十分です。全メニューでやろうとすると続きません。</p>
+
+  <h2>よくある3つの失敗</h2>
+
+  <h3>1. 最初から完璧にやろうとする</h3>
+  <p>項目を増やしすぎて、2週間で挫折するのが最も多いパターンです。<span class="ok">客数と天気の2つだけ</span>で始めてください。物足りないくらいがちょうどいいです。</p>
+
+  <h3>2. 平均だけを見て、ばらつきを見ない</h3>
+  <p>平均30人でも、「25〜35人」の店と「10〜50人」の店では作戦が変わります。後者なら、<strong>途中から追加で仕込める形</strong>（半仕込みで止める、冷凍を挟む）を考えた方が現実的です。</p>
+
+  <h3>3. 外れた日を放置する</h3>
+  <p>大きく外れた日こそ情報の宝です。「なぜ外れたか」を一言書くだけで、次から同じ失敗が減ります。</p>
+
+  <h2>それでも、続けるのが難しいとき</h2>
+
+  <p>ここまで読んで、正直「毎日は無理だ」と思われたかもしれません。それは自然な反応です。閉店後は疲れています。</p>
+
+  <p>実際、この方法の最大の難所は<strong>計算ではなく、記録を続けること</strong>です。1ヶ月続けば効果は出ますが、その1ヶ月が越えられません。</p>
+
+  <p>もし手作業で続けるのが難しければ、天気や地域の行事を自動で拾って計算してくれる仕組みに任せる手もあります。私たちが作っている<a href="../">コミヨホウ</a>は、まさにこの記事の計算を自動化したものです。お店でやることは1日ひとタップ、結果は毎夕LINEに1通届きます。</p>
+
+  <p>ただ、<strong>この記事の方法をノートで実践するだけでも、仕込みの精度は確実に上がります。</strong> まずは客数を記録するところから、今日の閉店後に始めてみてください。</p>
+
+  <div class="end">
+    <p class="box-t">コミヨホウについて</p>
+    <p>客足を動かす8つの要因をAIが毎日自動で集めて計算し、「明日の来店みこみ・売上みこみ・仕込みの目安」をLINEに1通お届けするサービスです。POSレジとの連携は不要。月額5,500円（税込）、解約はいつでも違約金なしです。</p>
+    <a class="btn" href="../">コミヨホウの詳細を見る →</a>
+  </div>
+
+  <p class="backlink"><a href="../">← コミヨホウ トップへ戻る</a></p>
+
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "飲食店の仕込み量の決め方｜「勘」を数字に変える5つのステップ",
+  "description": "仕込みすぎて捨てる、足りなくて売り逃す。個人店の仕込み量を、特別な機械もPOSレジも使わずに決める方法を5ステップで解説します。",
+  "inLanguage": "ja",
+  "datePublished": "2026-07-20",
+  "dateModified": "2026-07-20",
+  "mainEntityOfPage": "https://komiyohou-lp.vercel.app/blog/shikomi-ryou-kimekata.html",
+  "author": { "@type": "Organization", "name": "YNHT" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "YNHT",
+    "address": { "@type": "PostalAddress", "addressCountry": "JP", "addressRegion": "福井県", "addressLocality": "越前市" }
+  }
+}
+</script>
+
+</body>
+</html>
