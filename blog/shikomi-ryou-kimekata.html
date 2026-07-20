@@ -52,6 +52,18 @@
   .end a.btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
                padding: 14px 26px; border-radius: 10px; font-weight: 700; margin-top: 8px; }
   .backlink { margin-top: 44px; font-size: 14px; }
+
+  /* 写真と図解 */
+  figure { margin: 34px 0; }
+  figure img { width: 100%; height: auto; border-radius: 12px; display: block; }
+  figcaption { font-size: 13px; color: var(--sub); margin-top: 10px; line-height: 1.8; }
+  .hero-fig { margin: 0 0 40px; }
+  .hero-fig img { border-radius: 14px; }
+  .fig-svg { background: #fff; border-radius: 12px; padding: 22px 18px;
+             box-shadow: 0 1px 3px rgba(34,30,26,.07); }
+  .fig-svg svg { width: 100%; height: auto; display: block; }
+  .fig-t { font-family: var(--serif); font-weight: 700; font-size: 15px;
+           margin: 0 0 16px; text-align: center; color: var(--ink); }
 </style>
 </head>
 <body>
@@ -63,6 +75,10 @@
     <h1>飲食店の仕込み量の決め方<br>「勘」を数字に変える5つのステップ</h1>
     <p class="lede">仕込みすぎて捨てる日と、足りなくて断る日。どちらも同じくらい痛い損失です。特別な機械もPOSレジも使わず、ノート1冊から始められる決め方をまとめました。実際の計算例つきです。</p>
   </div>
+
+  <figure class="hero-fig">
+    <img src="../assets/web/1.jpg" alt="カウンター越しにスマートフォンを見る居酒屋の店主" width="1600" height="1030">
+  </figure>
 
   <p>「明日、どれくらい仕込めばいいのか」。毎日この判断をしているのに、教わる機会はほとんどありません。多くのお店が、長年の経験と勘でなんとかしています。</p>
 
@@ -122,11 +138,51 @@
     </table>
   </div>
 
+  <figure>
+    <div class="fig-svg">
+      <p class="fig-t">曜日ごとの平均客数（例）</p>
+      <svg viewBox="0 0 560 260" role="img" aria-label="曜日別の平均客数を示す棒グラフ。火曜19人、水曜24人、金曜39人、土曜44人。">
+        <line x1="52" y1="210" x2="540" y2="210" stroke="#ddd5c8" stroke-width="2"/>
+        <g stroke="#f2ede4" stroke-width="1">
+          <line x1="52" y1="160" x2="540" y2="160"/>
+          <line x1="52" y1="110" x2="540" y2="110"/>
+          <line x1="52" y1="60"  x2="540" y2="60"/>
+        </g>
+        <g fill="#9c9488" font-size="12" font-family="sans-serif" text-anchor="end">
+          <text x="44" y="214">0</text><text x="44" y="164">15</text>
+          <text x="44" y="114">30</text><text x="44" y="64">45</text>
+        </g>
+        <g>
+          <rect x="86"  y="147" width="72" height="63"  rx="4" fill="#d9cfbe"/>
+          <rect x="204" y="130" width="72" height="80"  rx="4" fill="#d9cfbe"/>
+          <rect x="322" y="80"  width="72" height="130" rx="4" fill="#E8863C"/>
+          <rect x="440" y="63"  width="72" height="147" rx="4" fill="#E8863C"/>
+        </g>
+        <g font-family="sans-serif" text-anchor="middle" font-weight="700">
+          <g fill="#2B2B2B" font-size="17">
+            <text x="122" y="139">19</text><text x="240" y="122">24</text>
+            <text x="358" y="72">39</text><text x="476" y="55">44</text>
+          </g>
+          <g fill="#5d574e" font-size="14" font-weight="400">
+            <text x="122" y="234">火</text><text x="240" y="234">水</text>
+            <text x="358" y="234">金</text><text x="476" y="234">土</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <figcaption>棒の高さにすると、金曜と土曜が火曜の2倍以上あることがひと目で分かります。数字を並べるだけより、感覚と結びつきやすくなります。</figcaption>
+  </figure>
+
   <p>これが<strong>土台の数字</strong>です。「金曜は39人前後」と分かっているだけで、仕込みの精度はかなり上がります。</p>
 
   <p>ここで多くの人が驚くのは、<strong>思っていた数字とズレている</strong>ことです。「うちは水曜が暇」と思っていたら実は火曜の方が少なかった、というのはよくある話です。記憶は、印象の強い日に引っぱられます。</p>
 
   <h2>ステップ3｜天気で補正する</h2>
+
+  <figure>
+    <img src="../assets/web/3.jpg" alt="雨の日の夕方、灯りのついた居酒屋と濡れた路面" width="1600" height="1030" loading="lazy">
+    <figcaption>同じ金曜でも、雨の日は客足がはっきり変わります。その「はっきり」を数字にします。</figcaption>
+  </figure>
 
   <p>次に、天気による増減を出します。同じ曜日で、晴れの日と雨の日を比べるだけです。</p>
 
@@ -134,6 +190,35 @@
     金曜・晴れの平均 <b>42人</b>　／　金曜・雨の平均 <b>31人</b><br>
     → 31 ÷ 42 ＝ <b>0.74</b>　（雨の日は<span class="ng">およそ26%減</span>）
   </div>
+
+  <figure>
+    <div class="fig-svg">
+      <p class="fig-t">「雨の日係数」の作り方</p>
+      <svg viewBox="0 0 560 220" role="img" aria-label="晴れの日42人に対し雨の日は31人。31割る42で係数0.74、およそ26パーセント減。">
+        <g text-anchor="middle" font-family="sans-serif">
+          <rect x="46" y="46" width="86" height="132" rx="6" fill="#E8863C"/>
+          <text x="89" y="36" font-size="13" fill="#5d574e">晴れの金曜</text>
+          <text x="89" y="122" font-size="24" font-weight="700" fill="#fff">42</text>
+          <text x="89" y="146" font-size="12" fill="#ffe6d0">人</text>
+
+          <rect x="176" y="80" width="86" height="98" rx="6" fill="#a9c8e8"/>
+          <text x="219" y="70" font-size="13" fill="#5d574e">雨の金曜</text>
+          <text x="219" y="140" font-size="24" font-weight="700" fill="#1c3f63">31</text>
+          <text x="219" y="162" font-size="12" fill="#3d6285">人</text>
+
+          <line x1="46" y1="178" x2="262" y2="178" stroke="#ddd5c8" stroke-width="2"/>
+
+          <text x="300" y="118" font-size="26" fill="#c3b8a5">→</text>
+
+          <rect x="330" y="58" width="196" height="104" rx="10" fill="#FBEFE2"/>
+          <text x="428" y="88" font-size="14" fill="#5d574e">31 ÷ 42 ＝</text>
+          <text x="428" y="126" font-size="34" font-weight="700" fill="#E8863C">0.74</text>
+          <text x="428" y="150" font-size="13" fill="#C0392B" font-weight="700">およそ26%減</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>この0.74を、明日の予測に掛けるだけです。難しい統計は必要ありません。</figcaption>
+  </figure>
 
   <p>この「0.74」が<strong>雨の日係数</strong>です。天気予報が雨なら、土台の数字にこれを掛けます。</p>
 
@@ -172,6 +257,53 @@
     29人 × 名物メニューの出数比率 <b>0.6</b> ＝ <b>約17食ぶん仕込む</b>
   </div>
 
+  <figure>
+    <div class="fig-svg">
+      <p class="fig-t">5ステップをつなげると、こうなります</p>
+      <svg viewBox="0 0 560 300" role="img" aria-label="金曜の平均39人に雨の係数0.74を掛けて約29人、さらに出数比率0.6を掛けて約17食という計算の流れ図。">
+        <g font-family="sans-serif">
+          <rect x="20" y="20" width="150" height="76" rx="10" fill="#f3f0ea"/>
+          <text x="95" y="46" font-size="12" fill="#5d574e" text-anchor="middle">① 曜日の平均</text>
+          <text x="95" y="78" font-size="26" font-weight="700" fill="#2B2B2B" text-anchor="middle">39<tspan font-size="13" font-weight="400">人</tspan></text>
+
+          <text x="196" y="66" font-size="20" fill="#c3b8a5" text-anchor="middle">×</text>
+
+          <rect x="222" y="20" width="150" height="76" rx="10" fill="#eaf1f8"/>
+          <text x="297" y="46" font-size="12" fill="#3d6285" text-anchor="middle">② 天気の係数</text>
+          <text x="297" y="78" font-size="26" font-weight="700" fill="#1c3f63" text-anchor="middle">0.74</text>
+
+          <text x="398" y="66" font-size="20" fill="#c3b8a5" text-anchor="middle">＝</text>
+
+          <rect x="424" y="20" width="116" height="76" rx="10" fill="#221E1A"/>
+          <text x="482" y="46" font-size="12" fill="#c3b8a5" text-anchor="middle">明日の客数</text>
+          <text x="482" y="78" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">29<tspan font-size="13" font-weight="400">人</tspan></text>
+
+          <path d="M482 104 L482 132" stroke="#c3b8a5" stroke-width="2"/>
+          <path d="M476 126 L482 136 L488 126 Z" fill="#c3b8a5"/>
+
+          <rect x="424" y="146" width="116" height="76" rx="10" fill="#221E1A"/>
+          <text x="482" y="172" font-size="12" fill="#c3b8a5" text-anchor="middle">明日の客数</text>
+          <text x="482" y="204" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">29<tspan font-size="13" font-weight="400">人</tspan></text>
+
+          <text x="398" y="192" font-size="20" fill="#c3b8a5" text-anchor="middle">×</text>
+
+          <rect x="222" y="146" width="150" height="76" rx="10" fill="#f3f0ea"/>
+          <text x="297" y="172" font-size="12" fill="#5d574e" text-anchor="middle">③ 出数の比率</text>
+          <text x="297" y="204" font-size="26" font-weight="700" fill="#2B2B2B" text-anchor="middle">0.6</text>
+
+          <text x="196" y="192" font-size="20" fill="#c3b8a5" text-anchor="middle">＝</text>
+
+          <rect x="20" y="140" width="150" height="88" rx="10" fill="#E8863C"/>
+          <text x="95" y="168" font-size="12" fill="#ffe6d0" text-anchor="middle">仕込む量</text>
+          <text x="95" y="204" font-size="32" font-weight="700" fill="#fff" text-anchor="middle">17<tspan font-size="14" font-weight="400">食</tspan></text>
+
+          <text x="280" y="266" font-size="13" fill="#5d574e" text-anchor="middle">記録さえあれば、電卓だけで出せます</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>「勘で多めに」から「39×0.74×0.6」へ。同じ判断でも、根拠が残るので次に活かせます。</figcaption>
+  </figure>
+
   <p>この計算を、日持ちしない食材の上位3〜5品目についてやれば十分です。全メニューでやろうとすると続きません。</p>
 
   <h2>よくある3つの失敗</h2>
@@ -186,6 +318,11 @@
   <p>大きく外れた日こそ情報の宝です。「なぜ外れたか」を一言書くだけで、次から同じ失敗が減ります。</p>
 
   <h2>それでも、続けるのが難しいとき</h2>
+
+  <figure>
+    <img src="../assets/web/8.jpg" alt="夕暮れの路地で、のれんを出す居酒屋の店主" width="1600" height="1030" loading="lazy">
+    <figcaption>閉店後の15秒を1ヶ月続けられるか。ここがいちばんの山場です。</figcaption>
+  </figure>
 
   <p>ここまで読んで、正直「毎日は無理だ」と思われたかもしれません。それは自然な反応です。閉店後は疲れています。</p>
 
