@@ -11,6 +11,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://komiyohou-lp.vercel.app/">
 <title>コミヨホウ｜明日の仕込み、コミヨホウに聞いてからにしませんか。</title>
 <meta name="description" content="客足を動かす8つの要因をAIが毎日自動で収集・分析し、「明日の来店みこみ・売上みこみ」を毎夕LINEにお届け。個人飲食店のための仕込み予測サービス。初期設定33,000円・月額5,500円、解約はいつでも違約金なし。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -385,6 +386,31 @@ document.querySelectorAll('a[href="hearing.html"]').forEach(a => {
 document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
   a.addEventListener("click", () => hxTrack("mail_link_click", { link_section: hxSection(a) }));
 });
+</script>
+<!-- 構造化データ：サービス内容と料金をGoogleに伝える -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "コミヨホウ",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "LINE",
+  "description": "客足を動かす8つの要因をAIが毎日自動で収集・分析し、明日の来店みこみ・売上みこみ・仕込みの目安をLINEに1通お届けする、小さな飲食店向けのサービスです。POSレジとの連携は不要で、お店の作業は1日ひとタップだけ。",
+  "url": "https://komiyohou-lp.vercel.app/",
+  "inLanguage": "ja",
+  "provider": {
+    "@type": "Organization",
+    "name": "YNHT",
+    "email": "ynht.webdesign@gmail.com",
+    "address": { "@type": "PostalAddress", "addressCountry": "JP", "addressRegion": "福井県", "addressLocality": "越前市" }
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "5500",
+    "priceCurrency": "JPY",
+    "description": "月額利用料5,500円（税込）。別途、初期設定費33,000円（税込・最初の1回のみ）。"
+  }
+}
 </script>
 </body>
 </html>
