@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://komiyohou-lp.vercel.app/</loc>
+    <loc>https://komiyohou.ynht-web.com/</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://komiyohou-lp.vercel.app/blog/shikomi-ryou-kimekata.html</loc>
+    <loc>https://komiyohou.ynht-web.com/blog/shikomi-ryou-kimekata.html</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://komiyohou-lp.vercel.app/manual.html</loc>
+    <loc>https://komiyohou.ynht-web.com/manual.html</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://komiyohou-lp.vercel.app/legal.html</loc>
+    <loc>https://komiyohou.ynht-web.com/legal.html</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

@@ -4,4 +4,4 @@ Allow: /
 # 申込フォームは検索結果に出す必要がないため除外
 Disallow: /hearing.html
 
-Sitemap: https://komiyohou-lp.vercel.app/sitemap.xml
+Sitemap: https://komiyohou.ynht-web.com/sitemap.xml
