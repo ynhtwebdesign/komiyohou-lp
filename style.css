@@ -95,7 +95,8 @@ section { padding: 96px 0; }
 .pain { list-style: none; margin: 20px 0; }
 .pain li { padding: 10px 0 10px 30px; border-bottom: 1px dashed rgba(255,255,255,.2); position: relative; font-family: var(--serif); color: var(--demerit-l); }
 .pain li::before { content: "✕"; position: absolute; left: 4px; color: var(--demerit-l); font-weight: 700; }
-.problem .note { color: rgba(242,237,228,.55); }
+.problem .note { color: rgba(242,237,228,.55); line-height: 1.8; }
+.problem .note a { color: rgba(242,237,228,.8); text-underline-offset: 3px; }
 
 /* ---- 3. 共感 ---- */
 .empathy { position: relative; padding: 160px 0; overflow: hidden; }
