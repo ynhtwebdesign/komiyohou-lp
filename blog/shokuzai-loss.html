@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SBC6NKFKL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SBC6NKFKL');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://komiyohou.ynht-web.com/blog/shokuzai-loss.html">
+<title>飲食店の食材ロス、個人店にできる減らし方｜今日から試せる5つの手</title>
+<meta name="description" content="捨てているのは、いくらぶんか。個人経営の飲食店ができる食材ロスの減らし方を、記録の取り方から「使い切りの出口」の作り方まで、具体的な計算例つきでまとめました。設備投資は要りません。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .art { max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+  .art-head { padding: 44px 0 28px; border-bottom: 1px solid #ddd5c8; margin-bottom: 40px; }
+  .crumb { font-size: 13px; color: var(--sub); margin-bottom: 20px; }
+  .crumb a { color: var(--sub); }
+  .art h1 { font-size: clamp(25px, 5vw, 36px); line-height: 1.55; margin-bottom: 18px; }
+  .lede { color: var(--sub); font-size: 15px; }
+  .art h2 { font-size: clamp(21px, 3.6vw, 27px); margin: 56px 0 20px; padding-left: 14px;
+            border-left: 5px solid var(--accent); line-height: 1.5; }
+  .art h3 { font-size: 18px; margin: 32px 0 12px; }
+  .art p { margin-bottom: 20px; }
+  .art ul, .art ol { margin: 0 0 22px 1.4em; }
+  .art li { margin-bottom: 9px; }
+  .box { background: #fff; border-radius: 12px; padding: 22px 24px; margin: 26px 0;
+         box-shadow: 0 1px 3px rgba(34,30,26,.07); }
+  .box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
+  .box-t { font-family: var(--serif); font-weight: 700; font-size: 17px; margin-bottom: 12px; }
+  .calc { background: #FBEFE2; border-radius: 12px; padding: 20px 24px; margin: 24px 0;
+          font-size: 15px; line-height: 2.1; }
+  .calc b { font-size: 17px; }
+  .tblwrap { overflow-x: auto; margin: 24px 0; }
+  .art table { width: 100%; border-collapse: collapse; font-size: 15px; background: #fff; border-radius: 10px; overflow: hidden; }
+  .art th, .art td { padding: 12px 14px; border-bottom: 1px solid #f2ede4; text-align: left; }
+  .art th { background: #f3f0ea; font-weight: 700; font-size: 14px; white-space: nowrap; }
+  .art td.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .art tr:last-child td { border-bottom: none; }
+  .ng { color: var(--demerit); font-weight: 700; }
+  .ok { color: var(--merit); font-weight: 700; }
+  .end { background: var(--dark); color: #F7F4EE; border-radius: 14px; padding: 30px 26px; margin: 60px 0 0; }
+  .end .box-t { color: #fff; font-size: 19px; }
+  .end p { color: rgba(247,244,238,.82); font-size: 15px; }
+  .end a.btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+               padding: 14px 26px; border-radius: 10px; font-weight: 700; margin-top: 8px; }
+  .backlink { margin-top: 44px; font-size: 14px; }
+
+  /* 写真と図解 */
+  figure { margin: 34px 0; }
+  figure img { width: 100%; height: auto; border-radius: 12px; display: block; }
+  figcaption { font-size: 13px; color: var(--sub); margin-top: 10px; line-height: 1.8; }
+  .hero-fig { margin: 0 0 40px; }
+  .hero-fig img { border-radius: 14px; }
+  .fig-svg { background: #fff; border-radius: 12px; padding: 22px 18px;
+             box-shadow: 0 1px 3px rgba(34,30,26,.07); }
+  .fig-svg svg { width: 100%; height: auto; display: block; }
+  .fig-t { font-family: var(--serif); font-weight: 700; font-size: 15px;
+           margin: 0 0 16px; text-align: center; color: var(--ink); }
+</style>
+</head>
+<body>
+
+<article class="art">
+
+  <div class="art-head">
+    <p class="crumb"><a href="../">コミヨホウ</a> ／ 記事</p>
+    <h1>飲食店の食材ロス<br>個人店にできる、5つの減らし方</h1>
+    <p class="lede">閉店後、余った仕込みを袋に入れる。一回ぶんは数百円でも、1年ぶん積み上げると無視できない額になります。新しい設備も、難しい仕組みも要りません。今日から手をつけられるところだけをまとめました。</p>
+  </div>
+
+  <figure class="hero-fig">
+    <img src="../assets/web/2.jpg" alt="大鍋で煮込みを仕込んでいる居酒屋の店主" width="1600" height="1030">
+  </figure>
+
+  <p>「もったいないけど、しょうがない」。食材を捨てるとき、私たちはだいたいこう思って手を動かします。いちいち落ち込んでいたら、翌日の営業に差し支えます。だから割り切る。それ自体は、悪いことではありません。</p>
+
+  <p>ただ、割り切ったぶん<strong>捨てた量が記憶に残りません</strong>。残らないから、次の発注も、次の仕込みも、同じ量になります。ここが厄介なところです。</p>
+
+  <p>この記事では、金額をつかむところから、実際に減らす手順までを順番に説明します。</p>
+
+  <h2>ロスは「捨てる瞬間」ではなく、その前に決まっている</h2>
+
+  <p>生ゴミの袋を縛るとき、私たちは「今日は多かったな」と感じます。でも、その日の勝負はもう終わっています。</p>
+
+  <p>ロスが決まるのは、もっと前の3か所です。</p>
+
+  <ul>
+    <li><strong>仕入れのとき</strong>……ケース単位でしか買えず、使う量より多く入れた</li>
+    <li><strong>仕込みのとき</strong>……「足りないよりマシ」で1.5倍作った</li>
+    <li><strong>しまうとき</strong>……開けた袋を冷蔵庫の奥に置いて、忘れた</li>
+  </ul>
+
+  <p>つまり、手を入れるべきなのはゴミ箱の前ではなく、この3か所だということです。ここを押さえずに「捨てないようにしよう」と気をつけても、たいてい元に戻ります。</p>
+
+  <h2>手その0｜まず1週間だけ、捨てたものをメモする</h2>
+
+  <p>いきなり減らそうとせず、最初の1週間は<strong>記録だけ</strong>にしてください。何をどれだけ捨てているか、ほとんどの店主は正確に把握していません。私も聞かれたら答えられないと思います。</p>
+
+  <div class="box">
+    <p class="box-t">書くのはこの5つだけ</p>
+    <ul>
+      <li>日付</li>
+      <li>品目</li>
+      <li>だいたいの量（「1/2玉」「3切れ」で十分）</li>
+      <li>だいたいの金額（仕入れ値からの当て推量でよい）</li>
+      <li>なぜ余ったか（一言）</li>
+    </ul>
+  </div>
+
+  <figure>
+    <div class="fig-svg">
+      <p class="fig-t">「捨てたものメモ」の書き方（例）</p>
+      <svg viewBox="0 0 560 250" role="img" aria-label="捨てたものメモの記入例。日付、品目、だいたいの量、金額、なぜ余ったかの5項目を1行で書く。1週間の合計は8400円、1日あたり約1200円。">
+        <g font-family="sans-serif">
+          <rect x="16" y="14" width="528" height="34" rx="6" fill="#f3f0ea"/>
+          <g fill="#5d574e" font-size="12.5" font-weight="700">
+            <text x="30" y="36">日付</text>
+            <text x="106" y="36">品目</text>
+            <text x="248" y="36">だいたいの量</text>
+            <text x="360" y="36">金額</text>
+            <text x="428" y="36">なぜ余ったか</text>
+          </g>
+
+          <g stroke="#f2ede4" stroke-width="1">
+            <line x1="16" y1="82" x2="544" y2="82"/>
+            <line x1="16" y1="116" x2="544" y2="116"/>
+            <line x1="16" y1="150" x2="544" y2="150"/>
+          </g>
+
+          <g fill="#2B2B2B" font-size="12.5">
+            <text x="30" y="72">7/28</text>
+            <text x="106" y="72">キャベツ</text>
+            <text x="248" y="72">1/2玉</text>
+            <text x="360" y="72">120円</text>
+            <text x="428" y="72">仕込みすぎ</text>
+
+            <text x="30" y="106">7/30</text>
+            <text x="106" y="106">ぶり（刺身用）</text>
+            <text x="248" y="106">3切れ</text>
+            <text x="360" y="106">900円</text>
+            <text x="428" y="106">予約キャンセル</text>
+
+            <text x="30" y="140">8/1</text>
+            <text x="106" y="140">だし巻き用の卵</text>
+            <text x="248" y="140">6個</text>
+            <text x="360" y="140">180円</text>
+            <text x="428" y="140">ランチが不調</text>
+          </g>
+
+          <rect x="16" y="170" width="528" height="58" rx="10" fill="#FBEFE2"/>
+          <g text-anchor="middle" font-size="15" fill="#5d574e">
+            <text x="280" y="196">この1週間の合計 <tspan font-size="19" font-weight="700" fill="#221E1A">8,400円</tspan></text>
+            <text x="280" y="219" font-size="14">→ 1日あたり <tspan font-size="17" font-weight="700" fill="#E8863C">約1,200円</tspan></text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <figcaption>凝った表は要りません。レジ横のノートに1行ずつで十分です。1週間ぶん書けたら、いったん合計してみてください。</figcaption>
+  </figure>
+
+  <p>1ヶ月やろうとすると続きません。<span class="ok">まずは1週間</span>。それで十分に足りる材料が集まります。</p>
+
+  <h2>捨てているのは、いくらぶんなのか</h2>
+
+  <p>1週間の合計が出たら、掛け算をします。ここが、この記事でいちばん効く場面です。</p>
+
+  <div class="calc">
+    1週間の廃棄 <b>8,400円</b> ÷ 7日 ＝ 1日あたり <b>約1,200円</b><br>
+    1,200円 × 月25日営業 ＝ <b>月30,000円</b><br>
+    30,000円 × 12ヶ月 ＝ <span class="ng"><b>年36万円</b></span>
+  </div>
+
+  <p>ここからもう一歩進めます。捨てているのは「原価」なので、<strong>売上に直すともっと大きな数字</strong>になります。</p>
+
+  <p>仮に原価率30%のお店だとすると、原価1,200円ぶんの食材は、売れていれば4,000円の売上になっていた計算です。年間36万円なら、120万円ぶんです。</p>
+
+  <figure>
+    <div class="fig-svg">
+      <p class="fig-t">1日1,200円の廃棄は、1年でいくらか</p>
+      <svg viewBox="0 0 560 258" role="img" aria-label="1日1200円の廃棄は月25日で3万円、12ヶ月で36万円。原価率30パーセントの店なら売上120万円ぶんの食材にあたる。">
+        <g font-family="sans-serif" text-anchor="middle">
+          <text x="188" y="52" font-size="11.5" fill="#9c9488">× 25日</text>
+          <text x="382" y="52" font-size="11.5" fill="#9c9488">× 12ヶ月</text>
+
+          <rect x="16" y="66" width="148" height="80" rx="10" fill="#f3f0ea"/>
+          <text x="90" y="94" font-size="12" fill="#5d574e">1日あたり</text>
+          <text x="90" y="126" font-size="23" font-weight="700" fill="#2B2B2B">1,200<tspan font-size="13" font-weight="400">円</tspan></text>
+
+          <text x="188" y="112" font-size="20" fill="#c3b8a5">→</text>
+
+          <rect x="212" y="66" width="148" height="80" rx="10" fill="#FBEFE2"/>
+          <text x="286" y="94" font-size="12" fill="#5d574e">1ヶ月</text>
+          <text x="286" y="126" font-size="23" font-weight="700" fill="#2B2B2B">30,000<tspan font-size="13" font-weight="400">円</tspan></text>
+
+          <text x="382" y="112" font-size="20" fill="#c3b8a5">→</text>
+
+          <rect x="404" y="66" width="140" height="80" rx="10" fill="#E8863C"/>
+          <text x="474" y="94" font-size="12" fill="#ffe6d0">1年</text>
+          <text x="474" y="126" font-size="23" font-weight="700" fill="#fff">36<tspan font-size="13" font-weight="400">万円</tspan></text>
+
+          <rect x="16" y="176" width="528" height="66" rx="10" fill="#221E1A"/>
+          <text x="280" y="203" font-size="13" fill="#c3b8a5">原価率30%のお店なら、この36万円ぶんの食材は</text>
+          <text x="280" y="228" font-size="18" font-weight="700" fill="#fff">売上120万円になったはずの量</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>ただし、余った食材が必ず全部売れたとは限りません。あくまで「これだけの機会があった」という上限の見方です。それでも、桁の感覚をつかむには十分だと思います。</figcaption>
+  </figure>
+
+  <p>「たかが1,200円」が「年120万円」に変わると、手をつける気になります。逆に言えば、<strong>金額にしないうちは、誰も本気で減らせません</strong>。</p>
+
+  <h2>手その1｜上位3品目だけに絞る</h2>
+
+  <figure>
+    <img src="../assets/web/6.jpg" alt="カウンターに積まれた市場の納品書の束とボールペン" width="1600" height="1030" loading="lazy">
+    <figcaption>捨てているものと、納品書の金額の大きいものは、たいてい重なります。</figcaption>
+  </figure>
+
+  <p>1週間ぶんのメモを眺めると、たいてい<strong>特定の品目に偏っている</strong>ことに気づきます。全部が少しずつ余っているのではなく、いつも同じものが残っている。</p>
+
+  <p>ここで全品目を管理しようとすると、必ず続きません。<span class="ok">金額の大きい上位3品目だけ</span>に絞ってください。多くの場合、捨てている金額のかなりの部分がそこに集まっています。</p>
+
+  <p>絞った3品目については、次の2つだけ決めます。</p>
+
+  <ul>
+    <li>1回に仕込む量の上限</li>
+    <li>余ったときの行き先（次の項）</li>
+  </ul>
+
+  <h2>手その2｜「使い切りの出口」を先に決めておく</h2>
+
+  <p>これがいちばん効きます。<strong>仕込む前に、余ったときの行き先を決めておく</strong>。それだけです。</p>
+
+  <figure>
+    <div class="fig-svg">
+      <p class="fig-t">仕込む前に、出口を4つ用意しておく</p>
+      <svg viewBox="0 0 560 282" role="img" aria-label="仕込んだ食材の出口を4つ用意する図。その日に売り切る、翌日の日替わりに回す、小分けにして冷凍する、まかないで食べる。">
+        <g font-family="sans-serif" text-anchor="middle">
+          <rect x="180" y="14" width="200" height="56" rx="10" fill="#221E1A"/>
+          <text x="280" y="49" font-size="17" font-weight="700" fill="#fff">仕込んだ食材</text>
+
+          <g stroke="#c3b8a5" stroke-width="2" fill="none">
+            <path d="M280 70 L280 100"/>
+            <path d="M78 100 L484 100"/>
+            <path d="M78 100 L78 128"/>
+            <path d="M214 100 L214 128"/>
+            <path d="M350 100 L350 128"/>
+            <path d="M484 100 L484 128"/>
+          </g>
+
+          <g>
+            <rect x="16"  y="128" width="124" height="84" rx="10" fill="#FBEFE2"/>
+            <rect x="152" y="128" width="124" height="84" rx="10" fill="#FBEFE2"/>
+            <rect x="288" y="128" width="124" height="84" rx="10" fill="#FBEFE2"/>
+            <rect x="422" y="128" width="124" height="84" rx="10" fill="#FBEFE2"/>
+          </g>
+
+          <g font-size="14" font-weight="700" fill="#E8863C">
+            <text x="78" y="154">①</text>
+            <text x="214" y="154">②</text>
+            <text x="350" y="154">③</text>
+            <text x="484" y="154">④</text>
+          </g>
+
+          <g font-size="12.5" fill="#2B2B2B">
+            <text x="78" y="180">その日に</text>
+            <text x="78" y="200">売り切る</text>
+
+            <text x="214" y="180">翌日の</text>
+            <text x="214" y="200">日替わりへ</text>
+
+            <text x="350" y="180">小分けにして</text>
+            <text x="350" y="200">冷凍する</text>
+
+            <text x="484" y="180">まかないで</text>
+            <text x="484" y="200">食べる</text>
+          </g>
+
+          <text x="280" y="252" font-size="13.5" fill="#5d574e">出口を決めていない食材だけが、ゴミになります</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>①だけを狙うから、外れたときに全部が損になります。②〜④があると、多めに仕込んでも痛手が小さくなります。</figcaption>
+  </figure>
+
+  <p>出口が決まっている食材は、少し多めに仕込んでも損になりにくい。逆に、<strong>出口のない食材こそ「足りないよりマシ」で作ってはいけない</strong>ということでもあります。</p>
+
+  <p>変換の例も、あらかじめ考えておくと動きやすくなります。煮物は崩してコロッケの具に、刺身のツマは味噌汁に、焼き魚用の切り身はほぐして混ぜご飯に。こういう「逃がし方」を3つ持っておくだけで、閉店後の判断がずいぶん楽になります。</p>
+
+  <h2>手その3｜途中で止められる工程を探す</h2>
+
+  <figure>
+    <img src="../assets/web/7.jpg" alt="窓辺の厨房で大根を切り分けている店主" width="1600" height="1030" loading="lazy">
+    <figcaption>下ごしらえまでで止めておけば、翌日にも回せます。</figcaption>
+  </figure>
+
+  <p>仕込みには、<strong>戻せる工程と戻せない工程</strong>があります。</p>
+
+  <p>唐揚げなら、味を漬けるところまでは翌日に回せます。でも揚げてしまうと戻せません。おでんなら、大根の下茹でまでは持ちますが、鍋に入れて煮込んだら煮込んだぶんだけ痩せていきます。</p>
+
+  <div class="box">
+    <p class="box-t">やり方はこれだけ</p>
+    <ul>
+      <li>下ごしらえは、多めの人数分までやってしまう</li>
+      <li>戻せない工程（火を入れる、揚げる、盛る）は、<strong>控えめの人数分で一度止める</strong></li>
+      <li>足りなくなったら、そこから追加で仕上げる</li>
+    </ul>
+  </div>
+
+  <p>手間は少し増えます。ただ、客数のばらつきが大きいお店ほど、この形が効きます。「平均30人だけど10人の日も50人の日もある」というお店は、平均に合わせて全部仕上げると、どちらに転んでも損をします。</p>
+
+  <h2>手その4｜発注のロットを、一度疑ってみる</h2>
+
+  <p>「これは1ケースからしか買えない」と思い込んでいるものが、聞いてみると半ケースで入ることがあります。長年その単位で頼んでいるだけ、というのはよくある話です。</p>
+
+  <p>一度、担当の方に「小口で入りませんか」と聞いてみる価値はあります。断られても、失うものはありません。</p>
+
+  <p>近所に同業の知り合いがいれば、まとめて仕入れて分ける手もあります。1ケースを2軒で割れば、単価はそのままで在庫は半分になります。</p>
+
+  <h2>手その5｜曜日と天気で、発注量を変える</h2>
+
+  <p>そもそも「明日どれくらい来るか」の精度が上がれば、ロスは自然に減ります。ここは別の記事で詳しく書きました。</p>
+
+  <p><a href="shikomi-ryou-kimekata.html">飲食店の仕込み量の決め方｜「勘」を数字に変える5つのステップ</a></p>
+
+  <p>ざっくり言えば、曜日ごとの平均客数を出しておき、雨の日や猛暑日には自分の店の係数を掛ける、というやり方です。ロス削減とは表と裏の関係なので、あわせて読んでいただけると、つながりが見えると思います。</p>
+
+  <h2>やってはいけない減らし方</h2>
+
+  <h3>1. 品切れ覚悟で、絞りすぎる</h3>
+  <p>仕込みを大幅に減らせば、廃棄はほぼゼロになります。でも、それは<span class="ng">売り逃しと交換しただけ</span>です。「今日もないの」が続けば、常連さんは静かに来なくなります。ロス削減は利益を守るためのもので、売上を削るためのものではありません。</p>
+
+  <h3>2. 傷みかけを、無理に出す</h3>
+  <p>これは論外ですが、追い詰められると判断が鈍ります。金額の話をした直後なので、あえて書いておきます。<strong>36万円を惜しんで信用を失えば、取り返しがつきません。</strong></p>
+
+  <h3>3. 安い食材に替えて、原価だけ下げる</h3>
+  <p>原価率の数字は良くなります。ただ、味が落ちれば客数が落ちます。「捨てる量を減らす」と「使う食材の質を下げる」は、まったく別のことです。</p>
+
+  <h2>今週からの、進め方</h2>
+
+  <p>全部を一度にやろうとすると、確実に途中で止まります。順番はこうです。</p>
+
+  <ol>
+    <li><strong>今週</strong>……捨てたものをメモするだけ。減らそうとしない</li>
+    <li><strong>来週</strong>……合計を出し、金額の大きい上位3品目を決める</li>
+    <li><strong>再来週</strong>……その3品目に「出口」を用意する</li>
+    <li><strong>その次</strong>……戻せない工程を控えめで止めてみる</li>
+  </ol>
+
+  <p>1ヶ月で、だいたいの形になります。効果が数字で見えるのは、その次の月からです。</p>
+
+  <p>そして、ここまでの全部が<strong>「明日、何人来るか」の精度にぶら下がっています</strong>。予測が当たるほど、出口も止め時も要らなくなる。だから最後は、そこに戻ってきます。</p>
+
+  <p>毎日の記録と天気の突き合わせを手作業で続けるのが難しければ、そこを自動化する仕組みに任せる手もあります。私たちが作っている<a href="../">コミヨホウ</a>は、まさにこの部分を代わりに計算するサービスです。</p>
+
+  <p>ただ、<strong>この記事の1〜5だけでも、ロスは確実に減ります。</strong> まずは今日の閉店後、捨てたものを一行書くところから始めてみてください。</p>
+
+  <div class="end">
+    <p class="box-t">コミヨホウについて</p>
+    <p>客足を動かす8つの要因をAIが毎日自動で集めて計算し、「明日の来店みこみ・売上みこみ・仕込みの目安」をLINEに1通お届けするサービスです。POSレジとの連携は不要。月額5,500円（税込）、解約はいつでも違約金なしです。</p>
+    <a class="btn" href="../">コミヨホウの詳細を見る →</a>
+  </div>
+
+  <p class="backlink"><a href="../">← コミヨホウ トップへ戻る</a></p>
+
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "飲食店の食材ロス、個人店にできる減らし方｜今日から試せる5つの手",
+  "description": "捨てているのは、いくらぶんか。個人経営の飲食店ができる食材ロスの減らし方を、記録の取り方から「使い切りの出口」の作り方まで、具体的な計算例つきでまとめました。",
+  "inLanguage": "ja",
+  "datePublished": "2026-08-01",
+  "dateModified": "2026-08-01",
+  "mainEntityOfPage": "https://komiyohou.ynht-web.com/blog/shokuzai-loss.html",
+  "author": { "@type": "Organization", "name": "YNHT" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "YNHT",
+    "address": { "@type": "PostalAddress", "addressCountry": "JP", "addressRegion": "福井県", "addressLocality": "越前市" }
+  }
+}
+</script>
+
+</body>
+</html>
