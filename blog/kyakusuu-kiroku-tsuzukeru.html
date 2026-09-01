@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SBC6NKFKL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SBC6NKFKL');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://komiyohou.ynht-web.com/blog/kyakusuu-kiroku-tsuzukeru.html">
+<title>客数の記録を3ヶ月続けるための工夫｜閉店後の15秒を習慣にする</title>
+<meta name="description" content="客数の記録は2週間で止まりがちです。止まるのは意志が弱いからではなく、置き場所とタイミングの設計の問題。3ヶ月続けるための具体的な工夫を、書けなかった日の扱いまで含めてまとめました。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .art { max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+  .art-head { padding: 44px 0 28px; border-bottom: 1px solid #ddd5c8; margin-bottom: 40px; }
+  .crumb { font-size: 13px; color: var(--sub); margin-bottom: 20px; }
+  .crumb a { color: var(--sub); }
+  .art h1 { font-size: clamp(25px, 5vw, 36px); line-height: 1.55; margin-bottom: 18px; }
+  .lede { color: var(--sub); font-size: 15px; }
+  .art h2 { font-size: clamp(21px, 3.6vw, 27px); margin: 56px 0 20px; padding-left: 14px;
+            border-left: 5px solid var(--accent); line-height: 1.5; }
+  .art h3 { font-size: 18px; margin: 32px 0 12px; }
+  .art p { margin-bottom: 20px; }
+  .art ul, .art ol { margin: 0 0 22px 1.4em; }
+  .art li { margin-bottom: 9px; }
+  .box { background: #fff; border-radius: 12px; padding: 22px 24px; margin: 26px 0;
+         box-shadow: 0 1px 3px rgba(34,30,26,.07); }
+  .box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
+  .box-t { font-family: var(--serif); font-weight: 700; font-size: 17px; margin-bottom: 12px; }
+  .calc { background: #FBEFE2; border-radius: 12px; padding: 20px 24px; margin: 24px 0;
+          font-size: 15px; line-height: 2.1; }
+  .calc b { font-size: 17px; }
+  .tblwrap { overflow-x: auto; margin: 24px 0; }
+  .art table { width: 100%; border-collapse: collapse; font-size: 15px; background: #fff; border-radius: 10px; overflow: hidden; }
+  .art th, .art td { padding: 12px 14px; border-bottom: 1px solid #f2ede4; text-align: left; }
+  .art th { background: #f3f0ea; font-weight: 700; font-size: 14px; white-space: nowrap; }
+  .art td.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .art tr:last-child td { border-bottom: none; }
+  .ng { color: var(--demerit); font-weight: 700; }
+  .ok { color: var(--merit); font-weight: 700; }
+  .end { background: var(--dark); color: #F7F4EE; border-radius: 14px; padding: 30px 26px; margin: 60px 0 0; }
+  .end .box-t { color: #fff; font-size: 19px; }
+  .end p { color: rgba(247,244,238,.82); font-size: 15px; }
+  .end a.btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+               padding: 14px 26px; border-radius: 10px; font-weight: 700; margin-top: 8px; }
+  .backlink { margin-top: 44px; font-size: 14px; }
+
+  /* 写真と図解 */
+  figure { margin: 34px 0; }
+  figure img { width: 100%; height: auto; border-radius: 12px; display: block; }
+  figcaption { font-size: 13px; color: var(--sub); margin-top: 10px; line-height: 1.8; }
+  .hero-fig { margin: 0 0 40px; }
+  .hero-fig img { border-radius: 14px; }
+  .fig-svg { background: #fff; border-radius: 12px; padding: 22px 18px;
+             box-shadow: 0 1px 3px rgba(34,30,26,.07); }
+  .fig-svg svg { width: 100%; height: auto; display: block; }
+  .fig-t { font-family: var(--serif); font-weight: 700; font-size: 15px;
+           margin: 0 0 16px; text-align: center; color: var(--ink); }
+</style>
+</head>
+<body>
+
+<article class="art">
+
+  <div class="art-head">
+    <p class="crumb"><a href="../">コミヨホウ</a> ／ 記事</p>
+    <h1>客数の記録を3ヶ月続けるための工夫<br>閉店後の15秒を習慣にする</h1>
+    <p class="lede">記録が大事なのは分かっている。でも2週間で止まる。止まるのは意志が弱いからではなく、置き場所とタイミングの設計の問題です。3ヶ月続けるための工夫を、書けなかった日の扱いまで含めてまとめました。</p>
+  </div>
+
+  <figure class="hero-fig">
+    <img src="../assets/web/5.jpg" alt="木のテーブルに置かれた手書きのメニュー表を、スマートフォンで撮影している手元" width="1600" height="1030">
+  </figure>
+
+  <p>「客数を毎日メモしておくといい」。これはよく言われることですし、実際そのとおりです。ただ、言われたとおりにやってみて、2週間で止まった経験のある方は多いのではないでしょうか。</p>
+
+  <p>止まる理由は、はっきりしています。<strong>閉店後の自分は、朝の自分より疲れている</strong>からです。始めるときの自分は元気なので、続けられる前提でしくみを作ってしまう。そこにズレがあります。</p>
+
+  <p>この記事では、根性ではなく<strong>段取りで続ける</strong>方法をまとめます。記録の付け方そのものは<a href="shikomi-ryou-kimekata.html">仕込み量の決め方の記事</a>に書いたので、ここでは「どうやって3ヶ月もたせるか」だけを扱います。</p>
+
+  <h2>なぜ「3ヶ月」なのか</h2>
+
+  <p>1ヶ月でも意味はありますが、3ヶ月には別の価値があります。理由は単純で、<strong>同じ条件の日が何回たまるか</strong>が変わるからです。</p>
+
+  <div class="calc">
+    火曜の記録が何回たまるか　1ヶ月 ＝ <b>約4回</b>　／　3ヶ月 ＝ <b>約13回</b><br>
+    仮に3日に1日は雨か雪だとすると、雨の火曜は　1ヶ月 ＝ <b>1回あるかどうか</b>　／　3ヶ月 ＝ <b>4回前後</b>
+  </div>
+
+  <p>1回きりのデータでは、それが「雨のせい」なのか「たまたま」なのか分かりません。4回あれば、少なくとも傾向としては見えてきます。<strong>3ヶ月は、天気の影響を語れるようになる最短ライン</strong>だと考えてください。</p>
+
+  <figure>
+    <div class="fig-svg">
+      <p class="fig-t">続けた期間で、読めることが変わる</p>
+      <svg viewBox="0 0 560 262" role="img" aria-label="記録を1ヶ月続けると曜日ごとの土台が、2ヶ月でばらつきの幅が、3ヶ月で天気の効き方が見えることを示す階段図。">
+        <g font-family="sans-serif" text-anchor="middle">
+          <rect x="30" y="168" width="155" height="62" rx="10" fill="#f3f0ea"/>
+          <text x="107" y="196" font-size="20" font-weight="700" fill="#2B2B2B">1ヶ月</text>
+          <text x="107" y="218" font-size="13" fill="#5d574e">曜日ごとの土台</text>
+
+          <rect x="200" y="118" width="155" height="112" rx="10" fill="#d9cfbe"/>
+          <text x="277" y="152" font-size="20" font-weight="700" fill="#2B2B2B">2ヶ月</text>
+          <text x="277" y="176" font-size="13" fill="#5d574e">ばらつきの幅</text>
+
+          <rect x="370" y="58" width="155" height="172" rx="10" fill="#E8863C"/>
+          <text x="447" y="96" font-size="20" font-weight="700" fill="#ffffff">3ヶ月</text>
+          <text x="447" y="120" font-size="13" fill="#ffe6d0">天気の効き方</text>
+
+          <line x1="20" y1="230" x2="540" y2="230" stroke="#ddd5c8" stroke-width="2"/>
+          <text x="280" y="252" font-size="13" fill="#9c9488">まず1ヶ月。そこから先は、同じことの繰り返しです</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>1ヶ月で止めても、曜日の土台は手に入ります。無駄にはなりません。ただ、雨や暑さの話をしたいなら3ヶ月は欲しいところです。</figcaption>
+  </figure>
+
+  <h2>工夫1｜書く場所を、必ず通る場所に置く</h2>
+
+  <p>ノートを事務所の引き出しにしまうと、まず続きません。<strong>取りに行く動作が挟まった時点で負けます。</strong></p>
+
+  <p>置くなら、閉店後に必ず手が触れる場所です。レジの横、伝票立ての隣、勝手口の内側。開いた状態でペンを挟んでおけば、なお良いです。</p>
+
+  <div class="box">
+    <p class="box-t">置き場所の目安</p>
+    <ul>
+      <li>閉店作業の動線上にあること</li>
+      <li>ノートを<strong>開いたまま</strong>置けること</li>
+      <li>ペンがその場に固定されていること（ひもで結ぶくらいでちょうどいい）</li>
+    </ul>
+  </div>
+
+  <h2>工夫2｜項目は4つまで。1行で終わらせる</h2>
+
+  <p>続かない記録には共通点があります。<strong>項目が多い</strong>ことです。売上、客単価、天気、気温、予約数、キャンセル……と欄を作ると、書くのが仕事になります。</p>
+
+  <p>必要なのは4つだけです。日付と曜日、客数、天気、ひとこと。これで1行です。</p>
+
+  <figure>
+    <div class="fig-svg">
+      <p class="fig-t">1行だけの記録フォーマット</p>
+      <svg viewBox="0 0 560 210" role="img" aria-label="日付曜日、客数、天気、ひとことの4項目からなる記録表の見本。9月5日金曜は38人で曇、ひとことは隣で工事。9月6日土曜は44人で晴。">
+        <g font-family="sans-serif">
+          <rect x="20" y="26" width="520" height="36" rx="8" fill="#f3f0ea"/>
+          <g text-anchor="middle" font-size="13" fill="#5d574e">
+            <text x="80" y="49">日付・曜日</text>
+            <text x="190" y="49">客数</text>
+            <text x="285" y="49">天気</text>
+            <text x="435" y="49">ひとこと</text>
+          </g>
+
+          <rect x="20" y="66" width="520" height="46" fill="#ffffff" stroke="#ddd5c8" stroke-width="1"/>
+          <g text-anchor="middle" fill="#2B2B2B">
+            <text x="80" y="96" font-size="15">9/5 金</text>
+            <text x="190" y="98" font-size="24" font-weight="700" fill="#E8863C">38</text>
+            <text x="285" y="96" font-size="15">曇</text>
+            <text x="435" y="96" font-size="14" fill="#5d574e">隣で工事</text>
+          </g>
+
+          <rect x="20" y="112" width="520" height="46" fill="#ffffff" stroke="#ddd5c8" stroke-width="1"/>
+          <g text-anchor="middle" fill="#2B2B2B">
+            <text x="80" y="142" font-size="15">9/6 土</text>
+            <text x="190" y="144" font-size="24" font-weight="700" fill="#E8863C">44</text>
+            <text x="285" y="142" font-size="15">晴</text>
+            <text x="435" y="142" font-size="14" fill="#9c9488">—</text>
+          </g>
+
+          <g stroke="#ddd5c8" stroke-width="1">
+            <line x1="140" y1="26" x2="140" y2="158"/>
+            <line x1="240" y1="26" x2="240" y2="158"/>
+            <line x1="330" y1="26" x2="330" y2="158"/>
+          </g>
+
+          <text x="280" y="186" font-size="13" fill="#5d574e" text-anchor="middle" font-family="sans-serif">天気は「晴・曇・雨・雪」の4つで十分。ひとことは無ければ空欄</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>罫線を引いた市販のノートで構いません。表を自作すると、その準備で力尽きることがあります。</figcaption>
+  </figure>
+
+  <p>この形なら、慣れれば本当に15秒で終わります。3ヶ月ぶんを足しても、たいした時間ではありません。</p>
+
+  <div class="calc">
+    1日 <b>15秒</b> × 90日 ＝ 1,350秒 ＝ <b>約22分</b><br>
+    3ヶ月かけて、合計で<span class="ok">22分</span>。1日あたりでは、レジ締めの待ち時間で終わります。
+  </div>
+
+  <h2>工夫3｜すでにある動作に、くっつける</h2>
+
+  <p>新しい習慣を単独で作るのは大変です。<strong>すでに毎日やっていることの直後にくっつける</strong>と、格段に楽になります。</p>
+
+  <p>おすすめは、レジ締めの直後です。どのみち数字を見ている最中なので、客数もその場で分かります。「レジを締めたら、そのまま1行書く」とセットにしてしまってください。</p>
+
+  <ul>
+    <li>レジを締めた直後に書く</li>
+    <li>のれんを下ろした直後に書く</li>
+    <li>火を落として、手を洗う前に書く</li>
+  </ul>
+
+  <p>どれでも構いませんが、<strong>1つに決めて変えない</strong>ことが大事です。日によって場所とタイミングが変わると、それは習慣ではなくその日の判断になり、疲れた日に飛びます。</p>
+
+  <h2>工夫4｜書けなかった日の逃げ道を、先に決めておく</h2>
+
+  <figure>
+    <img src="../assets/web/6.jpg" alt="居酒屋のカウンターに積まれた市場の納品書の束と、そばに置かれたボールペン" width="1600" height="1030" loading="lazy">
+    <figcaption>書けない日は必ず来ます。来る前提で決めておくと、そこで途切れません。</figcaption>
+  </figure>
+
+  <p>記録が止まるいちばん多いきっかけは、<strong>1日飛ばしてしまったこと</strong>です。1日空くと、翌日「もういいか」となる。ここが最大の分かれ目です。</p>
+
+  <p>ですから、始める前に逃げ道を決めておきます。</p>
+
+  <div class="box">
+    <p class="box-t">先に決めておく3つのこと</p>
+    <ul>
+      <li><strong>翌朝に書いてもいい</strong>……昨日の客数は伝票を数えれば分かります</li>
+      <li><strong>思い出せない日は空欄でいい</strong>……無理に推測で埋めない</li>
+      <li><strong>2日以上空いたら、そこから再開</strong>……さかのぼって埋め直さない</li>
+    </ul>
+  </div>
+
+  <p>大事なのは、<strong>空欄があっても記録は使える</strong>ということです。平均を出すときは、書いてある日だけで足して割ればいいだけです。</p>
+
+  <div class="calc">
+    90日のうち <b>72日</b> 書けた（8割）→ 曜日ごとに <b>10回前後</b> のデータ<br>
+    月に6日空欄でも、<span class="ok">曜日ごとの平均は十分に出せます</span>
+  </div>
+
+  <figure>
+    <div class="fig-svg">
+      <p class="fig-t">3ヶ月・90日。8割埋まっていれば使える</p>
+      <svg viewBox="0 0 560 268" role="img" aria-label="90個の丸のうち72個が書けた日として色付き、18個が書けなかった日として灰色になっている図。">
+        <g font-family="sans-serif">
+          <circle cx="48" cy="26" r="8" fill="#E8863C"/>
+          <text x="64" y="31" font-size="13" fill="#5d574e">書けた日 72</text>
+          <circle cx="200" cy="26" r="8" fill="#e2dbd0"/>
+          <text x="216" y="31" font-size="13" fill="#5d574e">書けなかった日 18</text>
+
+          <circle cx="44" cy="62" r="9" fill="#E8863C"/><circle cx="76" cy="62" r="9" fill="#E8863C"/><circle cx="108" cy="62" r="9" fill="#E8863C"/><circle cx="140" cy="62" r="9" fill="#e2dbd0"/><circle cx="172" cy="62" r="9" fill="#E8863C"/><circle cx="204" cy="62" r="9" fill="#E8863C"/><circle cx="236" cy="62" r="9" fill="#E8863C"/><circle cx="268" cy="62" r="9" fill="#E8863C"/><circle cx="300" cy="62" r="9" fill="#E8863C"/><circle cx="332" cy="62" r="9" fill="#E8863C"/><circle cx="364" cy="62" r="9" fill="#E8863C"/><circle cx="396" cy="62" r="9" fill="#e2dbd0"/><circle cx="428" cy="62" r="9" fill="#E8863C"/><circle cx="460" cy="62" r="9" fill="#E8863C"/><circle cx="492" cy="62" r="9" fill="#E8863C"/>
+          <circle cx="44" cy="92" r="9" fill="#E8863C"/><circle cx="76" cy="92" r="9" fill="#E8863C"/><circle cx="108" cy="92" r="9" fill="#e2dbd0"/><circle cx="140" cy="92" r="9" fill="#E8863C"/><circle cx="172" cy="92" r="9" fill="#E8863C"/><circle cx="204" cy="92" r="9" fill="#E8863C"/><circle cx="236" cy="92" r="9" fill="#E8863C"/><circle cx="268" cy="92" r="9" fill="#E8863C"/><circle cx="300" cy="92" r="9" fill="#E8863C"/><circle cx="332" cy="92" r="9" fill="#e2dbd0"/><circle cx="364" cy="92" r="9" fill="#E8863C"/><circle cx="396" cy="92" r="9" fill="#E8863C"/><circle cx="428" cy="92" r="9" fill="#E8863C"/><circle cx="460" cy="92" r="9" fill="#E8863C"/><circle cx="492" cy="92" r="9" fill="#e2dbd0"/>
+          <circle cx="44" cy="122" r="9" fill="#E8863C"/><circle cx="76" cy="122" r="9" fill="#E8863C"/><circle cx="108" cy="122" r="9" fill="#E8863C"/><circle cx="140" cy="122" r="9" fill="#e2dbd0"/><circle cx="172" cy="122" r="9" fill="#E8863C"/><circle cx="204" cy="122" r="9" fill="#E8863C"/><circle cx="236" cy="122" r="9" fill="#E8863C"/><circle cx="268" cy="122" r="9" fill="#E8863C"/><circle cx="300" cy="122" r="9" fill="#E8863C"/><circle cx="332" cy="122" r="9" fill="#E8863C"/><circle cx="364" cy="122" r="9" fill="#E8863C"/><circle cx="396" cy="122" r="9" fill="#e2dbd0"/><circle cx="428" cy="122" r="9" fill="#E8863C"/><circle cx="460" cy="122" r="9" fill="#E8863C"/><circle cx="492" cy="122" r="9" fill="#E8863C"/>
+          <circle cx="44" cy="152" r="9" fill="#E8863C"/><circle cx="76" cy="152" r="9" fill="#e2dbd0"/><circle cx="108" cy="152" r="9" fill="#E8863C"/><circle cx="140" cy="152" r="9" fill="#E8863C"/><circle cx="172" cy="152" r="9" fill="#E8863C"/><circle cx="204" cy="152" r="9" fill="#E8863C"/><circle cx="236" cy="152" r="9" fill="#E8863C"/><circle cx="268" cy="152" r="9" fill="#e2dbd0"/><circle cx="300" cy="152" r="9" fill="#E8863C"/><circle cx="332" cy="152" r="9" fill="#E8863C"/><circle cx="364" cy="152" r="9" fill="#E8863C"/><circle cx="396" cy="152" r="9" fill="#E8863C"/><circle cx="428" cy="152" r="9" fill="#E8863C"/><circle cx="460" cy="152" r="9" fill="#e2dbd0"/><circle cx="492" cy="152" r="9" fill="#E8863C"/>
+          <circle cx="44" cy="182" r="9" fill="#E8863C"/><circle cx="76" cy="182" r="9" fill="#e2dbd0"/><circle cx="108" cy="182" r="9" fill="#E8863C"/><circle cx="140" cy="182" r="9" fill="#E8863C"/><circle cx="172" cy="182" r="9" fill="#E8863C"/><circle cx="204" cy="182" r="9" fill="#E8863C"/><circle cx="236" cy="182" r="9" fill="#E8863C"/><circle cx="268" cy="182" r="9" fill="#e2dbd0"/><circle cx="300" cy="182" r="9" fill="#E8863C"/><circle cx="332" cy="182" r="9" fill="#E8863C"/><circle cx="364" cy="182" r="9" fill="#e2dbd0"/><circle cx="396" cy="182" r="9" fill="#E8863C"/><circle cx="428" cy="182" r="9" fill="#E8863C"/><circle cx="460" cy="182" r="9" fill="#E8863C"/><circle cx="492" cy="182" r="9" fill="#e2dbd0"/>
+          <circle cx="44" cy="212" r="9" fill="#E8863C"/><circle cx="76" cy="212" r="9" fill="#E8863C"/><circle cx="108" cy="212" r="9" fill="#E8863C"/><circle cx="140" cy="212" r="9" fill="#E8863C"/><circle cx="172" cy="212" r="9" fill="#e2dbd0"/><circle cx="204" cy="212" r="9" fill="#E8863C"/><circle cx="236" cy="212" r="9" fill="#E8863C"/><circle cx="268" cy="212" r="9" fill="#E8863C"/><circle cx="300" cy="212" r="9" fill="#e2dbd0"/><circle cx="332" cy="212" r="9" fill="#E8863C"/><circle cx="364" cy="212" r="9" fill="#E8863C"/><circle cx="396" cy="212" r="9" fill="#e2dbd0"/><circle cx="428" cy="212" r="9" fill="#E8863C"/><circle cx="460" cy="212" r="9" fill="#e2dbd0"/><circle cx="492" cy="212" r="9" fill="#E8863C"/>
+
+          <text x="280" y="252" font-size="13" fill="#5d574e" text-anchor="middle">全部埋まっていなくていい。ここを目指すと、かえって続きません</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>完璧を目指すと、1つ穴が空いた時点でやめたくなります。最初から穴があく前提で始めてください。</figcaption>
+  </figure>
+
+  <p>ただし、ひとつだけ注意があります。<strong>忙しい日ばかり書き忘れる</strong>と、平均が実際より低く出ます。満席で手が回らなかった日こそ書けないので、これは起こりがちです。翌朝に書き足す逃げ道を用意しているのは、そのためでもあります。</p>
+
+  <h2>工夫5｜集計は月に1回でいい</h2>
+
+  <p>毎日集計しようとすると、記録そのものが重くなります。<strong>足して割る作業は、月に1回で十分</strong>です。</p>
+
+  <p>月末か月初に、30分だけ時間を取ります。曜日ごとに客数を足して、日数で割る。それだけです。<a href="ame-no-hi-kyakuashi.html">雨の日係数</a>を出したいときも、同じ表を横から眺めるだけで済みます。</p>
+
+  <p>そして、この月1回が<strong>続けるご褒美</strong>になります。数字が形になって見えると、翌月も書こうという気になる。逆に言えば、集計を一度もしないまま3ヶ月書き続けるのは、かなりつらい作業です。</p>
+
+  <h2>3ヶ月たつと、何が変わるか</h2>
+
+  <p>実際に3ヶ月ぶんの記録がたまると、たいてい次のようなことが起きます。</p>
+
+  <ul>
+    <li><strong>思い込みが1つか2つ崩れる</strong>……「水曜が暇」と思っていたら、実は火曜の方が少なかった、など</li>
+    <li><strong>ばらつきの幅が分かる</strong>……平均30人でも「25〜35人の店」と「10〜50人の店」では、仕込みの構え方が変わります</li>
+    <li><strong>外れた日に理由がつく</strong>……近所の行事や工事など、翌年そのまま使える材料になります</li>
+  </ul>
+
+  <p>とくに1つめは、多くの方が驚かれる部分です。記憶は、印象の強い日に引っぱられます。ひどく暇だった1日は覚えていても、そこそこの日が20日あったことは思い出せません。</p>
+
+  <h2>よくあるつまずき</h2>
+
+  <h3>1. 最初にきれいな表を作ってしまう</h3>
+  <p>準備に力を使い果たすパターンです。市販のノートに手書きで十分です。<span class="ok">初日に始められる形</span>かどうかだけを基準にしてください。</p>
+
+  <h3>2. 売上も一緒に書こうとする</h3>
+  <p>売上は単価に左右されるので、仕込み量の判断には客数の方が直結します。売上はレジに残っています。<strong>記録には、レジに残らないものだけを書く</strong>と考えると迷いません。</p>
+
+  <h3>3. 1日抜けたことを気にしすぎる</h3>
+  <p>抜けた日より、そこでやめてしまうことの方がずっと損です。空欄のまま次の行に進んでください。</p>
+
+  <h2>それでも、続かないときは</h2>
+
+  <figure>
+    <img src="../assets/web/2.jpg" alt="夜の厨房で、大鍋の煮込みを木べらで混ぜている居酒屋の店主" width="1600" height="1030" loading="lazy">
+    <figcaption>閉店後の15秒。短いはずなのに、この15秒がいちばん遠い日があります。</figcaption>
+  </figure>
+
+  <p>ここまで書いておいて言うのもなんですが、それでも続かないことはあります。忙しさの波が大きい店ほど、そうです。責める話ではありません。</p>
+
+  <p>そういう場合は、<strong>記録の一部を機械に肩代わりさせる</strong>という手があります。天気や地域の行事は、自分で書かなくても外から分かる情報です。人が書く必要があるのは、結局のところ客数だけです。</p>
+
+  <p>私たちが作っている<a href="../">コミヨホウ</a>は、その考え方でできています。天気や暦の要因は自動で集めて、お店にお願いするのは1日ひとタップだけ。結果は毎夕LINEに1通届きます。</p>
+
+  <p>ただ、<strong>ノートに1行書くだけでも、3ヶ月たてば確実に見えるものがあります。</strong> まずは今日の閉店後、レジの横にノートを1冊開いて置くところから始めてみてください。</p>
+
+  <div class="end">
+    <p class="box-t">コミヨホウについて</p>
+    <p>客足を動かす8つの要因をAIが毎日自動で集めて計算し、「明日の来店みこみ・売上みこみ・仕込みの目安」をLINEに1通お届けするサービスです。POSレジとの連携は不要。月額5,500円（税込）、解約はいつでも違約金なしです。</p>
+    <a class="btn" href="../">コミヨホウの詳細を見る →</a>
+  </div>
+
+  <p class="backlink"><a href="../">← コミヨホウ トップへ戻る</a></p>
+
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "客数の記録を3ヶ月続けるための工夫｜閉店後の15秒を習慣にする",
+  "description": "客数の記録は2週間で止まりがちです。止まるのは意志が弱いからではなく、置き場所とタイミングの設計の問題。3ヶ月続けるための具体的な工夫をまとめました。",
+  "inLanguage": "ja",
+  "datePublished": "2026-09-01",
+  "dateModified": "2026-09-01",
+  "mainEntityOfPage": "https://komiyohou.ynht-web.com/blog/kyakusuu-kiroku-tsuzukeru.html",
+  "author": { "@type": "Organization", "name": "YNHT" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "YNHT",
+    "address": { "@type": "PostalAddress", "addressCountry": "JP", "addressRegion": "福井県", "addressLocality": "越前市" }
+  }
+}
+</script>
+
+</body>
+</html>

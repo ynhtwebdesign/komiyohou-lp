@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SBC6NKFKL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SBC6NKFKL');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://komiyohou.ynht-web.com/blog/ame-no-hi-kyakuashi.html">
+<title>雨の日、うちの店はどれくらい客足が落ちるのか｜「雨の日係数」の出し方</title>
+<meta name="description" content="「雨だから暇」を、一般論ではなく自分の店の数字にする方法。ノートの記録から雨の日係数を出す手順、比べ方の落とし穴、雨の降る時刻で影響が変わる理由を、計算例つきでまとめました。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .art { max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+  .art-head { padding: 44px 0 28px; border-bottom: 1px solid #ddd5c8; margin-bottom: 40px; }
+  .crumb { font-size: 13px; color: var(--sub); margin-bottom: 20px; }
+  .crumb a { color: var(--sub); }
+  .art h1 { font-size: clamp(25px, 5vw, 36px); line-height: 1.55; margin-bottom: 18px; }
+  .lede { color: var(--sub); font-size: 15px; }
+  .art h2 { font-size: clamp(21px, 3.6vw, 27px); margin: 56px 0 20px; padding-left: 14px;
+            border-left: 5px solid var(--accent); line-height: 1.5; }
+  .art h3 { font-size: 18px; margin: 32px 0 12px; }
+  .art p { margin-bottom: 20px; }
+  .art ul, .art ol { margin: 0 0 22px 1.4em; }
+  .art li { margin-bottom: 9px; }
+  .box { background: #fff; border-radius: 12px; padding: 22px 24px; margin: 26px 0;
+         box-shadow: 0 1px 3px rgba(34,30,26,.07); }
+  .box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
+  .box-t { font-family: var(--serif); font-weight: 700; font-size: 17px; margin-bottom: 12px; }
+  .calc { background: #FBEFE2; border-radius: 12px; padding: 20px 24px; margin: 24px 0;
+          font-size: 15px; line-height: 2.1; }
+  .calc b { font-size: 17px; }
+  .tblwrap { overflow-x: auto; margin: 24px 0; }
+  .art table { width: 100%; border-collapse: collapse; font-size: 15px; background: #fff; border-radius: 10px; overflow: hidden; }
+  .art th, .art td { padding: 12px 14px; border-bottom: 1px solid #f2ede4; text-align: left; }
+  .art th { background: #f3f0ea; font-weight: 700; font-size: 14px; white-space: nowrap; }
+  .art td.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .art tr:last-child td { border-bottom: none; }
+  .ng { color: var(--demerit); font-weight: 700; }
+  .ok { color: var(--merit); font-weight: 700; }
+  .end { background: var(--dark); color: #F7F4EE; border-radius: 14px; padding: 30px 26px; margin: 60px 0 0; }
+  .end .box-t { color: #fff; font-size: 19px; }
+  .end p { color: rgba(247,244,238,.82); font-size: 15px; }
+  .end a.btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+               padding: 14px 26px; border-radius: 10px; font-weight: 700; margin-top: 8px; }
+  .backlink { margin-top: 44px; font-size: 14px; }
+
+  /* 写真と図解 */
+  figure { margin: 34px 0; }
+  figure img { width: 100%; height: auto; border-radius: 12px; display: block; }
+  figcaption { font-size: 13px; color: var(--sub); margin-top: 10px; line-height: 1.8; }
+  .hero-fig { margin: 0 0 40px; }
+  .hero-fig img { border-radius: 14px; }
+  .fig-svg { background: #fff; border-radius: 12px; padding: 22px 18px;
+             box-shadow: 0 1px 3px rgba(34,30,26,.07); }
+  .fig-svg svg { width: 100%; height: auto; display: block; }
+  .fig-t { font-family: var(--serif); font-weight: 700; font-size: 15px;
+           margin: 0 0 16px; text-align: center; color: var(--ink); }
+  .src { font-size: 13px; color: var(--sub); line-height: 1.9; }
+</style>
+</head>
+<body>
+
+<article class="art">
+
+  <div class="art-head">
+    <p class="crumb"><a href="../">コミヨホウ</a> ／ 記事</p>
+    <h1>雨の日、うちの店は<br>どれくらい客足が落ちるのか</h1>
+    <p class="lede">「今日は雨だからな」。そう言って、その日のことは終わりになります。でも「何割落ちたのか」を数字で言えるお店は、あまり多くありません。一般論ではなく<strong>自分の店の雨の日係数</strong>を出す手順を、計算例つきでまとめました。</p>
+  </div>
+
+  <figure class="hero-fig">
+    <img src="../assets/web/3.jpg" alt="雨の夕方、灯りのついた居酒屋と濡れた路面" width="1600" height="1030">
+  </figure>
+
+  <p>雨の日は暇だ。これは、たいていの店主が体で知っていることです。予報で傘マークを見た時点で、なんとなく気持ちが下がります。</p>
+
+  <p>ただ、そこから先が曖昧なままになっています。<strong>2割落ちるのか、4割落ちるのか。</strong> それが分からないので、仕込みは結局いつもと同じ量になります。そして閉店後にまた、余りを袋に入れます。</p>
+
+  <p>この記事では、その「何割」を自分の店の記録から出す方法と、出した数字を仕込みに落とすところまでを説明します。特別な道具は要りません。</p>
+
+  <h2>「雨だと落ちる」は、どこまで確かなのか</h2>
+
+  <p>飲食店ドットコムを運営するシンクロ・フードが2024年6月に会員の飲食店433名に行った調査では、こんな結果が出ています。</p>
+
+  <div class="box">
+    <p class="box-t">飲食店433名への調査（2024年6月）</p>
+    <ul>
+      <li>天気予報を意識している……<strong>85.5%</strong></li>
+      <li>雨の日は来店数が少ないと感じる……<strong>72.5%</strong></li>
+      <li>雨の日対策を現在実施している……<strong>7.2%</strong></li>
+    </ul>
+  </div>
+
+  <p>ほとんどの店主が予報を見ていて、7割以上が「雨は落ちる」と感じている。それなのに、実際に手を打てている店はごくわずかです。<strong>見えているのに動けていない</strong>という、大きな差があります。</p>
+
+  <p>ただし、この調査が答えているのは「落ちると感じるか」までです。<strong>あなたの店が何割落ちるかは、どこにも書いてありません。</strong></p>
+
+  <p>雨の影響はお店によってまるで違います。駅前で屋根伝いに来られる店と、駐車場から入口まで濡れる店では、同じ雨でも別の出来事です。よそで見た「雨は2割減」を自分の店に当てはめるのが、実はいちばん危ない使い方です。</p>
+
+  <h2>うちの店の「雨の日係数」を出す</h2>
+
+  <p>やることは、割り算ひとつです。必要なのは、日付・曜日・客数・天気を並べた記録だけ。まだ記録がない方は、<a href="shikomi-ryou-kimekata.html">仕込み量の決め方の記事</a>に書き方をまとめてあります。</p>
+
+  <ol>
+    <li>同じ曜日の日を、晴れの日と雨の日に分ける</li>
+    <li>それぞれの客数の平均を出す</li>
+    <li>雨の平均 ÷ 晴れの平均</li>
+  </ol>
+
+  <p>ここで多くの人がつまずくのが、<strong>1の「同じ曜日の」</strong>という部分です。面倒なので、つい全部まとめて平均してしまいます。それをやると、数字が大きくずれます。</p>
+
+  <figure>
+    <div class="fig-svg">
+      <p class="fig-t">やりがちな比べ方と、正しい比べ方</p>
+      <svg viewBox="0 0 560 266" role="img" aria-label="全部まとめて比べると雨の日平均22人÷晴れの日平均34人で0.65、35パーセント減に見える。同じ水曜どうしで比べると20人÷26人で0.77、23パーセント減になる。">
+        <g font-family="sans-serif">
+          <rect x="16" y="14" width="256" height="236" rx="10" fill="#f3f0ea"/>
+          <rect x="288" y="14" width="256" height="236" rx="10" fill="#f3f0ea"/>
+
+          <g text-anchor="middle" font-size="13" font-weight="700">
+            <text x="144" y="42" fill="#C0392B">× 全部まとめて比べる</text>
+            <text x="416" y="42" fill="#1565C0">○ 同じ曜日どうしで比べる</text>
+          </g>
+          <g stroke="#ddd5c8" stroke-width="1">
+            <line x1="32" y1="56" x2="256" y2="56"/>
+            <line x1="304" y1="56" x2="528" y2="56"/>
+          </g>
+
+          <g font-size="12.5" fill="#5d574e">
+            <text x="32" y="86">雨の日 5日の平均</text>
+            <text x="32" y="112">晴れの日 15日の平均</text>
+            <text x="304" y="86">水曜・雨の平均</text>
+            <text x="304" y="112">水曜・晴れの平均</text>
+          </g>
+          <g font-size="14" font-weight="700" fill="#2B2B2B" text-anchor="end">
+            <text x="256" y="86">22人</text>
+            <text x="256" y="112">34人</text>
+            <text x="528" y="86">20人</text>
+            <text x="528" y="112">26人</text>
+          </g>
+
+          <g stroke="#ddd5c8" stroke-width="1">
+            <line x1="32" y1="128" x2="256" y2="128"/>
+            <line x1="304" y1="128" x2="528" y2="128"/>
+          </g>
+
+          <g text-anchor="middle">
+            <text x="144" y="170" font-size="30" font-weight="700" fill="#C0392B">0.65</text>
+            <text x="416" y="170" font-size="30" font-weight="700" fill="#1565C0">0.77</text>
+            <text x="144" y="192" font-size="12.5" fill="#5d574e">「雨は35%減だ」</text>
+            <text x="416" y="192" font-size="12.5" fill="#5d574e">「雨は23%減だ」</text>
+
+            <g font-size="11.5" fill="#9c9488">
+              <text x="144" y="222">雨の5日に金・土が</text>
+              <text x="144" y="240">入っていないと、こうなる</text>
+              <text x="416" y="222">曜日の差が混ざらないので、</text>
+              <text x="416" y="240">これが本当の雨の影響</text>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <figcaption>左は、雨がたまたま平日に多く降った月の例です。曜日の差まで雨のせいにしてしまい、実際より1割以上きつく見積もっています。この数字で仕込みを削ると、今度は足りなくなります。</figcaption>
+  </figure>
+
+  <p>雨の日と晴れの日では、そもそも入っている曜日の顔ぶれが違います。<strong>曜日をそろえないと、曜日の差と天気の差が混ざります。</strong></p>
+
+  <div class="calc">
+    水曜・晴れの平均 <b>26人</b>　／　水曜・雨の平均 <b>20人</b><br>
+    → 20 ÷ 26 ＝ <b>0.77</b>　（雨の水曜は<span class="ng">およそ23%減</span>）
+  </div>
+
+  <p>この0.77が、その店の水曜の雨の日係数です。予報が雨なら、水曜の土台の数字にこれを掛ける。それだけで、仕込みの出発点が変わります。</p>
+
+  <h2>雨は、一種類ではない</h2>
+
+  <figure>
+    <img src="../assets/web/4.jpg" alt="厨房でスマートフォンの画面を確認する店主の手元" width="1600" height="1030" loading="lazy">
+    <figcaption>予報を見るとき、傘マークの有無だけを見ていないでしょうか。効くのは、その先です。</figcaption>
+  </figure>
+
+  <p>記録に「雨」とだけ書いていると、後で見返したときに困ります。同じ「雨」でも、中身がまるで違うからです。夜の営業にとって効くのは雨量より<strong>降っている時刻</strong>——お客さんが家を出るかどうかを決めるのは、その時間に降っているかどうかだからです。</p>
+
+  <figure>
+    <div class="fig-svg">
+      <p class="fig-t">同じ「雨の日」でも、降る時刻で意味が変わる</p>
+      <svg viewBox="0 0 560 296" role="img" aria-label="営業時間17時から23時の帯に、3種類の雨を重ねた図。朝のうちだけ降る雨は営業時間にかからない。夕方から降り出す雨と一日中の雨は営業時間に重なる。">
+        <g font-family="sans-serif">
+          <rect x="330" y="52" width="180" height="186" rx="6" fill="#FBEFE2"/>
+          <text x="420" y="42" font-size="12" font-weight="700" fill="#E8863C" text-anchor="middle">営業時間 17〜23時</text>
+
+          <g font-size="12.5" fill="#2B2B2B">
+            <text x="16" y="74">① 朝のうちだけ降って、夕方は上がる</text>
+            <text x="16" y="136">② 夕方から降り出す</text>
+            <text x="16" y="198">③ 朝から晩まで降り続く</text>
+          </g>
+
+          <g fill="#a9c8e8">
+            <rect x="90"  y="82"  width="120" height="22" rx="4"/>
+            <rect x="300" y="144" width="150" height="22" rx="4"/>
+            <rect x="90"  y="206" width="450" height="22" rx="4"/>
+          </g>
+
+          <g font-size="11.5" font-weight="700" text-anchor="end">
+            <text x="540" y="74" fill="#1565C0">影響は小さい</text>
+            <text x="540" y="136" fill="#C0392B">いちばん効く</text>
+            <text x="540" y="198" fill="#C0392B">効く（読みやすい）</text>
+          </g>
+
+          <line x1="90" y1="248" x2="540" y2="248" stroke="#ddd5c8" stroke-width="2"/>
+          <g font-size="11.5" fill="#9c9488" text-anchor="middle">
+            <text x="90" y="266">9時</text>
+            <text x="180" y="266">12時</text>
+            <text x="270" y="266">15時</text>
+            <text x="360" y="266">18時</text>
+            <text x="450" y="266">21時</text>
+            <text x="540" y="266">24時</text>
+          </g>
+
+          <text x="280" y="290" font-size="12.5" fill="#5d574e" text-anchor="middle">お客さんが家を出る時間に、降っているかどうか</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>①を「雨の日」として一緒に集計すると、係数が甘くなります。逆に②ばかりが混ざると、きつく出ます。どちらに転んでも、精度は落ちます。</figcaption>
+  </figure>
+
+  <p>ですから、記録の天気欄には一言だけ足してください。<strong>「雨（夕方から本降り）」「雨（昼で上がった）」</strong>——これだけで、後から使える情報になります。</p>
+
+  <div class="box">
+    <p class="box-t">天気欄に足しておくと後で効くもの</p>
+    <ul>
+      <li><strong>降っていた時間帯</strong>……開店前後に降っていたか</li>
+      <li><strong>強さ</strong>……小雨か、本降りか（傘をさして歩けるか）</li>
+      <li><strong>風</strong>……風が強い日は、同じ雨量でも足が止まりやすい</li>
+    </ul>
+  </div>
+
+  <p>全部を係数にする必要はありません。まずは<span class="ok">「開店前後に降っていたか」の一点だけ</span>で分けてみてください。それだけで数字がはっきり分かれる店が多いはずです。</p>
+
+  <h2>何回ぶん集まれば、その数字を信じていいか</h2>
+
+  <p>これは正直にお伝えしておきたいところです。<strong>雨の水曜が1回しかないなら、それは係数ではありません。</strong> たまたま団体が入っていたかもしれないし、たまたま近所で工事をしていたかもしれない。1回の数字は、そういうものを全部抱えています。</p>
+
+  <div class="box">
+    <p class="box-t">目安</p>
+    <ul>
+      <li><strong>1〜2回</strong>……まだ何も言えない。記録だけ続ける</li>
+      <li><strong>3回</strong>……「だいたいこのくらい」の傾向として使える</li>
+      <li><strong>5回以上</strong>……係数として仕込みに掛けてよい</li>
+    </ul>
+  </div>
+
+  <p>ここで気をつけたいのが、時間の感覚です。雨の水曜は<strong>週に1回しか来ない条件</strong>なので、5回たまるまでに半年近くかかることもあります。</p>
+
+  <p>それまでは、粗いままで構いません。「雨のときは1〜2割少なめ」くらいの扱いでも、何もしないよりずっとましです。<span class="ok">精度は後からついてきます</span>。</p>
+
+  <h2>落ちるぶんを、金額に変える</h2>
+
+  <p>係数が出たら、必ず一度は金額にしてください。数字のままだと、明日の行動が変わりません。</p>
+
+  <figure>
+    <div class="fig-svg">
+      <p class="fig-t">係数を知らないと、毎回この差だけ多く仕込む</p>
+      <svg viewBox="0 0 560 246" role="img" aria-label="晴れの水曜と同じつもりで26人分を仕込み、実際に来たのは20人。差の6人分に1人あたりの食材原価900円を掛けると5400円ぶんになる。">
+        <g font-family="sans-serif">
+          <text x="16" y="36" font-size="12.5" fill="#5d574e">晴れの水曜と同じつもりで仕込んだ量</text>
+          <rect x="16" y="46" width="442" height="36" rx="6" fill="#d9cfbe"/>
+          <text x="444" y="70" font-size="15" font-weight="700" fill="#2B2B2B" text-anchor="end">26人分</text>
+
+          <text x="16" y="114" font-size="12.5" fill="#5d574e">実際に来たお客さん（雨）</text>
+          <rect x="16" y="124" width="340" height="36" rx="6" fill="#E8863C"/>
+          <text x="342" y="148" font-size="15" font-weight="700" fill="#fff" text-anchor="end">20人</text>
+
+          <rect x="358" y="124" width="100" height="36" rx="6" fill="#FBEAE7" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <text x="408" y="148" font-size="14" font-weight="700" fill="#C0392B" text-anchor="middle">6人ぶん</text>
+
+          <rect x="16" y="186" width="528" height="46" rx="10" fill="#221E1A"/>
+          <text x="280" y="215" font-size="15" fill="#fff" text-anchor="middle">6人 × 1人あたりの食材原価 900円 ＝ <tspan font-size="19" font-weight="700">5,400円ぶん</tspan></text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>1人あたり900円は、客単価3,000円・原価率30%と仮定した場合の例です。お店ごとに置き換えてください。</figcaption>
+  </figure>
+
+  <p>ただし、この5,400円がそのままゴミになるわけではありません。翌日に回せるもの、まかないで食べるもの、冷凍できるものがあります。<strong>本当に捨てることになるのは、その一部です。</strong></p>
+
+  <p>仮に、そのうち4割が使い切れずに廃棄になるとします。</p>
+
+  <div class="calc">
+    5,400円 × 使い切れない割合 <b>4割</b> ＝ 1日あたり <b>約2,200円</b><br>
+    2,200円 × 月に雨の営業日 <b>6日</b> ＝ <b>月約13,000円</b><br>
+    13,000円 × 12ヶ月 ＝ <span class="ng"><b>年約16万円</b></span>
+  </div>
+
+  <p>雨の日の数も、使い切れない割合も、お店によって変わります。<strong>ここは自分の店の数字を入れて計算し直してください。</strong> 大事なのは正確さより、桁の感覚をつかむことです。</p>
+
+  <h2>雨の日に、やること・やらないこと</h2>
+
+  <h3>やらない方がいいこと｜呼び戻そうとして値引きする</h3>
+
+  <p>先ほどの調査には、続きがあります。雨の日対策をやったことがある店のうち、<strong>効果があったと答えたのは31.6%、効果がなかったが44.7%</strong>。約7割が、手応えを感じていません。</p>
+
+  <p>理由は、考えてみれば当たり前です。お客さんが来ない理由が「濡れたくない」なら、<span class="ng">200円引きでは傘をささない</span>からです。値引きは、来ようか迷っている人の背中は押せますが、外に出る気がない人は動かせません。</p>
+
+  <p>もちろん、やってはいけないという話ではありません。ただ、<strong>その施策が当たる前提で仕込みを増やすのは危ない</strong>ということです。呼び戻す手は、相手が動くかどうかに懸かっています。</p>
+
+  <h3>やること｜仕込みを、途中で止められる形にする</h3>
+
+  <p>一方、仕込みを減らす判断は自分の手の中で完結します。外れようがありません。</p>
+
+  <ul>
+    <li>下ごしらえまでは通常どおり、火を入れる工程は控えめで一度止める</li>
+    <li>余ったときの行き先（翌日の日替わり、冷凍、まかない）を先に決めておく</li>
+    <li>予想より来たら、そこから追加で仕上げる</li>
+  </ul>
+
+  <p>このあたりは<a href="shokuzai-loss.html">食材ロスの記事</a>で詳しく書きました。雨の日は、この「途中で止める」がいちばん効く日です。</p>
+
+  <h2>雨に強い店と、弱い店がある</h2>
+
+  <figure>
+    <img src="../assets/web/8.jpg" alt="夕暮れの路地で、のれんを出す居酒屋の店主" width="1600" height="1030" loading="lazy">
+    <figcaption>同じ雨でも、入口までの数メートルで結果が変わります。</figcaption>
+  </figure>
+
+  <p>先ほどの調査では、立地によって影響の受け方が違うという結果も出ています。商業施設の中に入っている店は影響を受けにくく、業態ではバーがもっとも影響を受けやすい、とされています。中には、近くの店が早じまいするぶん雨の日にかえって忙しくなる、というお店もあります。</p>
+
+  <p>だからこそ、<strong>自分の店がどちら側なのかは、係数を出してみるまで分かりません。</strong> 「雨は落ちるものだ」と思い込んで仕込みを削っていたら、実はほとんど落ちていなかった、ということもあり得ます。</p>
+
+  <h2>今週からの進め方</h2>
+
+  <ol>
+    <li><strong>今週</strong>……天気欄に「夕方から本降り」など一言だけ足す</li>
+    <li><strong>1ヶ月後</strong>……曜日ごとの平均客数を出す</li>
+    <li><strong>2〜3ヶ月後</strong>……同じ曜日の晴れと雨を比べて、係数を出す</li>
+    <li><strong>係数が出たら</strong>……予報が雨の日に、その曜日の土台へ掛ける</li>
+  </ol>
+
+  <p>すぐには出ません。雨の日は、待たないと集まらないからです。ただ、一度出してしまえば、その数字は来年も再来年も使えます。</p>
+
+  <p>この「待つ」ところが、正直いちばんの難所だと思います。書けば効くと分かっていても、疲れている日は飛びます。もし手作業で続けるのが難しければ、天気の記録と客数の突き合わせを自動でやる仕組みに任せる手もあります。私たちが作っている<a href="../">コミヨホウ</a>は、まさにこの記事の計算を毎日代わりに回しているサービスです。</p>
+
+  <p>ただ、<strong>この記事のやり方をノートで実践するだけでも、雨の日の仕込みは確実に変わります。</strong> 次に傘マークが出た日、閉店後に客数を一行書くところから始めてみてください。</p>
+
+  <p class="src">参考：シンクロ・フード「飲食店の雨の日対策に関する調査」（2024年6月／飲食店ドットコム会員433名）<br>
+  <a href="https://www.inshokuten.com/foodist/article/7579/" target="_blank" rel="noopener">https://www.inshokuten.com/foodist/article/7579/</a></p>
+
+  <div class="end">
+    <p class="box-t">コミヨホウについて</p>
+    <p>客足を動かす8つの要因をAIが毎日自動で集めて計算し、「明日の来店みこみ・売上みこみ・仕込みの目安」をLINEに1通お届けするサービスです。POSレジとの連携は不要。月額5,500円（税込）、解約はいつでも違約金なしです。</p>
+    <a class="btn" href="../">コミヨホウの詳細を見る →</a>
+  </div>
+
+  <p class="backlink"><a href="../">← コミヨホウ トップへ戻る</a></p>
+
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "雨の日、うちの店はどれくらい客足が落ちるのか｜「雨の日係数」の出し方",
+  "description": "「雨だから暇」を、一般論ではなく自分の店の数字にする方法。ノートの記録から雨の日係数を出す手順、比べ方の落とし穴、雨の降る時刻で影響が変わる理由を、計算例つきでまとめました。",
+  "inLanguage": "ja",
+  "datePublished": "2026-08-15",
+  "dateModified": "2026-08-15",
+  "mainEntityOfPage": "https://komiyohou.ynht-web.com/blog/ame-no-hi-kyakuashi.html",
+  "author": { "@type": "Organization", "name": "YNHT" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "YNHT",
+    "address": { "@type": "PostalAddress", "addressCountry": "JP", "addressRegion": "福井県", "addressLocality": "越前市" }
+  }
+}
+</script>
+
+</body>
+</html>

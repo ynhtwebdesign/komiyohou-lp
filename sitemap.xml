@@ -19,6 +19,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://komiyohou.ynht-web.com/blog/ame-no-hi-kyakuashi.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://komiyohou.ynht-web.com/blog/kyakusuu-kiroku-tsuzukeru.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://komiyohou.ynht-web.com/manual.html</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
