@@ -293,3 +293,7 @@ details.more .more-body { margin-top: 8px; padding: 12px 14px; background: rgba(
 details.more .more-body p { padding: 0; margin: 0 0 6px; font-size: 13.5px; line-height: 1.85; color: var(--sub); }
 details.more .more-body p:last-child { margin-bottom: 0; }
 .story details.more .more-body p { font-size: 12.5px; }
+
+/* メリットのカード上部のイラスト(16:9)。FVのすぐ下なので、導入後のお店(4:3)より背を低くしてある */
+.mcard .m-ill { aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #FBF3E6; margin-bottom: 16px; line-height: 0; }
+.mcard .m-ill img { width: 100%; height: 100%; object-fit: cover; display: block; }

@@ -8,7 +8,8 @@ from PIL import Image, ImageOps, ImageDraw, ImageChops
 SRC = "_src"
 ICONS = ["f-mikomi","f-shikomi","f-calendar","f-shiire","f-shukyaku","f-jikan",
          "k-tenki","k-youbi","k-kyuryo","k-event","k-gakko","k-sports","k-kisetsu","k-machi"]
-CARDS = ["ba-ame","ba-matsuri","ba-tsukizue"]
+CARDS = ["ba-ame","ba-matsuri","ba-tsukizue"]             # 導入後のお店 4:3
+WIDE = ["m-herasu","m-urebi","m-nayami","m-zaisan"]        # メリットのカード 16:9
 
 def trim_square(im, pad=0.10):
     rgb = im.convert("RGB")
@@ -44,6 +45,11 @@ for n in CARDS:
     p = os.path.join(SRC, n + ".png")
     if not os.path.exists(p): continue
     ImageOps.fit(Image.open(p).convert("RGB"), (720, 540), Image.LANCZOS).save(n + ".webp", "WEBP", quality=90, method=6)
+
+for n in WIDE:
+    p = os.path.join(SRC, n + ".png")
+    if not os.path.exists(p): continue
+    ImageOps.fit(Image.open(p).convert("RGB"), (720, 405), Image.LANCZOS).save(n + ".webp", "WEBP", quality=90, method=6)
 
 # 確認用シート：各アイコンを 実寸56px の丸 と 160px で並べる
 if "--sheet" in sys.argv:
