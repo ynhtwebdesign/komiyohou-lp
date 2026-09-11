@@ -633,7 +633,7 @@
   <div class="hx-success" id="hxSuccess">
     <h2>送信ありがとうございました</h2>
     <div id="hxAutoBlock" style="display:none;">
-      <p>お店の登録が完了しました。<strong>あと2つだけ、ご自身で設定をお願いします。</strong></p>
+      <p id="hxAutoLead">お店の登録が完了しました。<strong>あと2つだけ、ご自身で設定をお願いします。</strong></p>
       <div class="hx-code-box">
         <p class="hx-code-label">お店の登録コード</p>
         <p class="hx-code" id="hxOwnerCode">----</p>
@@ -642,7 +642,8 @@
         <li><strong>①配信の開始</strong>：下のボタンからLINE公式アカウントを友だち追加し、トーク画面に上のコードをそのまま送信</li>
         <li>「写真で送る」を選んだ方は、同じトークに<strong>メニュー表の写真</strong>（あれば納品書の写真も）をお送りください</li>
         <li>その日の夕方から「明日の仕込みメモ」が届きます</li>
-        <li><strong>②お支払い登録</strong>：もう1つのボタンからカードを登録。<strong>初期設定費33,000円(税込)</strong>はご登録時に、<strong>月額5,500円(税込)</strong>は翌月分から自動でお支払いされ、領収書はメールに自動で届きます（解約はいつでも違約金なし。LINEで「解約」と送るだけです）</li>
+        <li id="hxPayStep"><strong>②お支払い登録</strong>：もう1つのボタンからカードを登録。<strong>月額5,500円(税込)</strong>が自動でお支払いされ、領収書はメールに自動で届きます（解約はいつでも違約金なし。LINEで「解約」と送るだけです）</li>
+        <li id="hxTrialStep" style="display:none;"><strong>最初の30日は無料です（<span id="hxTrialEnd"></span>まで）</strong>。カードの登録はいりません。続けるかどうかは、終わる7日前にLINEでお聞きします。お返事がなければ、そのまま止まります（勝手に有料にはなりません）</li>
       </ol>
       <a class="hx-line-btn" id="hxLineBtn" href="#" target="_blank" rel="noopener">① LINEで友だち追加する →</a>
       <a class="hx-line-btn" id="hxPayBtn" href="#" target="_blank" rel="noopener" style="display:none;background:#635BFF;margin-left:8px;">② 月額のお支払いを登録する →</a>
@@ -1072,7 +1073,16 @@ const PAY_URL_BASE = "https://komiyohou-server.onrender.com";
           if (api && api.provisioned && api.owner_code && LINE_URL) {
             codeEl.textContent = api.owner_code;
             lineBtn.href = LINE_URL;
-            if (PAY_URL_BASE) {
+            if (api.trial_end) {
+              // 無料お試し(30日・カード登録なし)。支払いボタンは出さず、お試しの最終日を案内する
+              var te = String(api.trial_end).split("-");
+              document.getElementById("hxTrialEnd").textContent =
+                te.length === 3 ? Number(te[1]) + "月" + Number(te[2]) + "日" : api.trial_end;
+              document.getElementById("hxTrialStep").style.display = "";
+              document.getElementById("hxPayStep").style.display = "none";
+              document.getElementById("hxAutoLead").innerHTML =
+                "お店の登録が完了しました。<strong>あと1つだけ、ご自身で設定をお願いします。</strong>";
+            } else if (PAY_URL_BASE) {
               payBtn.href = PAY_URL_BASE.replace(/\/$/, "") + "/pay?code=" + encodeURIComponent(api.owner_code);
               payBtn.style.display = "inline-block";
             }
