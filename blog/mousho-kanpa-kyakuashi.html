@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SBC6NKFKL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SBC6NKFKL');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://komiyohou.ynht-web.com/blog/mousho-kanpa-kyakuashi.html">
+<title>猛暑日・寒波の日に、客足はどう動くか｜昼と夜を分けて「気温の係数」を出す</title>
+<meta name="description" content="暑すぎる日と寒すぎる日の客足は、雨と違って減るとは限りません。昼と夜で向きが逆になることも、人数は減るのに冷たい品だけ伸びることもあります。自分の店の「気温の係数」をノートと電卓で出す手順を、計算例つきでまとめました。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .art { max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+  .art-head { padding: 44px 0 28px; border-bottom: 1px solid #ddd5c8; margin-bottom: 40px; }
+  .crumb { font-size: 13px; color: var(--sub); margin-bottom: 20px; }
+  .crumb a { color: var(--sub); }
+  .art h1 { font-size: clamp(25px, 5vw, 36px); line-height: 1.55; margin-bottom: 18px; }
+  .lede { color: var(--sub); font-size: 15px; }
+  .art h2 { font-size: clamp(21px, 3.6vw, 27px); margin: 56px 0 20px; padding-left: 14px;
+            border-left: 5px solid var(--accent); line-height: 1.5; }
+  .art h3 { font-size: 18px; margin: 32px 0 12px; }
+  .art p { margin-bottom: 20px; }
+  .art ul, .art ol { margin: 0 0 22px 1.4em; }
+  .art li { margin-bottom: 9px; }
+  .box { background: #fff; border-radius: 12px; padding: 22px 24px; margin: 26px 0;
+         box-shadow: 0 1px 3px rgba(34,30,26,.07); }
+  .box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
+  .box-t { font-family: var(--serif); font-weight: 700; font-size: 17px; margin-bottom: 12px; }
+  .calc { background: #FBEFE2; border-radius: 12px; padding: 20px 24px; margin: 24px 0;
+          font-size: 15px; line-height: 2.1; }
+  .calc b { font-size: 17px; }
+  .tblwrap { overflow-x: auto; margin: 24px 0; }
+  .art table { width: 100%; border-collapse: collapse; font-size: 15px; background: #fff; border-radius: 10px; overflow: hidden; }
+  .art th, .art td { padding: 12px 14px; border-bottom: 1px solid #f2ede4; text-align: left; }
+  .art th { background: #f3f0ea; font-weight: 700; font-size: 14px; white-space: nowrap; }
+  .art td.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .art tr:last-child td { border-bottom: none; }
+  .ng { color: var(--demerit); font-weight: 700; }
+  .ok { color: var(--merit); font-weight: 700; }
+  .end { background: var(--dark); color: #F7F4EE; border-radius: 14px; padding: 30px 26px; margin: 60px 0 0; }
+  .end .box-t { color: #fff; font-size: 19px; }
+  .end p { color: rgba(247,244,238,.82); font-size: 15px; }
+  .end a.btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+               padding: 14px 26px; border-radius: 10px; font-weight: 700; margin-top: 8px; }
+  .backlink { margin-top: 44px; font-size: 14px; }
+
+  /* 写真と図解 */
+  figure { margin: 34px 0; }
+  figure img { width: 100%; height: auto; border-radius: 12px; display: block; }
+  figcaption { font-size: 13px; color: var(--sub); margin-top: 10px; line-height: 1.8; }
+  .hero-fig { margin: 0 0 40px; }
+  .hero-fig img { border-radius: 14px; }
+  .fig-svg { background: #fff; border-radius: 12px; padding: 22px 18px;
+             box-shadow: 0 1px 3px rgba(34,30,26,.07); }
+  .fig-svg svg { width: 100%; height: auto; display: block; }
+  .fig-t { font-family: var(--serif); font-weight: 700; font-size: 15px;
+           margin: 0 0 16px; text-align: center; color: var(--ink); }
+</style>
+</head>
+<body>
+
+<article class="art">
+
+  <div class="art-head">
+    <p class="crumb"><a href="../">コミヨホウ</a> ／ 記事</p>
+    <h1>猛暑日・寒波の日に、客足はどう動くか<br>昼と夜を分けて「気温の係数」を出す</h1>
+    <p class="lede">暑すぎる日と、寒すぎる日。雨と違って、客足が減るとは限りません。昼は減って夜は増える、人数は減るのに冷たい品だけ伸びる、といった動き方をします。自分の店の「気温の係数」の出し方を、計算例つきでまとめました。</p>
+  </div>
+
+  <figure class="hero-fig">
+    <img src="../assets/web/8.jpg" alt="夕暮れの路地で、のれんを出している居酒屋の店主" width="1600" height="1030">
+  </figure>
+
+  <p>「こう暑いと、誰も外に出てこない」「こう寒いと、みんなまっすぐ帰る」。猛暑の日や冷え込んだ日には、こんな言葉が出ます。</p>
+
+  <p>ただ、振り返ってみると、暑い日の夜に冷たい一杯を求めるお客さんで混んだ覚えもあるのではないでしょうか。<strong>暑さ寒さは、雨のように「落ちる」と決まっているわけではありません。</strong></p>
+
+  <p>この記事では、暑い日・寒い日の客足を数字にする方法をまとめます。考え方は<a href="ame-no-hi-kyakuashi.html">雨の日係数の記事</a>と同じですが、気温ならではの注意点が3つあります。</p>
+
+  <h2>気温は、雨と3つの点で違う</h2>
+
+  <ul>
+    <li><strong>向きが決まっていない</strong>……減る店もあれば、増える店もある。同じ店でも、昼と夜で逆になることがある</li>
+    <li><strong>回数がたまりにくい</strong>……飛びぬけて暑い日・寒い日は、雨の日ほど多くない</li>
+    <li><strong>人数だけでなく、頼まれる品が動く</strong>……冷たい品と温かい品の出方が変わる</li>
+  </ul>
+
+  <p>この3つに合わせて、手順を少しだけ変えます。</p>
+
+  <h2>手順1｜「暑い日」「寒い日」の線を決める</h2>
+
+  <p>まず、何℃からを特別な日として扱うかを決めます。</p>
+
+  <p>暑い方は、気象庁の言葉がそのまま使えます。<strong>最高気温が35℃以上の日が「猛暑日」</strong>です。一方、寒い方の「寒波」には、何℃以下という決まった線がありません。そこで、自分で線を引きます。<strong>天気予報を見ればすぐ判断できる線</strong>にしておくのがこつです。</p>
+
+  <div class="box">
+    <p class="box-t">線の引き方（例）</p>
+    <ul>
+      <li><strong>暑い日</strong>……最高気温が35℃以上（猛暑日）</li>
+      <li><strong>寒い日</strong>……例えば、最高気温が5℃に届かない日</li>
+      <li><strong>雪が積もった日</strong>……寒い日とは別に数える</li>
+    </ul>
+  </div>
+
+  <p>線は地域に合わせて動かしてください。35℃を超える日がほとんどない町なら、33℃で引いた方が使える数字になります。</p>
+
+  <p>気温を毎日ノートに書く必要はありません。<a href="kyakusuu-kiroku-tsuzukeru.html">記録を続ける工夫の記事</a>で書いたとおり、項目を増やすと続かなくなります。過去の気温は、気象庁のホームページにある「過去の気象データ検索」で、日ごとに調べられます。<span class="ok">夏や冬が終わってから、線を超えた日に印をつけるだけ</span>で足ります。</p>
+
+  <h2>手順2｜同じ季節の「ふつうの日」と比べる</h2>
+
+  <p>昼は定食、夜は居酒屋として営業している店を例にします。まず昼です。猛暑日の客数を、<strong>同じ夏の、同じ曜日の平均</strong>で割ります。</p>
+
+  <p>春や秋の数字とは比べません。季節そのものの違いが混ざって、暑さの影響だけを取り出せなくなるからです。雨の日と、お盆のような特別な時期も外しておきます。</p>
+
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>猛暑日</th><th>曜日</th><th class="n">その曜日の夏の平均</th><th class="n">当日の昼の客数</th><th class="n">割合</th></tr></thead>
+      <tbody>
+        <tr><td>1日目</td><td>水曜</td><td class="n">30人</td><td class="n">25人</td><td class="n"><b>0.83</b></td></tr>
+        <tr><td>2日目</td><td>木曜</td><td class="n">32人</td><td class="n">27人</td><td class="n"><b>0.84</b></td></tr>
+        <tr><td>3日目</td><td>火曜</td><td class="n">28人</td><td class="n">22人</td><td class="n"><b>0.79</b></td></tr>
+        <tr><td>4日目</td><td>金曜</td><td class="n">36人</td><td class="n">30人</td><td class="n"><b>0.83</b></td></tr>
+        <tr><td>5日目</td><td>水曜</td><td class="n">30人</td><td class="n">23人</td><td class="n"><b>0.77</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="calc">
+    1日目　25 ÷ 30 ＝ <b>0.83</b>　（同じように5日ぶん出す）<br>
+    （0.83 ＋ 0.84 ＋ 0.79 ＋ 0.83 ＋ 0.77）÷ 5 ＝ <b>0.81</b>　（猛暑日の昼は<span class="ng">およそ2割減</span>）
+  </div>
+
+  <p>「水曜の猛暑日」「金曜の猛暑日」と曜日ごとに分けると、1〜2回ぶんしか集まりません。そこで、<strong>先に1日ずつ割合にしてから、まとめて平均します。</strong> こうすれば、曜日がばらばらでも1つの係数にできます。</p>
+
+  <p>夜も同じやり方で出します。この店の夜は <b>1.13</b> になりました。昼は2割減るのに、夜は1割ほど増えています。</p>
+
+  <figure>
+    <div class="fig-svg">
+      <p class="fig-t">同じ猛暑日でも、昼と夜で向きが逆（水曜の例）</p>
+      <svg viewBox="0 0 560 256" role="img" aria-label="水曜の客数の棒グラフ。昼はふつうの日30人に対して猛暑日は24人で0.81倍。夜はふつうの日24人に対して猛暑日は27人で1.13倍。">
+        <g font-family="sans-serif">
+          <rect x="150" y="8" width="14" height="14" rx="3" fill="#d9cfbe"/>
+          <text x="170" y="20" font-size="12" fill="#5d574e">夏のふつうの日</text>
+          <rect x="300" y="8" width="14" height="14" rx="3" fill="#E8863C"/>
+          <text x="320" y="20" font-size="12" fill="#5d574e">猛暑日（35℃以上）</text>
+        </g>
+
+        <line x1="52" y1="220" x2="540" y2="220" stroke="#ddd5c8" stroke-width="2"/>
+        <g stroke="#f2ede4" stroke-width="1">
+          <line x1="52" y1="172" x2="540" y2="172"/>
+          <line x1="52" y1="124" x2="540" y2="124"/>
+          <line x1="52" y1="76"  x2="540" y2="76"/>
+        </g>
+        <g fill="#9c9488" font-size="12" font-family="sans-serif" text-anchor="end">
+          <text x="44" y="224">0</text><text x="44" y="176">15</text>
+          <text x="44" y="128">30</text><text x="44" y="80">45</text>
+        </g>
+
+        <g>
+          <rect x="94"  y="124" width="68" height="96" rx="4" fill="#d9cfbe"/>
+          <rect x="170" y="143" width="68" height="77" rx="4" fill="#E8863C"/>
+          <rect x="338" y="143" width="68" height="77" rx="4" fill="#d9cfbe"/>
+          <rect x="414" y="134" width="68" height="86" rx="4" fill="#E8863C"/>
+        </g>
+
+        <g font-family="sans-serif" text-anchor="middle" font-weight="700">
+          <g font-size="16">
+            <text x="128" y="208" fill="#2B2B2B">30</text>
+            <text x="204" y="208" fill="#ffffff">24</text>
+            <text x="372" y="208" fill="#2B2B2B">24</text>
+            <text x="448" y="208" fill="#ffffff">27</text>
+          </g>
+          <g font-size="17">
+            <text x="204" y="134" fill="#C0392B">×0.81</text>
+            <text x="448" y="125" fill="#E8863C">×1.13</text>
+          </g>
+          <g fill="#5d574e" font-size="14" font-weight="400">
+            <text x="166" y="242">昼（定食）</text>
+            <text x="410" y="242">夜（居酒屋）</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <figcaption>1日の合計で見ると、54人が51人になるだけで「猛暑日でもあまり変わらない」ように見えます。昼の減りと夜の増えが打ち消し合うからです。昼と夜を分けて数えるのは、このためです。</figcaption>
+  </figure>
+
+  <p>もちろん、これはこの店の例です。日差しの中を歩いて来てもらう立地か、駐車場が目の前か、近くに勤め先が多いかで、向きも大きさも変わります。夜も減る店、昼がむしろ増える店もあるはずです。<strong>向きを決めつけずに、自分の記録で確かめてください。</strong></p>
+
+  <p>何回ぶん集まれば信じていいかは、<a href="ame-no-hi-kyakuashi.html">雨の日の記事</a>に書いた目安と同じです。3回で傾向、5回以上で係数として使えます。猛暑日がひと夏に5日たまらない年は、「0.8くらい」と粗く使い、翌年の夏に日数を足して確かめてください。</p>
+
+  <h2>手順3｜人数だけでなく、品の比率も見直す</h2>
+
+  <figure>
+    <img src="../assets/web/2.jpg" alt="夜の厨房で、大鍋の煮込みを木べらで混ぜている居酒屋の店主" width="1600" height="1030" loading="lazy">
+    <figcaption>暑い日に、煮込みの出方は変わるのか、変わらないのか。伝票を数えれば分かります。</figcaption>
+  </figure>
+
+  <p>気温で変わるのは、人数だけではありません。<strong>頼まれる品が変わります。</strong> 猛暑日の伝票を2〜3日ぶん取り出して、品ごとの注文数をその日の客数で割ってみてください。<a href="heijitsu-shuumatsu-shikomi.html">平日と週末の記事</a>で使った「出数比率」と同じ出し方です。</p>
+
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>品目（昼）</th><th class="n">ふつうの日の比率</th><th class="n">水曜 30人</th><th class="n">猛暑日の比率</th><th class="n">猛暑日 24人</th></tr></thead>
+      <tbody>
+        <tr><td>唐揚げ定食</td><td class="n">0.4</td><td class="n">約12食</td><td class="n">0.4</td><td class="n"><b>約10食</b></td></tr>
+        <tr><td>冷やしうどん</td><td class="n">0.2</td><td class="n">約6食</td><td class="n">0.35</td><td class="n"><b>約8食</b></td></tr>
+        <tr><td>煮魚定食</td><td class="n">0.3</td><td class="n">約9食</td><td class="n">0.2</td><td class="n"><b>約5食</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure>
+    <div class="fig-svg">
+      <p class="fig-t">客数は2割減。でも、品目ごとの動き方はばらばら</p>
+      <svg viewBox="0 0 560 280" role="img" aria-label="水曜の昼の、ふつうの日と猛暑日の比較。客数は30人から24人で0.8倍。唐揚げ定食は12食から10食で0.8倍、冷やしうどんは6食から8食で1.3倍、煮魚定食は9食から5食で0.6倍。">
+        <g font-family="sans-serif">
+          <rect x="150" y="8" width="14" height="14" rx="3" fill="#d9cfbe"/>
+          <text x="170" y="20" font-size="12" fill="#5d574e">ふつうの日（30人）</text>
+          <rect x="310" y="8" width="14" height="14" rx="3" fill="#E8863C"/>
+          <text x="330" y="20" font-size="12" fill="#5d574e">猛暑日（24人）</text>
+
+          <g font-size="13.5" font-weight="700" fill="#2B2B2B">
+            <text x="16" y="63">昼の客数</text>
+            <text x="16" y="129">唐揚げ定食</text>
+            <text x="16" y="191">冷やしうどん</text>
+            <text x="16" y="253">煮魚定食</text>
+          </g>
+
+          <g fill="#d9cfbe">
+            <rect x="150" y="40"  width="204" height="16" rx="3"/>
+            <rect x="150" y="106" width="82"  height="16" rx="3"/>
+            <rect x="150" y="168" width="41"  height="16" rx="3"/>
+            <rect x="150" y="230" width="61"  height="16" rx="3"/>
+          </g>
+          <g fill="#E8863C">
+            <rect x="150" y="60"  width="163" height="16" rx="3"/>
+            <rect x="150" y="126" width="68"  height="16" rx="3"/>
+            <rect x="150" y="188" width="54"  height="16" rx="3"/>
+            <rect x="150" y="250" width="34"  height="16" rx="3"/>
+          </g>
+
+          <g font-size="12" fill="#5d574e">
+            <text x="360" y="53">30人</text><text x="319" y="73">24人</text>
+            <text x="238" y="119">12食</text><text x="224" y="139">10食</text>
+            <text x="197" y="181">6食</text><text x="210" y="201">8食</text>
+            <text x="217" y="243">9食</text><text x="190" y="263">5食</text>
+          </g>
+
+          <line x1="16" y1="92" x2="545" y2="92" stroke="#ddd5c8" stroke-width="1"/>
+
+          <g text-anchor="end" font-weight="700" font-size="18">
+            <text x="545" y="64"  fill="#221E1A">×0.8</text>
+            <text x="545" y="124" fill="#2B2B2B">×0.8</text>
+            <text x="545" y="186" fill="#C0392B">×1.3</text>
+            <text x="545" y="248" fill="#1565C0">×0.6</text>
+          </g>
+          <g text-anchor="end" font-size="11" fill="#9c9488">
+            <text x="545" y="141">客数と同じだけ減る</text>
+            <text x="545" y="203">客数が減っても、増える</text>
+            <text x="545" y="265">客数より大きく減る</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <figcaption>客数が減る日に、増える品がある。「暑いから全体を少なめに」とだけ決めると、ここを見落とします。</figcaption>
+  </figure>
+
+  <p>もし全部を0.8倍にしていたら、冷やしうどんは6食×0.8で約5食しか用意できず、<span class="ng">3食足りません</span>。煮魚は9食×0.8で約7食を仕込み、<span class="ng">2食余ります</span>。</p>
+
+  <div class="box">
+    <p class="box-t">気温で比率が動きやすいもの（例）</p>
+    <ul>
+      <li><strong>暑い日</strong>……冷たい麺や冷たい飲み物が伸び、煮込みや鍋ものが落ちることがある</li>
+      <li><strong>寒い日</strong>……鍋ものや汁もの、燗酒が伸び、冷たい品が落ちることがある</li>
+      <li><strong>飲み物まわり</strong>……暑い日は、食材より先に氷や樽の残りを確かめておく</li>
+    </ul>
+  </div>
+
+  <p>これも店によって違います。真夏でも名物の煮込みが落ちない店は、いくらでもあるはずです。全品やる必要はありません。<span class="ok">日持ちしない上位3品だけ</span>、比率を並べてみてください。</p>
+
+  <h2>寒い日は、雪と分けて数える</h2>
+
+  <p>寒い日も手順は同じです。冬のあいだの、同じ曜日の平均と比べます。</p>
+
+  <div class="calc">
+    水曜の夜　冬の平均 <b>24人</b>　／　最高気温5℃未満の日 <b>18人</b>　→　18 ÷ 24 ＝ <b>0.75</b><br>
+    水曜の昼　冬の平均 <b>30人</b>　／　最高気温5℃未満の日 <b>27人</b>　→　27 ÷ 30 ＝ <b>0.90</b>
+  </div>
+
+  <p>この店では、寒い日は夜の方が大きく落ちました。暑い日とは逆です。</p>
+
+  <p>気をつけたいのは、<strong>「寒いだけの日」と「雪で足元が悪い日」を混ぜない</strong>ことです。雪や路面の凍結は、寒さとは別の理由で客足を止めます。混ぜて平均すると、晴れて冷え込んだだけの日まで、仕込みを減らしすぎてしまいます。特記事項に「積雪」と一言書いて、計算は分けておきます。</p>
+
+  <h2>予報を見て、係数を掛ける</h2>
+
+  <p>係数ができたら、使い方は簡単です。前の日に、明日の予想最高気温を見ます。線を超えていたら、曜日の平均に係数を掛けます。</p>
+
+  <figure>
+    <div class="fig-svg">
+      <p class="fig-t">うちの店の「気温の係数」早見表（例）</p>
+      <svg viewBox="0 0 560 250" role="img" aria-label="気温の係数の早見表。昼は、寒い日0.90、ふつうの日1.0、猛暑日0.81。夜は、寒い日0.75、ふつうの日1.0、猛暑日1.13。水曜の昼30人なら寒い日は約27人、猛暑日は約24人。水曜の夜24人なら寒い日は約18人、猛暑日は約27人。">
+        <g font-family="sans-serif" text-anchor="middle">
+          <g font-size="12.5" font-weight="700">
+            <text x="150" y="20" fill="#1c3f63">寒い日</text>
+            <text x="310" y="20" fill="#5d574e">ふつうの日</text>
+            <text x="470" y="20" fill="#E8863C">猛暑日</text>
+          </g>
+          <g font-size="11" fill="#9c9488">
+            <text x="150" y="37">最高気温 5℃未満</text>
+            <text x="310" y="37">どちらでもない日</text>
+            <text x="470" y="37">最高気温 35℃以上</text>
+          </g>
+
+          <g font-size="15" font-weight="700" fill="#2B2B2B">
+            <text x="36" y="92">昼</text>
+            <text x="36" y="176">夜</text>
+          </g>
+
+          <rect x="76"  y="48"  width="148" height="74" rx="10" fill="#eaf1f8"/>
+          <rect x="236" y="48"  width="148" height="74" rx="10" fill="#f3f0ea"/>
+          <rect x="396" y="48"  width="148" height="74" rx="10" fill="#FBEFE2"/>
+          <rect x="76"  y="132" width="148" height="74" rx="10" fill="#eaf1f8"/>
+          <rect x="236" y="132" width="148" height="74" rx="10" fill="#f3f0ea"/>
+          <rect x="396" y="132" width="148" height="74" rx="10" fill="#E8863C"/>
+
+          <g font-size="26" font-weight="700">
+            <text x="150" y="88"  fill="#1c3f63">×0.90</text>
+            <text x="310" y="88"  fill="#2B2B2B">×1.0</text>
+            <text x="470" y="88"  fill="#C0392B">×0.81</text>
+            <text x="150" y="172" fill="#1c3f63">×0.75</text>
+            <text x="310" y="172" fill="#2B2B2B">×1.0</text>
+            <text x="470" y="172" fill="#ffffff">×1.13</text>
+          </g>
+          <g font-size="11.5">
+            <text x="150" y="109" fill="#3d6285">30人 → 約27人</text>
+            <text x="310" y="109" fill="#5d574e">水曜の平均 30人</text>
+            <text x="470" y="109" fill="#5d574e">30人 → 約24人</text>
+            <text x="150" y="193" fill="#3d6285">24人 → 約18人</text>
+            <text x="310" y="193" fill="#5d574e">水曜の平均 24人</text>
+            <text x="470" y="193" fill="#ffe6d0">24人 → 約27人</text>
+          </g>
+
+          <text x="280" y="236" font-size="13" fill="#5d574e">明日の予想最高気温を見て、当てはまる列の数字を掛ける</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>6つのマスが埋まれば、あとは予報を見るだけです。紙に書いて、発注の電話の近くに貼っておけます。</figcaption>
+  </figure>
+
+  <div class="calc">
+    明日は水曜、予想最高気温 <b>36℃</b><br>
+    昼　30人 × 0.81 ＝ <b>約24人</b>　→　冷やしうどん　24人 × 0.35 ＝ <b>約8食</b><br>
+    夜　24人 × 1.13 ＝ <b>約27人</b>
+  </div>
+
+  <p>予報の気温は、当日になって少しずれることもあります。34℃のように線のすぐ手前の予報なら、係数を半分だけ効かせる（0.81ではなく0.9にする）くらいの扱いで構いません。</p>
+
+  <h2>よくある3つのつまずき</h2>
+
+  <h3>1. 1日の合計で見てしまう</h3>
+  <p>昼の減りと夜の増えが打ち消し合って、何も起きていないように見えます。<span class="ok">昼と夜を分けて</span>数えます。</p>
+
+  <h3>2. 春や秋の数字と比べる</h3>
+  <p>季節の違いが混ざります。猛暑日は同じ夏の日と、寒い日は同じ冬の日と比べます。</p>
+
+  <h3>3. お盆や年末年始を混ぜる</h3>
+  <p>帰省や休みで、気温とは関係なく客足が動く時期です。記録に印をつけて、平均の計算からは外しておきます。</p>
+
+  <h2>それでも、手が回らないとき</h2>
+
+  <figure>
+    <img src="../assets/web/4.jpg" alt="厨房でスマートフォンの画面を確認している店主の手元" width="1600" height="1030" loading="lazy">
+    <figcaption>前の日に、明日の気温を見る。その数秒を、仕込みの数字につなげます。</figcaption>
+  </figure>
+
+  <p>線を決めて、割合を出して、品の比率を見直す。夏と冬の年2回で済む作業ですが、忙しい季節のあとに伝票を数え直すのは、なかなか腰が上がらないものです。</p>
+
+  <p>気温や天気による増減の計算を任せたい場合は、そういう仕組みを使う手もあります。私たちが作っている<a href="../">コミヨホウ</a>は、気象庁の予報を毎日自動で取りこみ、明日の来店みこみと仕込みの目安を、毎夕LINEに1通お届けしています。</p>
+
+  <p>ただ、<strong>猛暑日だった日に印をつけて、昼と夜の割合を出すだけでも、次の夏の仕込みは変わります。</strong> まずは気象庁のホームページで、自分の町の最高気温が35℃を超えた日を調べるところから始めてみてください。</p>
+
+  <div class="end">
+    <p class="box-t">コミヨホウについて</p>
+    <p>客足を動かす8つの要因をAIが毎日自動で集めて計算し、「明日の来店みこみ・売上みこみ・仕込みの目安」をLINEに1通お届けするサービスです。POSレジとの連携は不要。最初の30日は無料（カード登録なし）で、続ける場合だけ月額5,500円（税込）。解約はいつでも違約金なしです。</p>
+    <a class="btn" href="../">コミヨホウの詳細を見る →</a>
+  </div>
+
+  <p class="backlink"><a href="../">← コミヨホウ トップへ戻る</a></p>
+
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "猛暑日・寒波の日に、客足はどう動くか｜昼と夜を分けて「気温の係数」を出す",
+  "description": "暑すぎる日と寒すぎる日の客足は、雨と違って減るとは限りません。昼と夜で向きが逆になることも、人数は減るのに冷たい品だけ伸びることもあります。自分の店の「気温の係数」を出す手順を、計算例つきでまとめました。",
+  "inLanguage": "ja",
+  "datePublished": "2026-10-01",
+  "dateModified": "2026-10-01",
+  "mainEntityOfPage": "https://komiyohou.ynht-web.com/blog/mousho-kanpa-kyakuashi.html",
+  "author": { "@type": "Organization", "name": "YNHT" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "YNHT",
+    "address": { "@type": "PostalAddress", "addressCountry": "JP", "addressRegion": "福井県", "addressLocality": "越前市" }
+  }
+}
+</script>
+
+</body>
+</html>
