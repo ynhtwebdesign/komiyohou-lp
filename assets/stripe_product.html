@@ -1,0 +1,62 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&family=Zen+Old+Mincho:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact}
+  html,body{width:1024px;height:1024px;overflow:hidden}
+  .card{
+    width:1024px;height:1024px;position:relative;
+    background:
+      radial-gradient(760px 460px at 50% -6%, #FBEFE2 0%, rgba(251,239,226,0) 66%),
+      linear-gradient(175deg,#FFFCF7 0%,#F7F4EE 58%,#F2EDE4 100%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    color:#2B2B2B;text-align:center;padding:0 86px;
+  }
+  /* 上下の細い帯でブランド色を効かせる */
+  .bar{position:absolute;left:0;right:0;height:14px;background:#E8863C}
+  .bar.t{top:0} .bar.b{bottom:0;background:#141414}
+
+  .eyebrow{
+    font-size:26px;font-weight:700;letter-spacing:.20em;color:#C4661A;
+    margin-bottom:34px;white-space:nowrap;
+  }
+  .name{
+    font-family:"Zen Old Mincho","Yu Mincho",serif;
+    font-size:132px;font-weight:900;line-height:1.06;letter-spacing:.03em;
+    color:#141414;white-space:nowrap;
+  }
+  .name em{font-style:normal;color:#E8863C}
+  .rule{width:132px;height:6px;background:#E8863C;border-radius:3px;margin:44px 0 40px}
+  .lead{
+    font-size:37px;font-weight:700;line-height:1.72;color:#3D3833;
+    white-space:nowrap;
+  }
+  .price{
+    margin-top:56px;display:flex;align-items:baseline;gap:10px;
+    white-space:nowrap;
+  }
+  .price .yen{font-size:82px;font-weight:700;color:#141414;letter-spacing:-.01em}
+  .price .unit{font-size:33px;font-weight:700;color:#5D574E}
+  .foot{
+    position:absolute;bottom:64px;left:0;right:0;
+    font-size:25px;font-weight:500;color:#8A8377;letter-spacing:.05em;
+    white-space:nowrap;
+  }
+</style></head><body>
+  <div class="card">
+    <div class="bar t"></div><div class="bar b"></div>
+
+    <div class="eyebrow">個人飲食店のための AI客足予報</div>
+    <div class="name">コミ<em>ヨホウ</em></div>
+    <div class="rule"></div>
+    <div class="lead">明日の来店みこみを、毎夕LINEに1通。</div>
+
+    <div class="price">
+      <span class="yen">月額 5,500円</span><span class="unit">（税込）</span>
+    </div>
+
+    <div class="foot">YNHT WEB DESIGNER ／ 福井県越前市</div>
+  </div>
+</body></html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SBC6NKFKL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8SBC6NKFKL');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://komiyohou.ynht-web.com/neage/">
+<title>コミヨホウ 値上げ予報｜値上げを1杯あたりの円で届ける無料LINE</title>
+<meta name="description" content="食材・光熱費・税金の値上げを、飲食店の業態ごとに「1杯・1食あたり何円か」に直して、月に1〜2通LINEでお届けします。無料。登録は3タップで、店名や電話番号は不要です。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="コミヨホウ 値上げ予報｜その値上げ、1杯あたり何円ですか。">
+<meta property="og:description" content="飲食店の業態ごとに、値上げを1杯・1食あたりの円に直して届ける無料のLINE配信です。">
+<meta property="og:url" content="https://komiyohou.ynht-web.com/neage/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Old+Mincho:wght@600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  /* style.css(LP本体)の配色・書体を使う。上がる話＝赤・明朝、下がる話と安心＝青・太字ゴシック。
+     見出しは太字ゴシック(2026-09-10 本人指定)。
+     イラストは Higgsfield で生成し、外側の白を抜いた WebP(ill/)。説明は「詳細はこちら」に畳む */
+  .nz-wrap { max-width: 1040px; margin: 0 auto; padding: 0 22px; }
+  .nz-sec { padding: 72px 0; }
+  .nz-sec.alt { background: #fff; }
+  .nz-sec.tight { padding-top: 8px; }
+  .up { color: var(--demerit); font-family: var(--serif); font-weight: 700; }
+
+  /* イラスト。width/height 属性があるので height:auto を必ず付ける(縦に伸びるのを防ぐ) */
+  .nz-ic { display: block; width: 76px; height: 76px; object-fit: contain; }
+  .nz-ic.sm { width: 40px; height: 40px; }
+  .nz-banner { display: block; width: 100%; max-width: 720px; height: auto; margin: 6px auto 30px; }
+
+  /* 詳細はこちら(30キロのサービスページと同じピル型) */
+  /* style.css は details/summary 全部に「よくある質問」用の見た目をかける
+     (枠の背景・角丸・overflow:hidden、summary::after の「＋」を position:absolute で右端に固定、details p の左右余白)。
+     そのままだと矢印が右端の「ら」に重なるので、「詳細はこちら」だけ打ち消す */
+  .nz-more { margin: 16px 0 0; background: none; border-radius: 0; overflow: visible; }
+  .nz-more > summary { cursor: pointer; list-style: none; display: inline-block; position: static; border: 1px solid #d9cfbf; border-radius: 999px; padding: 7px 18px; font-weight: 700; font-size: 13px; color: var(--ink); background: #fff; line-height: 1.6; }
+  .nz-more > summary::-webkit-details-marker { display: none; }
+  .nz-more > summary::after { content: ""; position: static; top: auto; right: auto; font-size: 0; display: inline-block; width: 6px; height: 6px; margin-left: 10px; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); vertical-align: 2px; transition: transform .15s; }
+  .nz-more[open] > summary::after { transform: rotate(45deg); vertical-align: 4px; }
+  @media (prefers-reduced-motion: reduce) { .nz-more > summary::after { transition: none; } }
+  .nz-more > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .nz-more .in { margin-top: 14px; font-size: 14px; line-height: 1.95; color: var(--sub); }
+  .nz-more .in p { margin-bottom: .8em; padding: 0; }
+
+  .nz-hero { padding: 60px 0 72px; border-bottom: 1px solid #e6ded1; }
+  .nz-hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
+  .nz-hero h1 { font-family: var(--sans); font-weight: 900; font-size: clamp(30px, 4.6vw, 52px); line-height: 1.45; margin-bottom: 22px; letter-spacing: .03em; }
+  /* 意味の切れ目でだけ折り返す(「か。」だけが次の行に落ちるのを防ぐ) */
+  .nw { display: inline-block; white-space: nowrap; }
+  .nz-lead { font-size: 16.5px; max-width: 30em; margin-bottom: 30px; }
+  .nz-micro { font-size: 13px; color: var(--sub); margin: 14px 0 0; line-height: 1.8; }
+  .btn-line[aria-disabled="true"] { background: #b8c7bd; box-shadow: none; pointer-events: none; cursor: default; }
+
+  /* 届く1通の見本 */
+  .nz-phone { background: #ECE5D8; border-radius: 22px; padding: 18px 16px 20px; box-shadow: 0 18px 40px rgba(34,30,26,.12); width: 100%; max-width: 430px; justify-self: center; }
+  .nz-phone-head { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; color: var(--sub); margin: 0 4px 12px; }
+  .nz-phone-head .dot { width: 30px; height: 30px; border-radius: 50%; background: var(--dark); color: #fff; display: grid; place-items: center; font-size: 13px; font-family: var(--serif); flex-shrink: 0; }
+  .nz-bubble { background: #fff; border-radius: 4px 18px 18px 18px; padding: 14px 16px; font-size: 14.5px; line-height: 1.9; }
+  .nz-bubble p { margin: 0 0 .7em; }
+  .nz-bubble p:last-child { margin: 0; }
+  .nz-bubble .src { font-size: 12px; color: var(--sub); }
+  /* 強調した金額(1〜2円台 等)は途中で折り返さない */
+  .nz-bubble strong, .nz-bubble .up { white-space: nowrap; }
+  .nz-for { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--sub); margin: 0 4px 10px; }
+
+  .nz-h2 { font-family: var(--sans); font-weight: 900; font-size: clamp(23px, 3.6vw, 32px); margin-bottom: 14px; }
+  .nz-sub { color: var(--sub); max-width: 38em; margin-bottom: 34px; }
+  .nz-samples { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+  .nz-samples .nz-phone { max-width: none; box-shadow: none; }
+
+  /* しくみ: 横長の絵 → 4つの手順 → 詳細はこちら */
+  .nz-how-lead { color: var(--sub); max-width: 38em; margin-bottom: 8px; }
+  .nz-flow { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; counter-reset: fl; }
+  .nz-flow li { counter-increment: fl; background: #fff; border-radius: 16px; padding: 18px 18px 16px; display: grid; gap: 6px; align-content: start; }
+  .nz-flow .hd { display: flex; align-items: baseline; gap: 8px; }
+  .nz-flow .hd::before { content: counter(fl); font-family: var(--sans); font-weight: 900; font-size: 20px; color: var(--accent); line-height: 1; }
+  .nz-flow b { font-weight: 900; font-size: 16.5px; line-height: 1.5; }
+  .nz-flow span { font-size: 13.5px; color: var(--sub); line-height: 1.8; }
+  .nz-srcs-t { font-size: 13.5px; font-weight: 700; color: var(--ink); margin: 18px 0 8px; }
+  .nz-srcs { list-style: none; border-top: 2px solid var(--ink); max-width: 640px; }
+  .nz-srcs li { display: grid; grid-template-columns: 11.5em 1fr auto; gap: 2px 14px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid #e6ded1; font-size: 13.5px; line-height: 1.7; }
+  .nz-srcs b { font-weight: 700; color: var(--ink); }
+  .nz-srcs em { font-style: normal; font-size: 12.5px; white-space: nowrap; }
+  .nz-num { font-weight: 900; color: var(--ink); }
+
+  .nz-rules { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 28px; border-top: 2px solid var(--ink); }
+  .nz-rules li { padding: 22px 0 6px; }
+  .nz-rules .nz-ic { margin-bottom: 10px; }
+  .nz-rules b { display: block; font-family: var(--sans); font-weight: 900; font-size: 19px; line-height: 1.6; }
+
+  .nz-steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: st; margin-bottom: 22px; }
+  .nz-steps li { background: var(--bg); border-radius: 14px; padding: 20px 20px 18px; counter-increment: st; display: grid; gap: 4px; align-content: start; }
+  .nz-steps .nz-ic { margin-bottom: 6px; }
+  .nz-steps b { display: flex; align-items: baseline; gap: 8px; font-size: 16px; }
+  .nz-steps b::before { content: counter(st); font-family: var(--sans); font-weight: 900; font-size: 20px; color: var(--accent); line-height: 1; }
+  .nz-steps span { display: block; font-size: 13.5px; color: var(--sub); line-height: 1.85; }
+  .nz-privacy { font-size: 14px; background: var(--bg); border-radius: 12px; padding: 16px 20px; margin-bottom: 30px; line-height: 1.9; }
+  .nz-cta { text-align: center; }
+
+  .nz-faq { max-width: 760px; }
+  .nz-faq details { border-bottom: 1px solid #e6ded1; padding: 16px 0; }
+  .nz-faq summary { font-weight: 700; cursor: pointer; }
+  .nz-faq details p { margin: 10px 0 0; color: var(--sub); font-size: 15px; }
+
+  .nz-end { background: var(--dark); color: #F7F4EE; border-radius: 18px; padding: 44px 30px; text-align: center; }
+  .nz-end h2 { font-family: var(--sans); font-weight: 900; color: #fff; margin-bottom: 12px; font-size: clamp(22px, 3.4vw, 30px); }
+  .nz-end p { color: rgba(247,244,238,.8); margin-bottom: 24px; }
+  .nz-end .nz-micro { color: rgba(247,244,238,.65); margin-bottom: 0; }
+
+  .nz-foot { padding: 36px 0 56px; font-size: 13px; color: var(--sub); display: flex; flex-wrap: wrap; gap: 8px 22px; }
+  .nz-foot a { color: var(--sub); }
+
+  @media (max-width: 960px) {
+    .nz-flow { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 860px) {
+    .nz-hero-grid, .nz-samples, .nz-rules, .nz-steps { grid-template-columns: 1fr; }
+    .nz-hero-grid { gap: 36px; }
+    .nz-rules li { border-bottom: 1px solid #e6ded1; padding-bottom: 16px; display: grid; grid-template-columns: 64px 1fr; gap: 0 14px; align-items: center; }
+    .nz-rules .nz-ic { width: 64px; height: 64px; margin: 0; grid-row: span 2; align-self: start; }
+    .nz-rules .nz-more { grid-column: 2; margin-top: 8px; }
+    .nz-steps li { grid-template-columns: 64px 1fr; gap: 2px 14px; }
+    .nz-steps .nz-ic { width: 64px; height: 64px; margin: 0; grid-row: span 2; }
+    .nz-srcs li { grid-template-columns: 1fr auto; }
+    .nz-srcs b { grid-column: 1; grid-row: 1; }
+    .nz-srcs em { grid-column: 2; grid-row: 1; }
+    .nz-srcs span { grid-column: 1 / -1; grid-row: 2; }
+  }
+  @media (max-width: 560px) {
+    .nz-flow { grid-template-columns: 1fr; }
+    .nz-flow li { grid-template-columns: 64px 1fr; gap: 2px 14px; }
+    .nz-flow .nz-ic { width: 64px; height: 64px; grid-row: span 2; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nz-hero">
+  <div class="nz-wrap nz-hero-grid">
+    <div>
+      <p class="kicker">コミヨホウ 値上げ予報　無料のLINE配信</p>
+      <h1>その値上げ、<br><span class="nw">1杯あたり</span><span class="nw">何円ですか。</span></h1>
+      <p class="nz-lead">「値上げ12%」のニュースは毎月流れてきます。でも店主が知りたいのは、自分の店の1杯・1食がいくら変わるかです。公表された値上げを業態ごとに円に直して、月に1〜2通LINEでお届けします。</p>
+      <a class="btn btn-line js-line" href="#" data-where="hero">無料でLINEに登録する</a>
+      <p class="nz-micro">登録は3タップ。店名や電話番号は不要です。ブロックすればいつでも止まります。</p>
+    </div>
+    <div class="nz-phone" aria-label="麺の店に届くメッセージの見本">
+      <div class="nz-phone-head"><span class="dot">値</span>コミヨホウ 値上げ予報</div>
+      <div class="nz-bubble">
+        <p>9月9日、政府が小麦の売渡価格を10月から12.0%上げると決めました。</p>
+        <p>例年どおりなら、業務用小麦粉が上がるのは年明けの納品分からです。</p>
+        <p>麺1杯あたりの原価の上がり幅は<strong>1〜2円台</strong>の見込みです。いま値上げを考える必要はありません。</p>
+        <p class="src">出典：農林水産省（2026年9月9日）</p>
+      </div>
+      <p class="nz-micro" style="margin: 12px 4px 0;">麺の店に届く見本です。</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="nz-sec alt">
+    <div class="nz-wrap">
+      <p class="kicker">届く中身</p>
+      <h2 class="nz-h2">業態ごとに、届く話が変わります。</h2>
+      <p class="nz-sub">1通でご案内するのは、その業態にいちばん響く1つの話だけです。</p>
+      <div class="nz-samples">
+        <div class="nz-phone">
+          <span class="nz-for"><img class="nz-ic sm" src="ill/ill-izakaya.webp" alt="" width="400" height="400" loading="lazy">居酒屋・バーに届く見本</span>
+          <div class="nz-bubble">
+            <p>10月1日から酒税が変わります。ビールは350mlあたり9.10円の減税、発泡酒と新ジャンルは7.26円の増税です。</p>
+            <p>生ビールの10L樽に直すと、税だけで<strong>約260円下がる</strong>計算です。仕入れ値が実際に下がるかは、メーカーと酒販店の価格しだいです。</p>
+            <p>飲み放題に発泡酒や新ジャンルを使っている場合は、<span class="up">逆に上がります</span>。次の納品書で、樽と缶の単価を確かめてください。</p>
+          </div>
+        </div>
+        <div class="nz-phone">
+          <span class="nz-for"><img class="nz-ic sm" src="ill/ill-teishoku.webp" alt="" width="400" height="400" loading="lazy">定食・食堂に届く見本　大阪府の場合</span>
+          <div class="nz-bubble">
+            <p>大阪府の最低賃金は、10月1日から1,231円になります。54円の引き上げです。</p>
+            <p>週20時間のアルバイトを1人雇っている場合、人件費は<span class="up">月に約4,680円増えます</span>。</p>
+            <p>10月1日より前に、求人票とシフト表の時給が1,231円を下回っていないか確かめてください。</p>
+          </div>
+          <p class="nz-micro" style="margin: 12px 4px 0;">都道府県は、登録のときに選んだ地域の数字が入ります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nz-sec">
+    <div class="nz-wrap">
+      <p class="kicker">しくみ</p>
+      <h2 class="nz-h2"><span class="nw">あちこちの発表を、</span><span class="nw">AIが業態と地域に</span><span class="nw">合わせて拾います。</span></h2>
+      <p class="nz-how-lead">どれも公表された情報です。ただ置き場所がばらばらなので、AIが代わりに拾い集めます。</p>
+      <img class="nz-banner" src="ill/ill-shikumi.webp" alt="あちこちに散らばった書類の中から1枚が選ばれ、スマホに1通だけ届く様子のイラスト" width="900" height="460" loading="lazy">
+      <ol class="nz-flow">
+        <li><img class="nz-ic" src="ill/ill-atsumeru.webp" alt="" width="400" height="400" loading="lazy"><b class="hd">集める</b><span>役所や調査会社、メーカーの発表を毎月読み集めます。</span></li>
+        <li><img class="nz-ic" src="ill/ill-erabu.webp" alt="" width="400" height="400" loading="lazy"><b class="hd">選ぶ</b><span>業態と都道府県に関係する話だけを選びます。</span></li>
+        <li><img class="nz-ic" src="ill/ill-en.webp" alt="" width="400" height="400" loading="lazy"><b class="hd">円に直す</b><span>1杯・1食あたりと、月あたりの円に計算し直します。</span></li>
+        <li><img class="nz-ic" src="ill/ill-todokeru.webp" alt="" width="400" height="400" loading="lazy"><b class="hd">確かめて届ける</b><span>数字と出典を人が確かめて、LINEで1通お届けします。</span></li>
+      </ol>
+      <details class="nz-more">
+        <summary>詳細はこちら</summary>
+        <div class="in">
+          <p>ご自分で調べることもできます。ただ、発表の時期もそろっていません。2026年9月だけで、食品の値上げは<b class="nz-num">4,923品目</b>ありました。毎月それを追いかけて、自分の店に関係する話を探すのは大きな手間です。</p>
+          <p>選ぶときは、居酒屋には酒税、麺の店には小麦、というように業態で分けます。最低賃金のように県ごとに違う話は、登録された都道府県の数字を入れます。「12.0%」「1トンあたり70,020円」といった発表は、1杯・1食あたりの円に計算し直します。</p>
+          <p class="nz-srcs-t">値上げの情報は、たとえばこれだけの場所に分かれています。</p>
+          <ul class="nz-srcs">
+            <li><b>帝国データバンク</b><span>食品の値上げ品目</span><em>毎月末</em></li>
+            <li><b>農林水産省</b><span>小麦の売渡価格、野菜の価格見通し</span><em>年2回と毎月末</em></li>
+            <li><b>製粉会社・食品メーカー</b><span>業務用の価格改定の案内</span><em>随時</em></li>
+            <li><b>国税庁</b><span>酒税の改正</span><em>改正のたび</em></li>
+            <li><b>都道府県の労働局</b><span>最低賃金。県ごとに発効日が違う</span><em>毎年秋</em></li>
+            <li><b>資源エネルギー庁</b><span>電気・ガス料金の支援</span><em>期間ごと</em></li>
+          </ul>
+          <p style="margin-top: 16px;">業態と地域に合わせた配信までは無料です。お店の納品書に合わせた計算は、有料のコミヨホウで行います。</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="nz-sec tight">
+    <div class="nz-wrap">
+      <p class="kicker">ご案内の決まり</p>
+      <h2 class="nz-h2">3つの決まりでご案内しています。</h2>
+      <ul class="nz-rules">
+        <li>
+          <img class="nz-ic" src="ill/ill-rule-en.webp" alt="" width="400" height="400" loading="lazy">
+          <b>率ではなく、円でご案内</b>
+          <details class="nz-more"><summary>詳細はこちら</summary><div class="in">「12%」だけでは、店の判断に使えません。1杯・1食あたりの円と、月あたりの円でご案内します。</div></details>
+        </li>
+        <li>
+          <img class="nz-ic" src="ill/ill-rule-anshin.webp" alt="" width="400" height="400" loading="lazy">
+          <b>慌てなくていい時は、そうご案内</b>
+          <details class="nz-more"><summary>詳細はこちら</summary><div class="in">大きく報じられても、店への影響が小さいことはよくあります。その時は「いまは何もしなくていい」と正直にお伝えします。</div></details>
+        </li>
+        <li>
+          <img class="nz-ic" src="ill/ill-rule-shutten.webp" alt="" width="400" height="400" loading="lazy">
+          <b>出典を必ずご案内</b>
+          <details class="nz-more"><summary>詳細はこちら</summary><div class="in">帝国データバンク、農林水産省、メーカーの発表など、公表された資料だけを使います。見通しは、誰の見通しかもご案内します。</div></details>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nz-sec alt">
+    <div class="nz-wrap">
+      <p class="kicker">登録のしかた</p>
+      <h2 class="nz-h2">登録は3タップです。</h2>
+      <ol class="nz-steps">
+        <li><img class="nz-ic" src="ill/ill-step-tomodachi.webp" alt="" width="400" height="400" loading="lazy"><b>友だち追加</b><span>ボタンから、LINEで友だち追加します。</span></li>
+        <li><img class="nz-ic" src="ill/ill-step-gyotai.webp" alt="" width="400" height="400" loading="lazy"><b>業態を選ぶ</b><span>麺の店、居酒屋・バー、定食・食堂、その他から選びます。</span></li>
+        <li><img class="nz-ic" src="ill/ill-step-chiiki.webp" alt="" width="400" height="400" loading="lazy"><b>地域を選ぶ</b><span>地方を選んでから、都道府県を選びます。</span></li>
+      </ol>
+      <p class="nz-privacy">うかがうのは、業態と都道府県だけです。店名、電話番号、メールアドレスはうかがいません。配信を止めたいときは、アカウントをブロックしてください。</p>
+      <div class="nz-cta">
+        <a class="btn btn-line js-line" href="#" data-where="steps">無料でLINEに登録する</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="nz-sec">
+    <div class="nz-wrap nz-faq">
+      <p class="kicker">よくある質問</p>
+      <h2 class="nz-h2">よくある質問</h2>
+      <details>
+        <summary>本当に無料ですか。</summary>
+        <p>はい、無料です。お店の納品書から原価を計算する有料のサービス「コミヨホウ」をご案内することがありますが、無料の配信を受け取り続けるのに契約は必要ありません。</p>
+      </details>
+      <details>
+        <summary>どこの情報をもとにしていますか。</summary>
+        <p>帝国データバンクの食品値上げの調査、農林水産省の発表と野菜の価格見通し、各メーカーの価格改定の発表など、公表された資料です。毎回、出典もご案内します。</p>
+      </details>
+      <details>
+        <summary>自分で調べるのと、何が違いますか。</summary>
+        <p>情報そのものは同じです。どれも公表されています。違うのは手間です。あちこちの発表を毎月追いかけ、自分の業態と地域に関係する話を選び、1杯あたりの円に計算し直す。この3つを代わりに行います。</p>
+      </details>
+      <details>
+        <summary>「1杯あたり何円」は当たりますか。</summary>
+        <p>発表済みの値上げは、発表どおりの日付と率でお伝えします。1杯あたりの円は、発表をもとにした見込みの計算です。見込みの時は、そうご案内します。</p>
+      </details>
+      <details>
+        <summary>どの業態が対象ですか。</summary>
+        <p>いまは、麺の店、居酒屋・バー、定食・食堂の3つに合わせてご案内しています。「その他」を選んだ方の業態を見て、増やしていきます。</p>
+      </details>
+      <details>
+        <summary>何通くらい届きますか。</summary>
+        <p>月に1〜2通です。値上げが重なる月でも、お店に関係の深い話に絞ります。</p>
+      </details>
+    </div>
+  </div>
+
+  <div class="nz-sec" style="padding-top: 0;">
+    <div class="nz-wrap">
+      <div class="nz-end">
+        <h2>来月の値上げを、1杯あたりの円で。</h2>
+        <p>月末ごろに、翌月の話を業態ごとにお届けします。</p>
+        <a class="btn btn-line js-line" href="#" data-where="end">無料でLINEに登録する</a>
+        <p class="nz-micro">登録は3タップ。ブロックすればいつでも止まります。</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="nz-wrap nz-foot">
+  <span>運営：YNHT（福井県越前市）</span>
+  <a href="../">コミヨホウ</a>
+  <a href="../legal.html">特定商取引法に基づく表記</a>
+</footer>
+
+<script>
+  // LINE公式アカウント「コミヨホウ 値上げ予報」の友だち追加URL(https://lin.ee/...)。
+  // アカウントを作ったらここに入れる。空のあいだは、ボタンを「準備中」にして押せなくする。
+  var LINE_URL = "";
+  document.querySelectorAll(".js-line").forEach(function (a) {
+    if (!LINE_URL) {
+      a.textContent = "LINE登録は準備中です";
+      a.setAttribute("aria-disabled", "true");
+      a.removeAttribute("href");
+      return;
+    }
+    a.href = LINE_URL;
+    a.addEventListener("click", function () {
+      if (typeof gtag === "function") {
+        gtag("event", "neage_line_click", { where: a.getAttribute("data-where") || "" });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
