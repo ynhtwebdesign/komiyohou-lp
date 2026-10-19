@@ -4,3 +4,6 @@ Gemini画像プロンプト_コピペ用.txt
 
 # イラストの生成元PNG(1枚700KB前後)。サイトはWebPだけを使う
 assets/ill/_src/
+
+.vercel
+.env*
